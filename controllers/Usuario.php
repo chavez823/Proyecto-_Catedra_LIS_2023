@@ -11,7 +11,7 @@ class UsuarioController{
     }
 
     public function pagina(){
-        require_once "views/Menu/buyit.php";
+        require_once "views/Menu/principal.php";
     }
 
     public function sesion(){ 
@@ -21,7 +21,7 @@ class UsuarioController{
             if(  $usuarios->sesion($Correo,$Contrasenia) > 0){
                 
                 session_start();
-                $_SESSION['session']=array();
+               $_SESSION['session']=array();
                 $_SESSION['session']["nombre"]=   $usuarios->sesion($Correo,$Contrasenia)['Nombres'];
                 $_SESSION['session']["apellido"]=   $usuarios->sesion($Correo,$Contrasenia)['Nombres'];
                 $_SESSION['session']["tipo_usuario"]=   $usuarios->sesion($Correo,$Contrasenia)['Tipo'];
