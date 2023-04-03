@@ -8,21 +8,21 @@
 		
 		public function __construct(){
 			$this->db = Conectar::conexion();
-			//$this->ofertas = array();
+			$this->ofertas = array();
 			
 		}
 		
 
-		/*public function get_inicio()
+		public function get_inicio()
 		{
-			$sql = " SELECT * FROM `oferta` LIMIT 3";
+			$sql = " SELECT * FROM `oferta`";
 			$resultado = $this->db->query($sql);
 			while($row = $resultado->fetch_assoc())
 			{
 				$this->ofertas[] = $row;
 			}
 			return $this->ofertas;
-		}*/
+		}
 	
 
 

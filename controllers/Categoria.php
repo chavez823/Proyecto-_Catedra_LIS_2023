@@ -7,14 +7,20 @@
 		}
 		
 		public function index(){
-			//$inicio = new Categoria_model();
+			$Categoria = new Categoria_model();
 			//$data["titulo"] = "Inicio";
-			//$data["Categorias"] = $inicio->get_inicio();
+			$data["Categorias"] = $Categoria->get_inicio();
 
-			
-			
 			require_once "views/Menu/pages/Categorias.php";	
 		}
+
+public function monstrarcategorias(){
+	
+}
+
+
+
+		   
 
 
 

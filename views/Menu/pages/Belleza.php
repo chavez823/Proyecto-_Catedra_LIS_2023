@@ -5,10 +5,10 @@
     <!--Funcional con php-->
 
    <main> 
-    <?php
+    <!--?php
    $model=new OfertaModel();
    $listaCupones=$model->get_oferta(1);    
-    ?>
+    ?-->
       
       <div class="profile-area">
             <p class="Parrafo">LO MEJOR PARA TU CUIDADO PERSONAL</p>
@@ -16,7 +16,7 @@
               <div class="row">
     <?php
 
-    foreach($listaCupones as $cupones){?>
+    foreach($data["Categorias"] as $cupones){?>
         
          
                 <div class="col-md-4">
