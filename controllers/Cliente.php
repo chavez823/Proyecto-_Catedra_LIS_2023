@@ -11,6 +11,7 @@ class ClienteController
     public function __construct()
     {
         require_once "models/ClienteModel.php";
+        require_once "models/UsuarioModel.php";
     }
 
     //llama ala pagina de registro de nuevo cliente  y la muestra
@@ -43,22 +44,8 @@ class ClienteController
         $Direccion = $_POST['direccion'];
         $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
         $clientes = new Cliente_model();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+       
 
         if ($clientes->registrodui($Dui) > 0 || $clientes->registrocorreo($Correo) > 0) {
             echo "Dui y/o correo ya están en uso ";
@@ -117,6 +104,7 @@ class ClienteController
                 $_SESSION['registro_nuevo_cliente'][5] = $Telefono;
                 $_SESSION['registro_nuevo_cliente'][6] = $Direccion;
                 $_SESSION['registro_nuevo_cliente'][7] = $Token;
+                $_SESSION['registro_nuevo_cliente'][8] = $ID_Usuario;
 
                 $this->verificacion();
 
@@ -134,12 +122,17 @@ class ClienteController
 
         $email = $_POST["email"];
         $verification_code = $_POST["verification_code"];
-
+        $Tipo="Cliente";
         $clientes = new Cliente_model();
+        $usuario=  new  Usuario_model();
         session_start();
         if ($_SESSION['registro_nuevo_cliente'][4] == $email || $_SESSION['registro_nuevo_client'][7] = $verification_code) {
+               
 
-            $clientes->insertar($_SESSION['registro_nuevo_cliente'][0], $_SESSION['registro_nuevo_cliente'][1], $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][3], $_SESSION['registro_nuevo_cliente'][4], $_SESSION['registro_nuevo_cliente'][5], $_SESSION['registro_nuevo_cliente'][6], $_SESSION['registro_nuevo_cliente'][7]);
+            $usuario->insertar_usuario($_SESSION['registro_nuevo_cliente'][8], $_SESSION['registro_nuevo_cliente'][1],
+            $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][4],  $_SESSION['registro_nuevo_cliente'][3],$Tipo);
+            
+            $clientes->insertar($_SESSION['registro_nuevo_cliente'][0], $_SESSION['registro_nuevo_cliente'][1], $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][3], $_SESSION['registro_nuevo_cliente'][4], $_SESSION['registro_nuevo_cliente'][5], $_SESSION['registro_nuevo_cliente'][6], $_SESSION['registro_nuevo_cliente'][7], $_SESSION['registro_nuevo_cliente'][8]);
             session_destroy();
             $this->login();
         } else {

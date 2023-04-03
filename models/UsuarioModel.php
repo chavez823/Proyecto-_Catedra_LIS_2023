@@ -34,7 +34,7 @@ class Usuario_model {
         return $this->usuarios;
     }*/
 
-    public function insertar_usuario($ID_Usuario, $Nombres, $Apellidos, $Contrasenia, $Correo, $Tipo){
+    public function insertar_usuario($ID_Usuario, $Nombres, $Apellidos, $Correo, $Contrasenia,  $Tipo){
 
         $resultado = $this->db->query ("INSERT INTO usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
         VALUES ('$ID_Usuario' , ' $Nombres' , '$Apellidos', '$Contrasenia', '$Correo', '$Tipo')");
@@ -44,7 +44,7 @@ class Usuario_model {
 
     }
 
-    public function sesioncliente( $Correo, $Contrasenia){
+    public function sesion( $Correo, $Contrasenia){
       
         $resultado = $this->db->query("SELECT * FROM Cliente WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia' ");
      $row = $resultado->fetch_array();

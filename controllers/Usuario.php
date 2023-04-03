@@ -18,20 +18,12 @@ class UsuarioController{
         $Correo = $_POST['email'];
         $Contrasenia=$_POST['password'];
         $usuarios=new Usuario_model();
-            if(  $usuarios->sesionempleado($Correo,$Contrasenia) > 0 || $usuarios->sesioncliente($Correo, $Contrasenia)>0){
-                if(  $usuarios->sesioncliente($Correo,$Contrasenia) > 0){
+            if(  $usuarios->sesion($Correo,$Contrasenia) > 0){
+                
                      // session_start();
                       //$_SESSION['Usuario']=$Contrasenia;
                     $this->pagina();
-                }
-
-                else{
-
-
-
-
-
-                }
+              
 
             }
   
