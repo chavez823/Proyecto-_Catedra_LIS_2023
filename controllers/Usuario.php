@@ -20,8 +20,13 @@ class UsuarioController{
         $usuarios=new Usuario_model();
             if(  $usuarios->sesion($Correo,$Contrasenia) > 0){
                 
-                     // session_start();
-                      //$_SESSION['Usuario']=$Contrasenia;
+                session_start();
+                $_SESSION['session']=array();
+                $_SESSION['session']["nombre"]=   $usuarios->sesion($Correo,$Contrasenia)['Nombres'];
+                $_SESSION['session']["apellido"]=   $usuarios->sesion($Correo,$Contrasenia)['Nombres'];
+                $_SESSION['session']["tipo_usuario"]=   $usuarios->sesion($Correo,$Contrasenia)['Tipo'];
+             
+             
                     $this->pagina();
               
 
