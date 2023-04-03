@@ -39,9 +39,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item active" href="../pages/Belleza.php">Belleza</a></li>
-            <li><a class="dropdown-item" href="../pages/salud.php">Salud</a></li>
-            <li><a class="dropdown-item" href="../pages/Restaurant.php">Restaurante</a></li>
-            <li><a class="dropdown-item" href="../pages/Super.php">Supermercado</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=salud">Salud</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=restaurante">Restaurante</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=super">Supermercado</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
           </ul>

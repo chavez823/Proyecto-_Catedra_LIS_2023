@@ -18,12 +18,41 @@
    public function belleza(){
 	$Categoria = new Categoria_model();
 			//$data["titulo"] = "Inicio";
-			$data["Categorias"] = $Categoria->get_inicio();
+			$data["Categorias"] = $Categoria->belleza();
 
 	require_once "views/Menu/pages/Belleza.php";
 
 }
 
+public function restaurante(){
+	$Categoria = new Categoria_model();
+			//$data["titulo"] = "Inicio";
+			$data["Categorias"] = $Categoria->restaurante();
+
+	require_once "views/Menu/pages/Restaurante.php";
+
+}
+
+
+public function salud(){
+	$Categoria = new Categoria_model();
+			//$data["titulo"] = "Inicio";
+			$data["Categorias"] = $Categoria->salud();
+
+	require_once "views/Menu/pages/salud.php";
+
+}
+
+
+
+public function super(){
+	$Categoria = new Categoria_model();
+			//$data["titulo"] = "Inicio";
+			$data["Categorias"] = $Categoria->super();
+
+	require_once "views/Menu/pages/super.php";
+
+}
 
 
 		   
