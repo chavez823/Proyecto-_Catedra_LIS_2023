@@ -1,5 +1,5 @@
 <?php
-  include '../templates/header.php'
+  include 'templates/header.php'
 ?>
     <!-- Main -->
     <!--Funcional con php-->
@@ -64,7 +64,7 @@
 
   <!--Pie de la pagina-->
     <?php
-      include '../templates/footer.php'
+      include 'templates/footer.php'
     ?>
   </body>
 </html>

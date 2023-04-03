@@ -23,6 +23,17 @@
 			}
 			return $this->ofertas;
 		}
+
+		public function belleza(){
+		$sql = " SELECT * FROM `oferta` WHERE ID_Empresa='EMP004'";
+		$resultado = $this->db->query($sql);
+		while($row = $resultado->fetch_assoc())
+		{
+			$this->ofertas[] = $row;
+		}
+		return $this->ofertas;
+	}
+
 	
 
 

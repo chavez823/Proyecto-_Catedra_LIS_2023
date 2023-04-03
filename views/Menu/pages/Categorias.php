@@ -77,7 +77,7 @@ include '../carrito.php';*/
                     </div>
                     <div class="flip-card-back">                                            
                           <div class="waviy title">
-                            <a href="../pages/Belleza.php" class="a_w">
+                            <a href="index.php?c=categoria&a=belleza" class="a_w">
                               <span style="--i:1" class="belle">B</span>
                               <span style="--i:2" class="belle">E</span>
                               <span style="--i:3" class="belle">L</span>
