@@ -11,7 +11,7 @@ class UsuarioController{
     }
 
     public function pagina(){
-        require_once "views/Menu/principal.php";
+        require_once "views/Menu/buyit.php";
     }
 
     public function sesion(){ 

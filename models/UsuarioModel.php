@@ -46,7 +46,7 @@ class Usuario_model {
 
     public function sesion( $Correo, $Contrasenia){
       
-        $resultado = $this->db->query("SELECT * FROM Cliente WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia' ");
+        $resultado = $this->db->query("SELECT * FROM Usuario WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia' ");
      $row = $resultado->fetch_array();
     
            return  $row;
