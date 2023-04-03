@@ -34,6 +34,16 @@ class Usuario_model {
         return $this->usuarios;
     }*/
 
+    public function insertar_usuario($ID_Usuario, $Nombres, $Apellidos, $Contrasenia, $Correo, $Tipo){
+
+        $resultado = $this->db->query ("INSERT INTO usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
+        VALUES ('$ID_Usuario' , ' $Nombres' , '$Apellidos', '$Contrasenia', '$Correo', '$Tipo')");
+           return $resultado;
+
+
+
+    }
+
     public function sesioncliente( $Correo, $Contrasenia){
       
         $resultado = $this->db->query("SELECT * FROM Cliente WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia' ");
