@@ -18,6 +18,7 @@ class UsuarioController{
         $Correo = $_POST['email'];
         $Contrasenia=$_POST['password'];
         $usuarios=new Usuario_model();
+           //si es mayor que cero quiere decir qiue si existe ese usuario 
             if(  $usuarios->sesion($Correo,$Contrasenia) > 0){
                 
                 session_start();
