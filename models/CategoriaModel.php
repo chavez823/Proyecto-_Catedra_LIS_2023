@@ -12,7 +12,7 @@
 			
 		}
 		
-
+          //consulta que muestra todas las ofertas 
 		public function get_inicio()
 		{
 			$sql = " SELECT * FROM `oferta`";
@@ -24,6 +24,9 @@
 			return $this->ofertas;
 		}
 
+
+
+		  //consultas para las categorias  segun su id de empresa 
 		public function belleza(){
 		$sql = " SELECT * FROM `oferta` WHERE ID_Empresa='EMP004'";
 		$resultado = $this->db->query($sql);

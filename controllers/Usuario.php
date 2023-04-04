@@ -5,11 +5,11 @@ class UsuarioController{
     public function __construct(){
         require_once "models/UsuarioModel.php";
     }
-    
+    //abre la pagina login 
     public function index(){
         require_once "views/Usuario/login.php";	
     }
-
+     ///abre la pagina luego de logearse 
     public function pagina(){
         require_once "views/Menu/principal.php";
     }

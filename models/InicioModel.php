@@ -12,7 +12,7 @@
 			
 		}
 		
-
+        //consulta que muestra solo 3 ofertas para la pagina inicio(buyit)
 		public function get_inicio()
 		{
 			$sql = " SELECT * FROM `oferta` LIMIT 3";

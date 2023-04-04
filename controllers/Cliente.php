@@ -32,7 +32,7 @@ class ClienteController
         require_once "views/Usuario/login.php";
     }
 
-
+ //metodo que se ejecuta luego de apretar el boton de crear cuenta del formulario de registro de cliente 
     public function nuevo()
     {
         $Nombres = $_POST['name'];
@@ -42,15 +42,20 @@ class ClienteController
         $Contrasenia = $_POST['password'];
         $Telefono = $_POST['telefono'];
         $Direccion = $_POST['direccion'];
-        $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-        $clientes = new Cliente_model();
-        $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-       
 
+        //codigo random del token 
+        $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+        //obejeto de la clase cliente model 
+        $clientes = new Cliente_model();
+        //crea un id de usuario random;
+        $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+       //comprueba que el dui y el correo no esten  registrados o en uso 
         if ($clientes->registrodui($Dui) > 0 || $clientes->registrocorreo($Correo) > 0) {
             echo "Dui y/o correo ya están en uso ";
         } else {
 
+
+            // si no esta registrado envia el codigo del token al correo y crea las variables de Session que serviran en el metodo registrar para guardar el usuario y cliente nuevo 
 
             $mail = new PHPMailer(true);
 
@@ -92,9 +97,8 @@ class ClienteController
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
 
                 $mail->send();
-
+                //creando las variables de session
                 session_start();
-
                 $_SESSION['registro_nuevo_cliente'] = array();
                 $_SESSION['registro_nuevo_cliente'][0] = $Dui;
                 $_SESSION['registro_nuevo_cliente'][1] = $Nombres;
@@ -105,7 +109,7 @@ class ClienteController
                 $_SESSION['registro_nuevo_cliente'][6] = $Direccion;
                 $_SESSION['registro_nuevo_cliente'][7] = $Token;
                 $_SESSION['registro_nuevo_cliente'][8] = $ID_Usuario;
-
+                //llama al metdo verificacion que es el que abre el formulario de verificacion
                 $this->verificacion();
 
 
@@ -117,6 +121,7 @@ class ClienteController
     }
 
 
+    //registra o guarda un nuevo cliente 
     public function registrar()
     {
 
@@ -126,15 +131,22 @@ class ClienteController
         $clientes = new Cliente_model();
         $usuario=  new  Usuario_model();
         session_start();
+          //verifica que el correo y el token o codigo sean iguales al que ingreso en el formulario de registro y que el toque sea igual al que se envio al correo si es asi se crea el nuevo cliente guardando los datos en la base de datos
         if ($_SESSION['registro_nuevo_cliente'][4] == $email || $_SESSION['registro_nuevo_client'][7] = $verification_code) {
                
-
+            //llena primero la tabla usuario 
             $usuario->insertar_usuario($_SESSION['registro_nuevo_cliente'][8], $_SESSION['registro_nuevo_cliente'][1],
             $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][4],  $_SESSION['registro_nuevo_cliente'][3],$Tipo);
-
+            //llena de segundo la tabla cliente 
            $clientes->insertar($_SESSION['registro_nuevo_cliente'][0], $_SESSION['registro_nuevo_cliente'][1], $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][3], $_SESSION['registro_nuevo_cliente'][4], $_SESSION['registro_nuevo_cliente'][5], $_SESSION['registro_nuevo_cliente'][6], $_SESSION['registro_nuevo_cliente'][7], $_SESSION['registro_nuevo_cliente'][8]);
-            session_destroy();
+            //luego destruye las variables de session
+           session_destroy();
+
+            //lo manda ala pagina de login 
             $this->login();
+
+
+
         } else {
             echo "Correo y/o código equivocado";
         }

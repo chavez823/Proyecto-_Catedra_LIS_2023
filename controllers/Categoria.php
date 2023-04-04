@@ -6,14 +6,16 @@
 			require_once "models/CategoriaModel.php";
 
 		}
-		
+		   //llama y muestra la pagina de categorias 
 		public function index(){
-			$Categoria = new Categoria_model();
+			//$Categoria = new Categoria_model();
 			
-			$data["Categorias"] = $Categoria->get_inicio();
+			//$data["Categorias"] = $Categoria->get_inicio();
 
 			require_once "views/Menu/pages/Categorias.php";	
 		}
+
+
 
    public function belleza(){
 	$Categoria = new Categoria_model();

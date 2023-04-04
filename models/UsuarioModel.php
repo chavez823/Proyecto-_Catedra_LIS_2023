@@ -9,7 +9,8 @@ class Usuario_model {
     public function __construct(){
         $this->db = Conectar::conexion();
         $this->usuarios = array();
-    }
+    } 
+    //para insertar un nuevo usuario 
 
     public function insertar_usuario($ID_Usuario, $Nombres, $Apellidos, $Correo, $Contrasenia,  $Tipo){
 
