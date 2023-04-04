@@ -46,7 +46,7 @@ public function salud(){
 public function super(){
 	$Categoria = new Categoria_model();
 	
-			$data["Categorias"] = $Categoria->super();
+$data["Categorias"] = $Categoria->super();
 
 	require_once "views/Menu/pages/super.php";
 
