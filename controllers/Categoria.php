@@ -12,7 +12,7 @@
 		}
 
 
-//metodos que se llaman igual a los que estan en la clase de categorias model por que cada uno  de estos ecuta la consulta y la muestra  
+//metodos que se llaman igual a los que estan en la clase de categorias model por que cada uno  de estos ejecuta la consulta y la muestra  
    public function belleza(){
 	$Categoria = new Categoria_model();
 			
