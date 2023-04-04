@@ -12,6 +12,25 @@
 		}
 
 
+     // public prueba()
+
+
+
+
+		public function belleza (){
+			$belleza =  new Categoria_model();
+
+		$belleza->belleza();
+		$ofertas=$belleza->belleza();
+          // print_r($belleza);
+		 // var_dump($ofertas);
+		  
+		require_once "views/Menu/pages/Belleza.php";
+		//echo "sirve ";
+
+		}
+
+
 
 
 

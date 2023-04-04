@@ -1,7 +1,7 @@
 <?php
-require '../php/modelo/Model.php';
-include '../php/modelo/OfertaModel.php';
-include '../carrito.php';
+//require '../php/modelo/Model.php';
+//include '../php/modelo/OfertaModel.php';
+//include '../carrito.php';
 ?>
 <!doctype html>
 <html lang="en">
