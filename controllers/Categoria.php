@@ -8,10 +8,6 @@
 		}
 		   //llama y muestra la pagina de categorias 
 		public function index(){
-			$Categoria = new Categoria_model();
-			
-			$data["Categorias"] = $Categoria->get_inicio();
-
 			require_once "views/Menu/pages/Categorias.php";	
 		}
 
