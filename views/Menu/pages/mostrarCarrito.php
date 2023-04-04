@@ -1,6 +1,3 @@
-<?php
-include 'carrito.php';
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,6 +7,7 @@ include 'carrito.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BUYIT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=2479'>
     <!--Propio-->
     <link rel="stylesheet" href="../css/style_1.css">
     <!--Slider-->
@@ -22,7 +20,7 @@ include 'carrito.php';
       <div class="container-fluid">
          <!--Logo-->
         <a class="navbar-brand" href="../buyit.php">
-          <img class="logotipo" src="../img/Logo_sin_slogan_t.png" alt="">
+          <img class="logotipo" src="img/Logo_sin_slogan_t.png" alt="" width="150px" heigth="150px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -68,7 +66,9 @@ include 'carrito.php';
     //Comprueba si tiene algo el carrito
     if(!empty($_SESSION['CARRITO'])) {
     ?>
-    <table class="table table-light table-bordered">
+    <div class="data">
+    <div class="uk-overflow-auto uk-box-shadow-small uk-margin-top bg-white rounded">
+    <table class="uk-table uk-table-divider uk-table-hover">
         <tbody>
             <tr>
                 <th width="40%">Descripcion</th>
@@ -80,7 +80,7 @@ include 'carrito.php';
             <?php $total=0;?>
             <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
             <tr>
-                <td width="40%"><?php echo $producto['NOMBRE']?></td>
+                <td width="40%" class="text-center"><?php echo $producto['NOMBRE']?></td>
                 <td width="15%" class="text-center"><?php echo $producto['CANTIDAD']?></td>
                 <td width="20%" class="text-center"><?php echo $producto['PRECIO']?></td>
                 <td width="20%" class="text-center"><?php echo number_format($producto['PRECIO']*$producto['CANTIDAD'],2);?></td>
@@ -132,6 +132,8 @@ include 'carrito.php';
             </tr>
         </tbody>
     </table>
+    </div>
+    </div>
     <?php
     }else{
     ?>
@@ -139,10 +141,6 @@ include 'carrito.php';
             No hay productos en el carrito...
         </div>
     <?php }?>
-
-
-
-
 <?php
 include 'templates/footer.php';
 ?>

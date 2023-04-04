@@ -1,5 +1,5 @@
 <?php
-	session_start();	
+	
 	class InicioController {
 			
 		public function __construct(){
@@ -12,9 +12,6 @@
 			$inicio = new Inicio_model();
 			$data["titulo"] = "Inicio";
 			$data["Ofertas"] = $inicio->get_inicio();
-
-			
-			
 			require_once "views/Menu/buyit.php";	
 		}
 
@@ -52,12 +49,12 @@
 	
 				}
 
+
+
 				public function carrito($id_oferta){
 				
 					$inicio = new Inicio_model();
 					$promo=$inicio->get_promo($id_oferta);
-					
-
 					$ID=$promo[0]['ID_Oferta'];
 					$NOMBRE=$promo[0]['Titulo'];
 					$DESCRIPCION=$promo[0]['Descripcion'];
@@ -113,6 +110,10 @@
 					}
 
 				} 
+
+				public function mostrarCarrito(){
+					require_once ('views/Menu/pages/mostrarCarrito.php');
+				}
 
 		
 	}
