@@ -137,6 +137,13 @@
 				public function mostrarCarrito(){
 					require_once ('views/Menu/pages/mostrarCarrito.php');
 				}
+				public function pagar(){
+					require_once ('views/carrito/Pago_tarjeta.php');
+				}
+			 	public function compra_completa()
+				{
+					echo "Gracias";
+				}
 
 		
 	}

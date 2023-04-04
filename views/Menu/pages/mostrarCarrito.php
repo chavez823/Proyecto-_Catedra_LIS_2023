@@ -115,6 +115,9 @@
                 <td colspan="3" align="right"><h2><strong>Total: </strong></h2></td>
                 <td align="center"><h2><strong>$ <?php echo number_format($total,2)?></strong></h2></td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="index.php?c=Inicio&a=pagar" class="btn btn-success">>>Pagar</a></td>
             </tr>
         </tbody>
     </table>
