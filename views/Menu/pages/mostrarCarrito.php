@@ -125,7 +125,7 @@
     }else{
     ?>
         <div class="alert alert-success">
-            No hay productos en el carrito...
+            No hay productos en el carrito...!
         </div>
     <?php }?>
 <?php

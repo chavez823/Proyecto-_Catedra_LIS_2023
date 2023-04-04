@@ -42,6 +42,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<<<<<<< HEAD
+=======
+           
+>>>>>>> c6c1a1b34011fea319d5635c55e2e21f5721341d
             <li class="nav-item">
               <a class="nav-link" href="../pages/Contacto.php">Contacto</a>
             </li>
