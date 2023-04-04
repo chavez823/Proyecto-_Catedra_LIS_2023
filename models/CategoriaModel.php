@@ -1,6 +1,6 @@
 <?php
 	
-	class Categoria_model {
+	//class Categoria_model {
 		
 		/*private $pdo;
 		private $inicio;
@@ -30,17 +30,10 @@
 			$oferta=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 			return $oferta;
 		}*/
-
-
-		
-
+//	} 
 
 
 
 
 
-
-		
-	
-	} 
 ?>
