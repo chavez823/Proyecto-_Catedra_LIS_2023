@@ -48,6 +48,8 @@ class ClienteController
        
 
         if ($clientes->registrodui($Dui) > 0 || $clientes->registrocorreo($Correo) > 0) {
+            //echo var_dump($clientes->registrodui($Dui));
+            //echo var_dump($clientes->registrocorreo($Correo));
             echo "Dui y/o correo ya están en uso ";
         } else {
 
@@ -80,7 +82,7 @@ class ClienteController
                 $mail->Port = 587;
 
 
-                $mail->setFrom('pepeshoes01lis@gmail.com', 'Tienda-tech.com');
+                $mail->setFrom('buyitshoplis@gmail.com', 'Tienda-tech.com');
 
 
                 $mail->addAddress($Correo, $Nombres);

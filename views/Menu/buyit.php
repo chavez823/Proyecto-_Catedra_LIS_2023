@@ -36,12 +36,12 @@
             <li class="nav-item">
               <a class="nav-link" href="mostrarCarrito.php">Carrito</a>
 			  <!--Nota jacky le borre () y lo demas lo comente  -->
-                <!--?php
+                <?php
                         //condicionador ternario
-               echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?--><!--/a-->
+               echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?></a>
             </li>
             <li class="nav-item">
-			  <a href="index.php?c=usuario"   class="nav-link">Login(<?php echo $_SESSION['session']['nombre'] ?>) <i class="fa-solid fa-user"></i></a>
+			      <a href="index.php?c=usuario"   class="nav-link">Login(<?php echo  !empty($_SESSION['session'])?$usuario[0]['Nombres']:"" ?>) <i class="fa-solid fa-user"></i></a>
             </li> 
           </ul>
         </div>
@@ -85,17 +85,7 @@
                     <div class="main-text">
                       <h1><?php echo $cupones['Titulo'] ?></h1>
                       <p><?php echo $cupones['PrecioOferta'] ?></p>
-                      <form action="" method="post">
-                        <input type="hidden" name="id" id="id" value="<?php echo  $cupones['ID_Oferta'];?>">
-                        <input type="hidden" name="nombre" id="nombre" value="<?php echo $cupones['Titulo'];?>">
-                        <input type="hidden" name="precio" id="precio" value="<?php echo $cupones['PrecioOferta'];?>">
-                        <input type="hidden" name="cantidad" id="cantidad" value="<?php echo 1;?>">
-                        <button class="btn btn-primary" 
-                                type="submit" 
-                                name="btnAccion" 
-                                value="Agregar"
-                                >Agregar al carrito
-                        </button>
+                      <a href="index.php?c=Inicio&a=carrito&id=<?=$cupones['ID_Oferta']?>" class="btn btn-primary">Agregar al carrito nuevo</a>
                       </form>
                         <!-- Modal -->
                         <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

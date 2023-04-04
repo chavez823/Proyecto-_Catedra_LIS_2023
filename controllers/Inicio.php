@@ -1,10 +1,11 @@
 <?php
-	
+	session_start();	
 	class InicioController {
-		
+			
 		public function __construct(){
 			require_once "models/InicioModel.php";
 			require_once "models/UsuarioModel.php";
+			
 		}
 		
 		public function index(){
@@ -17,20 +18,18 @@
 			require_once "views/Menu/buyit.php";	
 		}
 
-
-
-
 		public function sesion(){ 
 			$Correo = $_POST['email'];
 			$Contrasenia=$_POST['password'];
 			$usuarios=new Usuario_model();
-				if(  $usuarios->sesion($Correo,$Contrasenia) > 0){
-					
-					session_start();
-				   $_SESSION['session']=array();
-					$_SESSION['session']["nombre"]=   $usuarios->sesion($Correo,$Contrasenia)['Nombres'];
-					$_SESSION['session']["apellido"]=   $usuarios->sesion($Correo,$Contrasenia)['Nombres'];
-					$_SESSION['session']["tipo_usuario"]=   $usuarios->sesion($Correo,$Contrasenia)['Tipo'];
+				if($usuarios->sesion($Correo,$Contrasenia) > 0){
+					//echo var_dump($usuarios->sesion($Correo,$Contrasenia));
+					$usuario=$usuarios->sesion($Correo,$Contrasenia);
+					//echo var_dump($usuario);
+				    $_SESSION['session']=array();
+					$_SESSION['session']["nombre"]=   $usuario[0]['Nombres'];
+					$_SESSION['session']["apellido"]=   $usuario[0]['Apellidos'];
+					$_SESSION['session']["tipo_usuario"]=   $usuario[0]['Tipo'];
 				 
 				 
 					$inicio = new Inicio_model();
@@ -52,6 +51,69 @@
 					}
 	
 				}
+
+				public function carrito($id_oferta){
+				
+					$inicio = new Inicio_model();
+					$promo=$inicio->get_promo($id_oferta);
+					
+
+					$ID=$promo[0]['ID_Oferta'];
+					$NOMBRE=$promo[0]['Titulo'];
+					$DESCRIPCION=$promo[0]['Descripcion'];
+					$IMAGEN=$promo[0]['Imagen'];
+					$PRECIO=$promo[0]['PrecioOferta'];
+					
+					if(!isset($_SESSION['CARRITO'])){ //SI NO EXITE NADA EN EL CARRITO
+						$elemento=array(//CAPTURAMOS LOS DATOS DEL FORMULARIO
+							'ID'=>$ID,
+							'NOMBRE'=>$NOMBRE,
+							'DESCRIPCION'=>$DESCRIPCION,
+							'CANTIDAD'=>1,
+							'IMAGEN'=>$IMAGEN,
+							'PRECIO'=>$PRECIO
+						);
+						$_SESSION['CARRITO'][0]=$elemento;
+						//cargando la vista de ofertas
+						//echo var_dump($_SESSION['CARRITO']);
+						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+					}else{ 
+						$IdProductos=array_column($_SESSION['CARRITO'],"ID"); //array column deposita todos los ids que estan en el carrito de compras
+						if(in_array($ID,$IdProductos)){
+							$carro=$_SESSION['CARRITO'];
+							$codigo_producto=$ID;
+							foreach ($carro as $indice => $oferta) {
+							if($oferta['ID']==$codigo_producto){
+								$carro[$indice]['CANTIDAD'] += 1;
+							}
+						}
+							$_SESSION['CARRITO']=$carro;
+							//cargando la vista de ofertas
+							//echo var_dump($_SESSION['CARRITO']);
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+		
+						}else{
+							//SI YA HAY 1 PRODUCTO EN EL CARRITO 
+							//echo var_dump($_SESSION['CARRITO']);
+						$numeroProductos=count($_SESSION['CARRITO']);//NUMERO DE ELEMENTOS EN CARRITO
+						$elemento=array(//CAPTURAMOS LOS DATOS DEL FORMULARIO
+							'ID'=>$ID,
+							'NOMBRE'=>$NOMBRE,
+							'DESCRIPCION'=>$DESCRIPCION,
+							'CANTIDAD'=>1,
+							'IMAGEN'=>$IMAGEN,
+							'PRECIO'=>$PRECIO
+						);
+						$_SESSION['CARRITO'][$numeroProductos]=$elemento;
+						//cargando la vista de ofertas
+						
+						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						}
+						
+					}
+
+				} 
+
 		
 	}
 ?>

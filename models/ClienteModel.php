@@ -2,11 +2,11 @@
   
 	class Cliente_model {
 		
-		private $db;
+		private $pdo;
 		private $clientes;
 		
 		public function __construct(){
-			$this->db = Conectar::conexion();
+			$this->pdo = Conectar::conexion();
 			$this->clientes = array();
 		}
 
@@ -35,18 +35,23 @@
 
         }
 
-           public function registrodui($Dui ){
-            $resultado = $this->db->query("SELECT * FROM Cliente WHERE DUI='$Dui'");
-            $row = $resultado->fetch_array();
-                  return  $row;
+           public function registrodui($Dui){
+            $sentencia=$this->pdo->prepare("SELECT * FROM Cliente WHERE DUI='$Dui'");
+            $sentencia->execute();
+            $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $num=array_sum($row);
+            return  $num;
                 
            }
        
 
         public function registrocorreo($Correo){
-            $resultado = $this->db->query("SELECT * FROM Cliente WHERE  Correo='$Correo'");
-            $row = $resultado->fetch_array();
-                  return  $row;    
+
+            $sentencia=$this->pdo->prepare("SELECT * FROM Cliente WHERE  Correo='$Correo'");
+            $sentencia->execute();
+            $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $num=array_sum($row);
+            return  $num;    
            }
 
                

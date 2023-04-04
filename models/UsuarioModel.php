@@ -2,12 +2,12 @@
 
 class Usuario_model {
 		
-    private $db;
+    private $pdo;
     private $usuarios;
     private $clientes;
     
     public function __construct(){
-        $this->db = Conectar::conexion();
+        $this->pdo = Conectar::conexion();
         $this->usuarios = array();
     }
 
@@ -46,10 +46,10 @@ class Usuario_model {
 
     public function sesion( $Correo, $Contrasenia){
       
-        $resultado = $this->db->query("SELECT * FROM Usuario WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia' ");
-     $row = $resultado->fetch_array();
-    
-           return  $row;
+        $sentencia=$this->pdo->prepare("SELECT * FROM Usuario WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia'");
+		$sentencia->execute();
+		$row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return  $row;
 
      
  }
