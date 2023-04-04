@@ -47,46 +47,32 @@
 		  public function belleza(){
 			$sentencia=$this->pdo->prepare( " SELECT * FROM `oferta` WHERE ID_Empresa='EMP004'");		
 			$sentencia->execute();
-			$resultado=$sentencia;
-			//$row =$sentencia
-			while($row = $resultado->fetchAll(PDO::FETCH_ASSOC))
-			{
-				$this->ofertas[] = $row;
-			}
-			return $this->ofertas;
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
+			
 		}
 	
 		public function restaurante(){
 			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE ID_Empresa='EMP001'");		
-			$sentencia->execute();
-			$resultado=$sentencia;
-			while($row = $resultado->fetchAll(PDO::FETCH_ASSOC))
-			{
-				$this->ofertas[] = $row;
-			}
-			return $this->ofertas;
+			$sentencia->execute();			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
 		}
 	
 		public function salud(){
 			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE ID_Empresa='EMP003'");		
 			$sentencia->execute();
-			$resultado=$sentencia;
-			while($row = $resultado->fetchAll(PDO::FETCH_ASSOC))
-			{
-				$this->ofertas[] = $row;
-			}
-			return $this->ofertas;
+			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
 		}
 	
 		public function super(){
 			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE ID_Empresa='EMP002'");		
 			$sentencia->execute();
-			$resultado=$sentencia;
-			while($row = $resultado->fetchAll(PDO::FETCH_ASSOC))
-			{
-				$this->ofertas[] = $row;
-			}
-			return $this->ofertas;
+			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
 		}
 
 
