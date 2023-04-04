@@ -1,4 +1,5 @@
 <footer>
+      
       <img class="logotipo-footer" src="img/Logo_sin_slogan_t.png" alt="logotipo">
       <br>    
       <p>

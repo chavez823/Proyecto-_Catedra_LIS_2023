@@ -18,16 +18,7 @@
 			
 			$sentencia=$this->pdo->prepare("SELECT * FROM `oferta` LIMIT 3");
 			$sentencia->execute();
-			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-
-
-			//$sql = "SELECT * FROM `oferta` LIMIT 3";
-			//$resultado = $this->db->query($sql);
-			//while($row = $resultado->fetch_assoc())
-			//{
-			//	$this->ofertas[] = $row;
-			//}
-			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);			
 			return $listaOfertas;
 		}
 		public function get_promo($id='')
@@ -37,18 +28,6 @@
 			$oferta=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 			return $oferta;
 		}
-	
-
-
-		
-
-
-
-
-
-
-
-		
 	
 	} 
 ?>

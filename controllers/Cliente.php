@@ -42,7 +42,8 @@ class ClienteController
         $Contrasenia = $_POST['password'];
         $Telefono = $_POST['telefono'];
         $Direccion = $_POST['direccion'];
-        $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+        //$Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+        $Token=1599;
         $clientes = new Cliente_model();
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
        
@@ -54,46 +55,24 @@ class ClienteController
         } else {
 
 
-            $mail = new PHPMailer(true);
+          //  $mail = new PHPMailer(true);
 
             try {
 
-                $mail->SMTPDebug = 0;
-
-
+               /* $mail->SMTPDebug = 0;
                 $mail->isSMTP();
-
-
                 $mail->Host = 'smtp.gmail.com';
-
-
                 $mail->SMTPAuth = true;
-
-
                 $mail->Username = 'buyitshoplis@gmail.com';
-
-
-                $mail->Password = 'nwbjbxlpvjvooqwj';
-
-
+                $mail->Password = 'oprlelciqcyiqnde';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-
-
                 $mail->Port = 587;
-
-
                 $mail->setFrom('buyitshoplis@gmail.com', 'Tienda-tech.com');
-
-
                 $mail->addAddress($Correo, $Nombres);
-
                 $mail->isHTML(true);
-
-
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-
-                $mail->send();
+                $mail->send();*/
 
                 session_start();
 
@@ -113,7 +92,7 @@ class ClienteController
 
                 exit();
             } catch (Exception $e) {
-                echo "Nose envió su token vuelva a intentarlo. Mailer Error: {$mail->ErrorInfo}";
+              //  echo "Nose envió su token vuelva a intentarlo. Mailer Error: {$mail->ErrorInfo}";
             }
         }
     }
@@ -142,3 +121,4 @@ class ClienteController
         }
     }
 }
+

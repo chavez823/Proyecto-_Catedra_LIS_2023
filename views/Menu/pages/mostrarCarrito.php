@@ -9,9 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=2479'>
     <!--Propio-->
-    <link rel="stylesheet" href="../css/style_1.css">
+    <link rel="stylesheet" href="css/style_1.css">
     <!--Slider-->
-    <link rel="stylesheet" href="../css/style_2_s.css">
+    <link rel="stylesheet" href="css/style_2_s.css">
   </head>
   <body >
   <header>
@@ -60,79 +60,66 @@
       </div>
     </nav>
   </header>
-    <br>
-    <h3>Lista del carrito</h3>
+  </br>
+  </br>
+  </br>
+  </br>
     <?php 
     //Comprueba si tiene algo el carrito
     if(!empty($_SESSION['CARRITO'])) {
+      //echo var_dump($_SESSION['CARRITO']);
     ?>
     <div class="data">
-    <div class="uk-overflow-auto uk-box-shadow-small uk-margin-top bg-white rounded">
+    <h2><strong>Cesta</strong></h2>
+    <center>
+    <div class="col-sm-11 col-sm-offset-1">
     <table class="uk-table uk-table-divider uk-table-hover">
         <tbody>
             <tr>
-                <th width="40%">Descripcion</th>
-                <th width="15%" class="text-center">Cantidad</th>
-                <th width="20%" class="text-center">Precio</th>
-                <th width="20%" class="text-center">Total</th>
-                <th width="5%">--</th>
+                <th width="15%" class="text-center"><strong>Oferta</strong></th>
+                <th width="5%" class="text-center"></th>
+                <th width="5%" class="text-center"><strong>Cantidad</strong></th>
+                <th width="5%" class="text-center"><strong>Precio Unidad</strong></th>
+                <th width="15%" class="text-center"><strong>Total</strong></th>
+                <th width="1%"></th>
+                <th width="1%"></th>
+                <th width="1%"></th>
             </tr>
-            <?php $total=0;?>
-            <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
+            <?php $total=0;
+            ?>
+            <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { 
+                $info = ['ID' => $producto['ID'], 'vista' => 1];
+                //echo var_dump($info);
+                $info_carrito = implode("/", $info);
+                //echo var_dump($info_carrito);
+
+                ?>
+               
             <tr>
-                <td width="40%" class="text-center"><?php echo $producto['NOMBRE']?></td>
-                <td width="15%" class="text-center"><?php echo $producto['CANTIDAD']?></td>
-                <td width="20%" class="text-center"><?php echo $producto['PRECIO']?></td>
-                <td width="20%" class="text-center"><?php echo number_format($producto['PRECIO']*$producto['CANTIDAD'],2);?></td>
-                <td width="5%">
-                    <form method="post" action="">
-                    <input 
-                    type="hidden" 
-                    name="id" 
-                    id="id" 
-                    value="<?php echo $producto['ID'];?>">
-                    <button 
-                    class="btn btn-danger" 
-                    type="submit"
-                    name="btnAccion";
-                    value="Eliminar"
-                    >Eliminar</button>                      
-                    </form>
+                <td width="15%" class="text-center"><?php echo $producto['NOMBRE']?></td>
+                <td width="5%" class="text-center"><img src="<?=$producto['IMAGEN']?>" alt="" width="100px" height="50px"></td>
+                <td width="5%" class="text-center"><?php echo $producto['CANTIDAD']?></td>
+                <td width="5%" class="text-center">$ <?php echo number_format($producto['PRECIO'],2)?></td>
+                <td width="15%" class="text-center">$ <?php echo number_format($producto['PRECIO']*$producto['CANTIDAD'],2);?></td>
+                <td width="1%"><a href="index.php?c=Inicio&a=carrito&id=<?=$info_carrito?>" class="btn btn-warning">+</a></td>
+                <td width="1%"><a href="index.php?c=Inicio&a=carrito&id=<?=$producto['ID']?>" class="btn btn-secondary">-</a></td>
+                <td width="1%"><a href="index.php?c=Inicio&a=delete&id=<?=$producto['ID']?>" class="btn btn-danger">Quitar</a></td>
 
-                    <form method="post" action="">
-                    <input type="hidden" name="id" id="id" value="<?php echo $producto['ID'];?>">
-                    <input type="hidden" name="cantidad" id="cantidad" value="<?php echo 1;?>">
-                    <button 
-                    class="btn btn-primary" 
-                    type="submit"
-                    name="btnAccion";
-                    value="AgregarNuevo"
-                    >+</button>                      
-                    </form>
-
-                    <form method="post" action="">
-                    <input type="hidden" name="id" id="id" value="<?php echo $producto['ID'];?>">
-                    <input type="hidden" name="cantidad" id="cantidad" value="<?php echo 1;?>">
-                    <button 
-                    class="btn btn-primary" 
-                    type="submit"
-                    name="btnAccion";
-                    value="QuitarElemento"
-                    >-</button>                      
-                    </form>
-                </td>
+                    
+                
                     
             </tr>
             <?php $total=$total+$producto['PRECIO']*$producto['CANTIDAD']; ?>
             <?php } ?>
             <tr>
-                <td colspan="3" align="right"><h3>Total</h3></td>
-                <td align="center"><h3><?php echo number_format($total,2)?></h3></td>
+                <td colspan="3" align="right"><h2><strong>Total: </strong></h2></td>
+                <td align="center"><h2><strong>$ <?php echo number_format($total,2)?></strong></h2></td>
                 <td></td>
             </tr>
         </tbody>
     </table>
     </div>
+    </center>
     </div>
     <?php
     }else{

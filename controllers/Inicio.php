@@ -51,10 +51,15 @@
 
 
 
-				public function carrito($id_oferta){
+				public function carrito($id){
 				
+				
+					$info_oferta=explode("/",$id);
+					
+
+					
 					$inicio = new Inicio_model();
-					$promo=$inicio->get_promo($id_oferta);
+					$promo=$inicio->get_promo($info_oferta[0]);
 					$ID=$promo[0]['ID_Oferta'];
 					$NOMBRE=$promo[0]['Titulo'];
 					$DESCRIPCION=$promo[0]['Descripcion'];
@@ -73,7 +78,13 @@
 						$_SESSION['CARRITO'][0]=$elemento;
 						//cargando la vista de ofertas
 						//echo var_dump($_SESSION['CARRITO']);
-						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						if($info_oferta[1]=='')
+						{
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						}
+						else{
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
+						}
 					}else{ 
 						$IdProductos=array_column($_SESSION['CARRITO'],"ID"); //array column deposita todos los ids que estan en el carrito de compras
 						if(in_array($ID,$IdProductos)){
@@ -87,7 +98,13 @@
 							$_SESSION['CARRITO']=$carro;
 							//cargando la vista de ofertas
 							//echo var_dump($_SESSION['CARRITO']);
+							if($info_oferta[1]=='')
+						{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						}
+						else{
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
+						}
 		
 						}else{
 							//SI YA HAY 1 PRODUCTO EN EL CARRITO 
@@ -104,7 +121,13 @@
 						$_SESSION['CARRITO'][$numeroProductos]=$elemento;
 						//cargando la vista de ofertas
 						
-						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						if($info_oferta[1]=='')
+						{
+						 	header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						}
+						else{
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
+						}
 						}
 						
 					}
