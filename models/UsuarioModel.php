@@ -36,9 +36,12 @@ class Usuario_model {
 
     public function insertar_usuario($ID_Usuario, $Nombres, $Apellidos, $Correo, $Contrasenia,  $Tipo){
 
-        $resultado = $this->db->query ("INSERT INTO usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
+        $sentencia = $this->pdo->prepare ("INSERT INTO usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
         VALUES ('$ID_Usuario' , ' $Nombres' , '$Apellidos', '$Contrasenia', '$Correo', '$Tipo')");
-           return $resultado;
+          	$sentencia->execute();
+              $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+              return  $row;
+       
 
 
 
@@ -54,8 +57,8 @@ class Usuario_model {
      
  }
 
-
- public function sesionempleado( $Correo, $Contrasenia){
+//esta llano
+ /*public function sesionempleado( $Correo, $Contrasenia){
       
     $resultado = $this->db->query("SELECT * FROM Usuario WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia' ");
  $row = $resultado->fetch_array();
@@ -63,6 +66,6 @@ class Usuario_model {
        return  $row;
 
  
-}
+}*/
 
 }

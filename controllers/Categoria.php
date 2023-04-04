@@ -5,7 +5,7 @@
 		public function __construct(){
 			require_once "models/CategoriaModel.php";
 		}
-		
+		//abre la pagina de categorias
 		public function index(){
 			//$inicio = new Categoria_model();
 			//$data["titulo"] = "Inicio";
