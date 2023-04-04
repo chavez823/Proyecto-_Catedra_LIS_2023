@@ -60,40 +60,18 @@ class ClienteController
             try {
 
                /* $mail->SMTPDebug = 0;
-
-
                 $mail->isSMTP();
-
-
                 $mail->Host = 'smtp.gmail.com';
-
-
                 $mail->SMTPAuth = true;
-
-
                 $mail->Username = 'buyitshoplis@gmail.com';
-
-
                 $mail->Password = 'oprlelciqcyiqnde';
-
-
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-
-
                 $mail->Port = 587;
-
-
                 $mail->setFrom('buyitshoplis@gmail.com', 'Tienda-tech.com');
-
-
                 $mail->addAddress($Correo, $Nombres);
-
                 $mail->isHTML(true);
-
-
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-
                 $mail->send();*/
 
                 session_start();
@@ -143,3 +121,4 @@ class ClienteController
         }
     }
 }
+

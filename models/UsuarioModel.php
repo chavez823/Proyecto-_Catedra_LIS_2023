@@ -21,8 +21,6 @@ class Usuario_model {
         }
         return $this->clientes;
     }
-
-
     public function get_Usuarios()
     {
         $sql = "SELECT * FROM usuario";
@@ -62,9 +60,7 @@ class Usuario_model {
       
     $resultado = $this->db->query("SELECT * FROM Usuario WHERE  Correo='$Correo' AND Contrasenia='$Contrasenia' ");
  $row = $resultado->fetch_array();
-
        return  $row;
-
  
 }*/
 

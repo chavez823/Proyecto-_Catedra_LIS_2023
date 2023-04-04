@@ -35,7 +35,6 @@
         /*public function modificar($email, $verification_code){
             $resultado = $this->db->query("UPDATE Cliente SET Fecha_Verificacion_Email = NOW() WHERE Correo = '$email' AND Token = '$verification_code' " );
             return $resultado;
-
         }*/
 
            public function registrodui($Dui){
@@ -58,8 +57,7 @@
            }
 
                
-           }
-          
+           }  
 
 
 

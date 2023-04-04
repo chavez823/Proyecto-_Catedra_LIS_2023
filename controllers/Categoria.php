@@ -7,7 +7,7 @@
 		}
 		//abre la pagina de categorias
 		public function index(){
-			
+		
 			require_once "views/Menu/pages/Categorias.php";	
 		}
 
