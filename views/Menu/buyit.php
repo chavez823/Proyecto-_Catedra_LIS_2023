@@ -38,7 +38,7 @@
 			  <!--Nota jacky le borre () y lo demas lo comente  -->
             </li>
             <li class="nav-item">
-			      <a href="index.php?c=usuario"   class="nav-link">Login(<?php echo  !empty($_SESSION['session'])?$usuario[0]['Nombres']:"" ?>) <i class="fa-solid fa-user"></i></a>
+			      <a href="index.php?c=usuario"   class="nav-link">Login(<?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"" ?>) <i class="fa-solid fa-user"></i></a>
             </li> 
           </ul>
         </div>
@@ -46,6 +46,7 @@
     </nav>
 	 <!--luego puede ir el resto de la pagina -->
     <!--Slider-->
+    
     <div class="wrapper altura-a-b">
         
         <i id="left" class="fa-solid fa-angle-left"></i>
@@ -111,6 +112,7 @@
         <p>
         © Copyright  2023 BUYIT <br>
           Pagina Creada por<br>
+          <?php var_dump($_SESSION['session'])?>
           <i class="nav-link fa-brands fa-facebook "></i>
         <i class="nav-link fa-brands fa-instagram"></i>
         <i class="nav-link fa-brands fa-twitter"></i>
