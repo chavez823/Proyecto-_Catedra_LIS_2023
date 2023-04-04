@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -42,7 +41,7 @@
                echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?--><!--/a-->
             </li>
             <li class="nav-item">
-			  <a href="index.php?c=usuario"   class="nav-link">Login <i class="fa-solid fa-user"></i></a>
+			  <a href="index.php?c=usuario"   class="nav-link">Login(<?php echo $_SESSION['session']['nombre'] ?>) <i class="fa-solid fa-user"></i></a>
             </li> 
           </ul>
         </div>

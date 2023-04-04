@@ -97,7 +97,7 @@
   
     <div class="container-login"> 
 		<div class="wrap-login"> 
-			<form action="index.php?c=usuario&a=sesion" method="post"> 
+			<form action="index.php?c=Inicio&a=sesion" method="post"> 
 
 				<!-- LOGO --> 
 				<span class="login-form-title">Iniciar Sesión</span> 
