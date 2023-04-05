@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="buyit.php">Inicio</a>
+              <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
             <!--<li class="nav-item">
               <a class="nav-link active" href="../pages/Categorias.php">Categorias</a>
@@ -39,22 +39,28 @@
             Categorias
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="pages/Belleza.php">Belleza</a></li>
+           <!-- <li><a class="dropdown-item active" href="pages/Belleza.php">Belleza</a></li>
             <li><a class="dropdown-item" href="pages/salud.php">Salud</a></li>
             <li><a class="dropdown-item" href="pages/Restaurant.php">Restaurante</a></li>
             <li><a class="dropdown-item" href="pages/Super.php">Supermercado</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="pages/Categorias.php">Principal</a></li>
+            <li><a class="dropdown-item" href="pages/Categorias.php">Principal</a></li>-->
+            <li><a class="dropdown-item active" href="index.php?c=categoria&a=belleza">Belleza</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=salud">Salud</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=restaurante">Restaurante</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=otros">Otros</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
           </ul>
         </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Carrito(<?php
+              <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito">Carrito(<?php
                         //condicionador ternario
                         echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
                     ?>)</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
+              <a href="index.php?c=inicio&a=sesion" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
             </li>
           </ul>
         </div>

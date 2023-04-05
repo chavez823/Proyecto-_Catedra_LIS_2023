@@ -33,16 +33,15 @@ include '../carrito.php';*/
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
+            
             <li class="nav-item">
-              <a class="nav-link" href="../pages/Contacto.php">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../mostrarCarrito.php">Carrito(<?php
+              <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito">Carrito(<?php
                         //condicionador ternario
                         echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
                     ?>)</a>
             </li>
             <li class="nav-item">
+              <!--Tenia el controlador de usuario(index.php?c=usuario) y lo cambie por el de inicio -->
               <a href="index.php?c=usuario" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
             </li>
             <li class="nav-item">  

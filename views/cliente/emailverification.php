@@ -38,18 +38,7 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../pages/Contacto.php">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../mostrarCarrito.php">Carrito(<?php
-                        //condicionador ternario
-                        echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
-                    ?>)</a>
-            </li>
-          
-            <li class="nav-item">  
-            </li>
+       
           </ul> 
         </div>
       </div>

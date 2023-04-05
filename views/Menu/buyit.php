@@ -30,9 +30,9 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php?c=categoria">Categorias</a>
             </li>
-            <li class="nav-item">
+           <!-- <li class="nav-item">
               <a class="nav-link" href="./pages/Contacto.php">Contacto</a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito">Carrito (<?php echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?>)</a>
 			  <!--Nota jacky le borre () y lo demas lo comente  -->

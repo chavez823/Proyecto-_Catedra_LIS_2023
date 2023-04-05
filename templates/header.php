@@ -23,8 +23,8 @@
     <nav class="navbar navbar-expand-lg  fixed-top" style="background-color: #86A3B8;">
       <div class="container-fluid">
          <!--Logo-->
-        <a class="navbar-brand" href="../buyit.php">
-          <img class="logotipo" src="../img/Logo_sin_slogan_t.png" alt="">
+        <a class="navbar-brand" href="index.php?c=Inicio">
+          <img class="logotipo" src="img/Logo_sin_slogan_t.png" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -32,32 +32,33 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="../buyit.php">Inicio</a>
+              <a class="nav-link" aria-current="page" href="index.php?c=Inicio">Inicio</a>
             </li>
-            <!--<li class="nav-item">
-              <a class="nav-link active" href="../pages/Categorias.php">Categorias</a>
+           <!-- <li class="nav-item">
+              <a class="nav-link active" href="index.php?c=categoria">Categorias</a>
             </li>-->
             <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorias
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="../pages/Belleza.php">Belleza</a></li>
-            <li><a class="dropdown-item" href="../pages/salud.php">Salud</a></li>
-            <li><a class="dropdown-item" href="../pages/Restaurant.php">Restaurante</a></li>
-            <li><a class="dropdown-item" href="../pages/Super.php">Supermercado</a></li>
+            <li><a class="dropdown-item active" href="index.php?c=categoria&a=belleza">Belleza</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=salud">Salud</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=restaurante">Restaurante</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria&a=otros">Otros</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="../pages/Categorias.php">Principal</a></li>
+            <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
           </ul>
         </li>
             <li class="nav-item">
-              <a class="nav-link" href="../mostrarCarrito.php">Carrito(<?php
+              <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito">Carrito(<?php
                         //condicionador ternario
                         echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
                     ?>)</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
+              <!--Tenia el controlador de usuario y lo cambie por el de inicio -->
+              <a href="index.php?c=Inicio&a=sesion" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
             </li>
           </ul>
         </div>
