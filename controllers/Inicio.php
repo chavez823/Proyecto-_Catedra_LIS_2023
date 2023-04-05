@@ -37,7 +37,7 @@
 					
 					
 					require_once "views/Menu/buyit.php";	
-					echo var_dump(conunt($usuarios->sesion($Correo,$Contrasenia)));
+					//echo var_dump(conunt($usuarios->sesion($Correo,$Contrasenia)));
 	
 				}
 	  

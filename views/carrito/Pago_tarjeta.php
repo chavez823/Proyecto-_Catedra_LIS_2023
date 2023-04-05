@@ -60,7 +60,7 @@
                     ?>)</a>
             </li>
             <li class="nav-item">
-              <a href="index.php?c=inicio&a=sesion" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
+              <a href="index.php?c=usuario" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
             </li>
           </ul>
         </div>

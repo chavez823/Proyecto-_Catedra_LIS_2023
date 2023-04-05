@@ -57,8 +57,8 @@
                     ?>)</a>
             </li>
             <li class="nav-item">
-              <!--Tenia el controlador de usuario y lo cambie por el de inicio -->
-              <a href="index.php?c=Inicio&a=sesion" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
+             
+              <a href="index.php?c=usuario" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
             </li>
           </ul>
         </div>
