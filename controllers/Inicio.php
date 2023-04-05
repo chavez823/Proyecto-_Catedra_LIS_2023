@@ -165,7 +165,10 @@
 				}
 			 	public function compra_completa()
 				{
-					echo "Gracias";
+					require_once ('views/carrito/Gracias.php');
+				}
+				public function pdf(){
+					echo var_dump($_SESSION['CARRITO']);
 				}
 
 		
