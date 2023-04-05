@@ -92,10 +92,7 @@
             ?>
             <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { 
                 $info = ['ID' => $producto['ID'], 'vista' => 1];
-                //echo var_dump($info);
                 $info_carrito = implode("/", $info);
-                //echo var_dump($info_carrito);
-
                 ?>
                
             <tr>

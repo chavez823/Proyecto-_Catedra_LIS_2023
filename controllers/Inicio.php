@@ -83,6 +83,14 @@
 						if($info_oferta[1]=='')
 						{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						}else if($info_oferta[1]=='2'){
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=belleza');
+						}else if($info_oferta[1]=='3'){
+						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=restaurante');
+						}else if($info_oferta[1]=='4'){
+						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=salud');
+						}else if($info_oferta[1]=='5'){
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=otros');
 						}
 						else{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
@@ -100,13 +108,20 @@
 							$_SESSION['CARRITO']=$carro;
 							//cargando la vista de ofertas
 							//echo var_dump($_SESSION['CARRITO']);
-							if($info_oferta[1]=='')
-						{
-							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
-						}
-						else{
-							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
-						}
+							if($info_oferta[1]==''){
+								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+							}else if($info_oferta[1]=='2'){
+								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=belleza');
+							}else if($info_oferta[1]=='3'){
+								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=restaurante');
+							}else if($info_oferta[1]=='4'){
+								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=salud');
+							}else if($info_oferta[1]=='5'){
+								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=otros');
+							}
+							else{
+								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
+							}
 		
 						}else{
 							//SI YA HAY 1 PRODUCTO EN EL CARRITO 
@@ -122,10 +137,16 @@
 						);
 						$_SESSION['CARRITO'][$numeroProductos]=$elemento;
 						//cargando la vista de ofertas
-						
-						if($info_oferta[1]=='')
-						{
-						 	header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						if($info_oferta[1]==''){
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
+						}else if($info_oferta[1]=='2'){
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=belleza');
+						}else if($info_oferta[1]=='3'){
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=restaurante');
+						}else if($info_oferta[1]=='4'){
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=salud');
+						}else if($info_oferta[1]=='5'){
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=otros');
 						}
 						else{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
