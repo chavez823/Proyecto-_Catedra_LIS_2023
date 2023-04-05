@@ -112,7 +112,6 @@
         <p>
         © Copyright  2023 BUYIT <br>
           Pagina Creada por<br>
-          <?php var_dump($_SESSION['session'])?>
           <i class="nav-link fa-brands fa-facebook "></i>
         <i class="nav-link fa-brands fa-instagram"></i>
         <i class="nav-link fa-brands fa-twitter"></i>
