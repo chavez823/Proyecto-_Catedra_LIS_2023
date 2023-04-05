@@ -19,7 +19,8 @@
 			$Correo = $_POST['email'];
 			$Contrasenia=$_POST['password'];
 			$usuarios=new Usuario_model();
-				if($usuarios->sesion($Correo,$Contrasenia) > 0){
+			
+				if(count($usuarios->sesion($Correo,$Contrasenia)) > 0){
 					//echo var_dump($usuarios->sesion($Correo,$Contrasenia));
 					$usuario=$usuarios->sesion($Correo,$Contrasenia);
 					//echo var_dump($usuario);
@@ -27,7 +28,7 @@
 					$_SESSION['session']["nombre"]=   $usuario[0]['Nombres'];
 					$_SESSION['session']["apellido"]=   $usuario[0]['Apellidos'];
 					$_SESSION['session']["tipo_usuario"]=   $usuario[0]['Tipo'];
-				 
+					
 				 
 					$inicio = new Inicio_model();
 					$data["titulo"] = "Inicio";
@@ -36,7 +37,7 @@
 					
 					
 					require_once "views/Menu/buyit.php";	
-				  
+					echo var_dump(conunt($usuarios->sesion($Correo,$Contrasenia)));
 	
 				}
 	  

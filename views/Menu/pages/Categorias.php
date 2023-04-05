@@ -77,7 +77,7 @@ include '../carrito.php';*/
                     </div>
                     <div class="flip-card-back">                                            
                           <div class="waviy title">
-                            <a href="index.php?c=categoria&a=belleza" class="a_w">
+                          <a href="index.php?c=categoria&a=belleza" class="a_w">
                               <span style="--i:1" class="belle">B</span>
                               <span style="--i:2" class="belle">E</span>
                               <span style="--i:3" class="belle">L</span>
@@ -103,7 +103,7 @@ include '../carrito.php';*/
                     <div class="flip-card-back">
                         
                         <div class="waviy title ">                          
-                          <a href="index.php?c=categoria&a=salud" class="a_w">
+                          <a href="../pages/salud.php" class="a_w">
                             <span style="--i:1" class="salu_d">S</span>
                             <span style="--i:2" class="salu_d">A</span>
                             <span style="--i:3" class="salu_d">L</span>
@@ -125,7 +125,7 @@ include '../carrito.php';*/
                     </div>
                     <div class="flip-card-back">                        
                         <div class="waviy title ">
-                          <a href="index.php?c=categoria&a=restaurante" class="a_w">
+                          <a href="../pages/Restaurant.php" class="a_w">
                             <span style="--i:1">R</span>
                             <span style="--i:2">E</span>
                             <span style="--i:3">S</span>
@@ -152,7 +152,7 @@ include '../carrito.php';*/
                     </div>
                     <div class="flip-card-back">                        
                         <div class="waviy title">
-                          <a href="index.php?c=categoria&a=otros" class="a_w">
+                          <a href="../pages/Super.php" class="a_w">
                             <span style="--i:1" class="super">S</span>
                             <span style="--i:2" class="super">U</span>
                             <span style="--i:3" class="super">P</span>
