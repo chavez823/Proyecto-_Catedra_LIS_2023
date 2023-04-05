@@ -148,16 +148,16 @@ include '../carrito.php';*/
                 <div class="flip-card-inner">
                     <div class="flip-card-front card4">
                         <!-- <p class="title">FLIP CARD</p>-->
-                        <img src="img/Cat/super.png" alt="" class="img4">
+                        <img src="img/Cat/otros.png" alt="" class="img4">
                     </div>
                     <div class="flip-card-back">                        
                         <div class="waviy title">
                           <a href="../pages/Super.php" class="a_w">
-                            <span style="--i:1" class="super">S</span>
-                            <span style="--i:2" class="super">U</span>
-                            <span style="--i:3" class="super">P</span>
-                            <span style="--i:4" class="super">E</span>
-                            <span style="--i:5" class="super">R</span>  
+                            <span style="--i:1" class="super">O</span>
+                            <span style="--i:2" class="super">T</span>
+                            <span style="--i:3" class="super">r</span>
+                            <span style="--i:4" class="super">O</span>
+                            <span style="--i:5" class="super">S</span>  
                           </a>                        
                         </div>                        
                     </div>
