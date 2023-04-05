@@ -14,7 +14,7 @@ class UsuarioController{
         require_once "views/Menu/principal.php";
     }
 
-    public function sesion(){ 
+   /* public function sesion(){ 
         $Correo = $_POST['email'];
         $Contrasenia=$_POST['password'];
         $usuarios=new Usuario_model();
@@ -39,7 +39,7 @@ class UsuarioController{
                  
                 }
 
-            }
+            }*/
                
 
 
