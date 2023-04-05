@@ -41,9 +41,7 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../pages/Contacto.php">Contacto</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito">Carrito(<?php
                         //condicionador ternario
