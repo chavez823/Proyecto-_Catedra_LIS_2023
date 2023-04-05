@@ -102,7 +102,7 @@
                 <td width="5%" class="text-center">$ <?php echo number_format($producto['PRECIO'],2)?></td>
                 <td width="15%" class="text-center">$ <?php echo number_format($producto['PRECIO']*$producto['CANTIDAD'],2);?></td>
                 <td width="1%"><a href="index.php?c=Inicio&a=carrito&id=<?=$info_carrito?>" class="btn btn-warning">+</a></td>
-                <td width="1%"><a href="index.php?c=Inicio&a=carrito&id=<?=$producto['ID']?>" class="btn btn-secondary">-</a></td>
+                <td width="1%"><a href="index.php?c=Inicio&a=restar&id=<?=$producto['ID']?>" class="btn btn-secondary">-</a></td>
                 <td width="1%"><a href="index.php?c=Inicio&a=delete&id=<?=$producto['ID']?>" class="btn btn-danger">Quitar</a></td>
 
                     

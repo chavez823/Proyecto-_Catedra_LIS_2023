@@ -171,6 +171,32 @@
 					echo var_dump($_SESSION['CARRITO']);
 				}
 
-		
+				public function delete($ID){
+						//Aqui se define cada objeto del carrito mediante del indice
+						foreach ($_SESSION['CARRITO'] as $indice => $producto) {
+							if($producto['ID']==$ID){
+								unset($_SESSION['CARRITO'][$indice]);
+								echo "<script>alert('Elemento borrado...');</script>";
+							}
+						}
+						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
+				}
+				public function restar($ID, $CANTIDAD=1){
+					$carro=$_SESSION['CARRITO'];
+					foreach ($carro as $indice => $producto) {
+					if($producto['ID']==$ID){
+						$identificador=$indice;
+						$cantidadActual=$producto['CANTIDAD'];
+						}
+					}
+					if($cantidadActual==1){
+						unset($_SESSION['CARRITO'][$identificador]);
+					}
+					else{
+						$carro[$identificador]['CANTIDAD'] -= $CANTIDAD;
+						$_SESSION['CARRITO']=$carro;
+					}
+					header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
+				}
 	}
 ?>
