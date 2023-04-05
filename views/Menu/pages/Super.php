@@ -17,7 +17,10 @@
     <?php
 
     foreach($ot as $cupones){?>
-        
+         <?php
+            $info = ['ID' => $cupones['ID_Oferta'], 'vista' => 5];
+            $info_carrito = implode("/", $info);
+         ?>
          
                 <div class="col-md-4">
                   <div class="card">
@@ -26,18 +29,7 @@
                     <div class="main-text">
                       <h1><?php echo $cupones['Titulo'] ?></h1>
                       <p>$<?php echo $cupones['PrecioOferta'] ?></p>
-                      <form action="" method="post">
-                        <input type="hidden" name="id" id="id" value="<?php echo  $cupones['ID_Oferta'];?>">
-                        <input type="hidden" name="nombre" id="nombre" value="<?php echo $cupones['Titulo'];?>">
-                        <input type="hidden" name="precio" id="precio" value="<?php echo $cupones['PrecioOferta'];?>">
-                        <input type="hidden" name="cantidad" id="cantidad" value="<?php echo 1;?>">
-                        <button class="btn btn-primary" 
-                                type="submit" 
-                                name="btnAccion" 
-                                value="Agregar"
-                                >Agregar al carrito
-                        </button>
-                      </form>                     
+                      <a href="index.php?c=Inicio&a=carrito&id=<?=$info_carrito?>" class="btn btn-primary">Agregar al carrito</a>                
                     </div>    
                   </div>
                 </div>
