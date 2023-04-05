@@ -47,10 +47,16 @@
 
 		$otros->otros();
 		$ot=$otros->otros();
-		require_once "views/Menu/pages/salud.php";
+		require_once "views/Menu/pages/Super.php";
 		}
 
+		public function super(){
+			$super =  new Categoria_model();
 
+		$super->super();
+		$su=$super->super();
+		require_once "views/Menu/pages/Super.php";
+		}
 		
 
 		

@@ -28,7 +28,7 @@
 		}
 	
 		public function restaurante(){
-			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='Restaurante");		
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='Restaurante'");		
 			$sentencia->execute();			
 			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 			return $listaOfertas;
@@ -44,6 +44,14 @@
 	
 		public function otros(){
 			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='otros'");		
+			$sentencia->execute();
+			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
+		}
+
+		public function super(){
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='super'");		
 			$sentencia->execute();
 			
 			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
