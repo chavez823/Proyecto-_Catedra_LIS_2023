@@ -13,9 +13,9 @@
     <title>BUYIT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!--Propio-->
-    <link rel="stylesheet" href="../css/style_1.css">
+    <link rel="stylesheet" href="css/style_1.css">
     <!--Slider-->
-    <link rel="stylesheet" href="../css/style_2_s.css">
+    <link rel="stylesheet" href="css/style_2_s.css">
   </head>
   <body >
   <header>
