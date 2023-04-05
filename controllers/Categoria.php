@@ -22,19 +22,41 @@
 
 		$belleza->belleza();
 		$ofertas=$belleza->belleza();
-          // print_r($belleza);
-		 // var_dump($ofertas);
-		  
 		require_once "views/Menu/pages/Belleza.php";
-		//echo "sirve ";
-
 		}
 
 
+		public function restaurante (){
+		$restaurante =  new Categoria_model();
+		$restaurante->restaurante();
+		$resta=$restaurante->restaurante();
+		require_once "views/Menu/pages/Restaurante.php";
+		}
+         
 
 
+		public function salud (){
+			$salud =  new Categoria_model();
+		$salud->salud();
+		$sa=$salud->salud();
+		require_once "views/Menu/pages/salud.php";
+		}
 
+		public function otros (){
+			$otros =  new Categoria_model();
 
+		$otros->otros();
+		$ot=$otros->otros();
+		require_once "views/Menu/pages/Super.php";
+		}
+
+		public function super(){
+			$super =  new Categoria_model();
+
+		$super->super();
+		$su=$super->super();
+		require_once "views/Menu/pages/Super.php";
+		}
 		
 
 		

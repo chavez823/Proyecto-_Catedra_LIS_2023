@@ -38,7 +38,7 @@
 			  <!--Nota jacky le borre () y lo demas lo comente  -->
             </li>
             <li class="nav-item">
-			      <a href="index.php?c=usuario"   class="nav-link">Login(<?php echo  !empty($_SESSION['session'])?$usuario[0]['Nombres']:"" ?>) <i class="fa-solid fa-user"></i></a>
+			      <a href="index.php?c=usuario"   class="nav-link">Login(<?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"" ?>) <i class="fa-solid fa-user"></i></a>
             </li> 
           </ul>
         </div>
@@ -46,6 +46,7 @@
     </nav>
 	 <!--luego puede ir el resto de la pagina -->
     <!--Slider-->
+    
     <div class="wrapper altura-a-b">
         
         <i id="left" class="fa-solid fa-angle-left"></i>
@@ -84,25 +85,7 @@
                       <p><?php echo $cupones['PrecioOferta'] ?></p>
                       <a href="index.php?c=Inicio&a=carrito&id=<?=$cupones['ID_Oferta']?>" class="btn btn-primary">Agregar al carrito nuevo</a>
                       </form>
-                        <!-- Modal -->
-                        <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                ...
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>  
-                        <!--End modal-->                
+                                    
                     </div>    
                   </div>
                 </div>

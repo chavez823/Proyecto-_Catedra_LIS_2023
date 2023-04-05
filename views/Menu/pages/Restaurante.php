@@ -1,13 +1,13 @@
 <?php
-  include '../templates/header.php'
+  include 'templates/header.php'
 ?>
     <!-- Main -->
     <!--Funcional con php-->
 
    <main> 
     <?php
-    $model=new OfertaModel();
-    $listaCupones=$model->get_oferta(2);  
+   // $model=new OfertaModel();
+    //$listaCupones=$model->get_oferta(2);  
     
     ?>
       
@@ -17,7 +17,7 @@
               <div class="row">
     <?php
 
-    foreach($listaCupones as $cupones){?>
+    foreach($resta as $cupones){?>
         
          
                 <div class="col-md-4">
@@ -69,7 +69,7 @@
 
   <!--Pie de la pagina-->
     <?php
-      include '../templates/footer.php'
+      include 'templates/footer.php'
     ?>
   </body>
 </html>

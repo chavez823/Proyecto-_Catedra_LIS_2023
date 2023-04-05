@@ -42,8 +42,8 @@ class ClienteController
         $Contrasenia = $_POST['password'];
         $Telefono = $_POST['telefono'];
         $Direccion = $_POST['direccion'];
-        //$Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-        $Token=1599;
+        $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+       // $Token=1599;
         $clientes = new Cliente_model();
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
        
@@ -55,26 +55,26 @@ class ClienteController
         } else {
 
 
-          //  $mail = new PHPMailer(true);
+           $mail = new PHPMailer(true);
 
             try {
 
-               /* $mail->SMTPDebug = 0;
+                $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'buyitshoplis@gmail.com';
-                $mail->Password = 'oprlelciqcyiqnde';
+                $mail->Username = '';
+                $mail->Password = '';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
-                $mail->setFrom('buyitshoplis@gmail.com', 'Tienda-tech.com');
+                $mail->setFrom('', 'Tienda-tech.com');
                 $mail->addAddress($Correo, $Nombres);
                 $mail->isHTML(true);
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-                $mail->send();*/
+                $mail->send();
 
-                session_start();
+               // session_start();
 
                 $_SESSION['registro_nuevo_cliente'] = array();
                 $_SESSION['registro_nuevo_cliente'][0] = $Dui;
@@ -92,7 +92,7 @@ class ClienteController
 
                 exit();
             } catch (Exception $e) {
-              //  echo "Nose envió su token vuelva a intentarlo. Mailer Error: {$mail->ErrorInfo}";
+                echo "Nose envió su token vuelva a intentarlo. Mailer Error: {$mail->ErrorInfo}";
             }
         }
     }
@@ -106,7 +106,7 @@ class ClienteController
         $Tipo="Cliente";
         $clientes = new Cliente_model();
         $usuario=  new  Usuario_model();
-        session_start();
+       // session_start();
         if ($_SESSION['registro_nuevo_cliente'][4] == $email || $_SESSION['registro_nuevo_client'][7] = $verification_code) {
                
 
@@ -114,7 +114,7 @@ class ClienteController
             $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][4],  $_SESSION['registro_nuevo_cliente'][3],$Tipo);
 
            $clientes->insertar($_SESSION['registro_nuevo_cliente'][0], $_SESSION['registro_nuevo_cliente'][1], $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][3], $_SESSION['registro_nuevo_cliente'][4], $_SESSION['registro_nuevo_cliente'][5], $_SESSION['registro_nuevo_cliente'][6], $_SESSION['registro_nuevo_cliente'][7], $_SESSION['registro_nuevo_cliente'][8]);
-            session_destroy();
+            //session_destroy();
             $this->login();
         } else {
             echo "Correo y/o código equivocado";
