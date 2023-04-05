@@ -233,8 +233,5 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script  src="js/script.js"></script>
  
 </body>
-<?php
-include 'templates/footer.php';
-?>
 </html>
 
