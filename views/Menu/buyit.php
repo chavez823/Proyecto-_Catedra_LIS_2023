@@ -79,10 +79,10 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="img1"><img src="<?php echo $cupones['Imagen'] ?>" alt=""></div><!--Fondo CARD-->
-                    <div class="img2"><img src="img/ramen_3.jpg" alt=""></div>                  
+                                      
                     <div class="main-text">
                       <h1><?php echo $cupones['Titulo'] ?></h1>
-                      <p><?php echo $cupones['PrecioOferta'] ?></p>
+                      <p>$<?php echo $cupones['PrecioOferta'] ?></p>
                       <a href="index.php?c=Inicio&a=carrito&id=<?=$cupones['ID_Oferta']?>" class="btn btn-primary">Agregar al carrito</a>
                       </form>
                                     
