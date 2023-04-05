@@ -43,18 +43,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-            <li class="nav-item">
-              
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito">Carrito(<?php
-                        //condicionador ternario
-                        echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
-                    ?>)</a>
+          <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
           
-            <li class="nav-item">  
-            </li>
           </ul> 
         </div>
       </div>
