@@ -13,39 +13,14 @@
 		}
 		
 
-		/*public function get_inicio()
-		{
-			$sql = " SELECT * FROM `oferta` LIMIT 3";
-			$resultado = $this->db->query($sql);
-			while($row = $resultado->fetch_assoc())
-			{
-				$this->ofertas[] = $row;
-			}
-			return $this->ofertas;
-
-
-			$sentencia=$this->pdo->prepare("SELECT * FROM `oferta` LIMIT 3");
-			$sentencia->execute();
-			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-
-
-			//$sql = "SELECT * FROM `oferta` LIMIT 3";
-			//$resultado = $this->db->query($sql);
-			//while($row = $resultado->fetch_assoc())
-			//{
-			//	$this->ofertas[] = $row;
-			//}
-			
-			return $listaOfertas;
-		}*/
-	
+		
 
 
 		//Intentado actualizar consultas de mysqli a pdo
 
 		  //consultas para las categorias  segun su id de empresa 
 		  public function belleza(){
-			$sentencia=$this->pdo->prepare( " SELECT * FROM `oferta` WHERE ID_Empresa='EMP004'");		
+			$sentencia=$this->pdo->prepare( " SELECT * FROM `oferta` WHERE Categoria='Belleza'");		
 			$sentencia->execute();
 			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 			return $listaOfertas;
@@ -53,22 +28,22 @@
 		}
 	
 		public function restaurante(){
-			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE ID_Empresa='EMP001'");		
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='Restaurante");		
 			$sentencia->execute();			
 			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 			return $listaOfertas;
 		}
 	
 		public function salud(){
-			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE ID_Empresa='EMP003'");		
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='Salud'");		
 			$sentencia->execute();
 			
 			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 			return $listaOfertas;
 		}
 	
-		public function super(){
-			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE ID_Empresa='EMP002'");		
+		public function otros(){
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='otros'");		
 			$sentencia->execute();
 			
 			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
