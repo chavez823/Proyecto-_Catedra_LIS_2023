@@ -23,7 +23,7 @@
                 </button>
 
                 <button type="submit" class="go-home">
-                    <a class="sin_" href="index.php?c=Inicio&a=pdf">Crear Factura (PDF)</a> 
+                    <a class="sin_" href="index.php?c=Inicio&a=generarPdf">Crear Factura (PDF)</a> 
                 </button>
             </div>
          <!--   <div class="footer-like">
