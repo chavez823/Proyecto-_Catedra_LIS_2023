@@ -10,9 +10,9 @@ class UsuarioController{
         require_once "views/Usuario/login.php";	
     }
 
-    public function pagina(){
+   /* public function pagina(){
         require_once "views/Menu/principal.php";
-    }
+    }*/
 
    /* public function sesion(){ 
         $Correo = $_POST['email'];
