@@ -33,6 +33,7 @@
                       <a href="index.php?c=Inicio&a=carrito&id=<?=$info_carrito?>" class="btn btn-primary">Agregar al carrito</a>                     
                     </div>    
                   </div>
+                  <br>
                 </div>
 
     

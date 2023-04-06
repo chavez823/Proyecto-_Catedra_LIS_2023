@@ -98,24 +98,42 @@ VALUES ('1', 'Sal�n de belleza'), ('2', 'Restaurante '),
  ('5', 'Super mercado'), ('6', 'Farmacia');
 INSERT INTO empresa (ID_Empresa,  Nombre, Direccion, NombreContacto, Telefono, Correo, PorcentajeComision, ID_Rubro) 
 VALUES 
-('EMP001', 'Pollo de Oro', 'Blvr. del ej�rcito, Centro comercial Plaza Mundo, 2� nivel, Soyapango ', 'Mario Rivas', '77223344', 'armando.lopez@lis.com', '0.1', '2'), ('EMP002', 'El Super De Todos', 'PR2X+6P5, Blvr. del Ejercito Nacional, Soyapango', 'Luis Garcia', '77669955', 'super.todos@lis.com', '0.05', '5'),
+('EMP001', 'Pollo de Oro', 'Blvr. del ejercito, Centro comercial Plaza Mundo, 2 nivel, Soyapango ', 'Mario Rivas', '77223344', 'armando.lopez@lis.com', '0.1', '2'), ('EMP002', 'El Super De Todos', 'PR2X+6P5, Blvr. del Ejercito Nacional, Soyapango', 'Luis Garcia', '77669955', 'super.todos@lis.com', '0.05', '5'),
  ('EMP003', 'Farmacia Amigo','Frente a, Entre 5a y 7a Avenida Norte y, 15 Calle Pte., San Salvador', 'Arturo Ram�rez ', '66789045', 'farma.amigo@gmail.com', '0.15', '6'), ('EMP004', 'Destellos Vicky Sal�n ', 'P.� Gral. Escal�n 3656, San Salvador', 'Victoria Flores', '77452987', 'destellos.vicky@lis.com', '0.08', '1');
 Insert INTO  oferta (ID_Oferta , Titulo, Categoria, CantLimite, Descripcion,Detalles,FechaInicio, FechaFin, PrecioOriginal, PrecioOferta, Imagen,ID_Empresa, ID_EstadoOferta, Justificacion, FechaLimite)
-values ('1', 'Domingos de Familia', 'Restaurante', '80', 'La familia solo pagara la mitad de cada Plato del restaurante', 'Incluye postres y bebida ', '2023-05-01','2023-08-01','9.50','4.75','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP001','3', '', '2023-08-01'),
-('2', 'Lunes de hamburguesas al 2X1 ', 'Restaurante', '80', 'Por la compra de una hamburguesa te llevas dos ', 'Incluye papas y bebida ', '2023-05-01', '2023-08-01','14','7','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP001','3', '', '2023-08-01'),
-('3', 'Miercoles de alitas','Restaurante', '80', 'Al compar el primer combo de alitas tellevas el Segundo a mitad de precio', 'Incluye papas y bebida', '2023-05-01', '2023-08-01','16','12','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP001','1', '', '2023-08-01'), 
-('4', 'Viernes de pizza ','Restaurante', '80', 'Todas las pizza amitad de precio', 'Incluye Bebida', '2023-05-01', '2023-08-01','9.50','4.75','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP001','2', '', '2023-08-01'),
-('5', 'Martes de cortes', 'Belleza', '100', 'por el primer corte de cabello el segundo amitad de precio', 'Cualquier estilo de corte', '2023-05-01', '2023-08-01','6','4.50','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','3', '', '2023-08-01') ,
-('6', 'Manicura al 2x1','Belleza', '100', 'por la primera manicura te llevas la segunda gratis ', 'No importa el largo de la u�a', '2023-05-01', '2023-08-01','24','12','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','3', '', '2023-08-01'),
-('7', 'Miercoles de alisados', 'Belleza', '100', 'Todos los alisados con un 40% de descuento', 'No importa el largo de cabello y el estilo de alisado', '2023-05-01', '2023-08-01','25','15','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','3', '', '2023-08-01'),
-('8', 'Tinte mas corte de cabello ', 'Belleza', '100', 'por la compra de un tinte te llevas un corte de cabello gratis' , 'Cualquier largo de cabello', '2023-05-01', '2023-08-01','6','4.50','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','1', '', '2023-08-01'),
-('9', 'Pedicura y manicura',  'Belleza','100',  'por el precio de uno te llevas el otro gratis', 'Cualquier dia de la semana', '2023-05-01', '2023-08-01','20','10','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','3', '', '2023-05-01'),
-('10', 'Corte de cabello mas mechas', 'Belleza', '100', 'Por un corte de cabello puedes pedir tus mechas gratis', 'Cualquier estilo de corte', '2023-05-01', '2023-08-01','6','4.50','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','3', '', '2023-08-01'),
-('11', 'Jueves dia de Pigmentacion con hena ', 'Belleza', '100', 'Pigmenta tus cejas amitad de precio', 'Cualquier tono de hena', '2023-05-01', '2023-08-01','6','4.50','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','4', '', '2023-08-01'),
-('12', 'Jamon al 2x1', 'Embutidos', '100',  'por la compra de un jamon te llevas el segundo gratis', 'valido todos los fines de semana', '2023-05-01', '2023-05-01','6','4.50','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP001','6', 'No cumple los reglametos de la cuponeria', '2023-05-01'),
-('13', 'Viertes todo amitad de precio','otros', '100', 'Todos los productos a mitad de precio', 'No importa la cantidad de productos', '2023-05-01', '2023-08-01','6','4.50','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP002','3', '', '2023-08-01'),
-('14', 'Dia de frutas','frutas', '100', 'La libra de frutas con un 40% de descuento', 'Cualquier estilo de corte', '2023-05-01', '2023-08-01','4','2.40','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP002','3', '', '2023-08-01'),
-('15', 'Sabado de mechas','Belleza', '100',  'Mechas con el 25% de descuento', 'No importa el largo del cabello', '2023-04-01', '2023-04-03','25','15','https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4842/9781484217290.jpg','EMP004','5', 'No cumple los reglametos de la cuponeria ', '2023-04-03');
+Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la mitad de cada Plato del restaurante', 'Incluye postres y bebida ', '2023-05-01', '2023-08-01', 9.5, 4.75, 'https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_1280.jpg', 'EMP001', 3, '', '2023-08-01'),
+(2, 'Lunes de hamburguesas al 2X1 ', 'Restaurante', 80, 'Por la compra de una hamburguesa te llevas dos ', 'Incluye papas y bebida ', '2023-05-01', '2023-08-01', 14, 7, 'https://cdn.pixabay.com/photo/2020/06/24/22/08/spicy-5337836_1280.jpg', 'EMP001', 3, '', '2023-08-01'),
+(3, 'Miercoles de alitas', 'Restaurante', 80, 'Al compar el primer combo de alitas tellevas el Segundo a mitad de precio', 'Incluye papas y bebida', '2023-05-01', '2023-08-01', 16, 12, 'https://cdn.pixabay.com/photo/2016/07/31/18/00/chicken-1559579_1280.jpg', 'EMP001', 1, '', '2023-08-01'),
+(4, 'Viernes de pizza ', 'Restaurante', 80, 'Todas las pizza amitad de precio', 'Incluye Bebida', '2023-05-01', '2023-08-01', 9.5, 4.75, 'https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg', 'EMP001', 2, '', '2023-08-01'),
+(5, 'Martes de cortes', 'Belleza', 100, 'por el primer corte de cabello el segundo amitad de precio', 'Cualquier estilo de corte', '2023-05-01', '2023-08-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2019/10/11/12/23/hair-4541747_1280.jpg', 'EMP004', 3, '', '2023-08-01'),
+(6, 'Manicura al 2x1', 'Belleza', 100, 'por la primera manicura te llevas la segunda gratis ', 'No importa el largo de la uña', '2023-05-01', '2023-08-01', 24, 12, 'https://cdn.pixabay.com/photo/2017/08/05/13/13/people-2583493_1280.jpg', 'EMP004', 3, '', '2023-08-01'),
+(7, 'Miercoles de alisados', 'Belleza', 100, 'Todos los alisados con un 40% de descuento', 'No importa el largo de cabello y el estilo de alisado', '2023-05-01', '2023-08-01', 25, 15, 'https://cdn.pixabay.com/photo/2019/11/20/06/27/hair-4639295_1280.jpg', 'EMP004', 3, '', '2023-08-01'),
+(8, 'Tinte mas corte de cabello ', 'Belleza', 100, 'por la compra de un tinte te llevas un corte de cabello gratis', 'Cualquier largo de cabello', '2023-05-01', '2023-08-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_1280.jpg', 'EMP004', 1, '', '2023-08-01'),
+(9, 'Pedicura y manicura', 'Belleza', 100, 'por el precio de uno te llevas el otro gratis', 'Cualquier dia de la semana', '2023-05-01', '2023-08-01', 20, 10, 'https://cdn.pixabay.com/photo/2017/03/02/20/55/nail-varnish-2112364_1280.jpg', 'EMP004', 3, '', '2023-05-01'),
+(10, 'Corte de cabello mas mechas', 'Belleza', 100, 'Por un corte de cabello puedes pedir tus mechas gratis', 'Cualquier estilo de corte', '2023-05-01', '2023-08-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2019/10/11/12/29/hair-4541766_1280.jpg', 'EMP004', 3, '', '2023-08-01'),
+(11, 'Jueves dia de Pigmentacion con hena ', 'Belleza', 100, 'Pigmenta tus cejas amitad de precio', 'Cualquier tono de hena', '2023-05-01', '2023-08-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2019/10/11/12/33/make-up-4541782_1280.jpg', 'EMP004', 4, '', '2023-08-01'),
+(12, 'Jamon al 2x1', 'otros', 100, 'por la compra de un jamon te llevas el segundo gratis', 'valido todos los fines de semana', '2023-05-01', '2023-05-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2017/05/02/14/55/black-forest-ham-2278383_1280.jpg', 'EMP001', 6, 'No cumple los reglametos de la cuponeria', '2023-05-01'),
+(13, 'Viertes todo amitad de precio', 'otros', 100, 'Todos los productos a mitad de precio', 'No importa la cantidad de productos', '2023-05-01', '2023-08-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2015/09/21/14/23/supermarket-949912_1280.jpg', 'EMP002', 3, '', '2023-08-01'),
+(14, 'Dia de frutas', 'otros', 100, 'La libra de frutas con un 40% de descuento', 'Cualquier estilo de corte', '2023-05-01', '2023-08-01', 4, 2.4, 'https://cdn.pixabay.com/photo/2013/02/04/22/47/fruits-77946_1280.jpg', 'EMP002', 3, '', '2023-08-01'),
+(15, 'Sabado de mechas', 'Belleza', 100, 'Mechas con el 25% de descuento', 'No importa el largo del cabello', '2023-04-01', '2023-04-03', 25, 15, 'https://cdn.pixabay.com/photo/2019/11/20/06/27/hair-4639295_1280.jpg', 'EMP004', 5, 'No cumple los reglametos de la cuponeria ', '2023-04-03');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 INSERT INTO usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
 VALUES 
  ('0' , 'Armando' , 'L�pez', '234567', 'armando.lopez@lis.com', 'Administrador'),
