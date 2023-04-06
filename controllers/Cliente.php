@@ -51,7 +51,8 @@ class ClienteController
         if ($clientes->registrodui($Dui) > 0 || $clientes->registrocorreo($Correo) > 0) {
             //echo var_dump($clientes->registrodui($Dui));
             //echo var_dump($clientes->registrocorreo($Correo));
-            echo "Dui y/o correo ya están en uso ";
+           // echo "Dui y/o correo ya están en uso ";
+           echo '<script language="javascript">alert("Dui y/o correo ya están en uso");window.location.href="index.php?c=cliente"</script>';
         } else {
 
 
@@ -117,7 +118,8 @@ class ClienteController
             //session_destroy();
             $this->login();
         } else {
-            echo "Correo y/o código equivocado";
+           // echo "Correo y/o código equivocado";
+           echo '<script language="javascript">alert("Error de autentificacion");window.location.href="index.html"</script>';
         }
     }
 }
