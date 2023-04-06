@@ -15,6 +15,7 @@
 
   </head>
   <body >
+
   <header>
     <!--Ingresando el nuevo menu-->
     <nav class="navbar navbar-expand-lg  fixed-top" style="background-color: #86A3B8;">
@@ -134,3 +135,8 @@
 <?php
 include 'templates/footer.php';
 ?>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!--SLIDER-->
+    <script src="https://kit.fontawesome.com/5c72b9dab8.js" crossorigin="anonymous"></script>
+    <script src="./js/slider.js"></script>
+
