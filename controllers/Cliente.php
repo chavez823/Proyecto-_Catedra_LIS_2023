@@ -146,7 +146,8 @@ class ClienteController
       
            array_push($errores,"Correo y/o código equivocado");
           
-         $this->verificacion();// require_once "views/cliente/cliente.php";
+        // $this->verificacion();// require_once "views/cliente/cliente.php";
+        require_once "views/cliente/emailverification.php";
         }
     }
 }
