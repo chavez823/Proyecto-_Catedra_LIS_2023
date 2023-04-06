@@ -16,6 +16,9 @@
     <!--Propio-->
     <link rel="stylesheet" href="css/style_1.css">
     <link rel="stylesheet" href="css/categories.css">
+     <!--alertas-->
+ <script src="js/alertify.js" type="text/javascript"></script>
+
 
 
     <title>Document</title>

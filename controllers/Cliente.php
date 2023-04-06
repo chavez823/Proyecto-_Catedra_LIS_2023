@@ -126,7 +126,7 @@ class ClienteController
         $clientes = new Cliente_model();
         $usuario=  new  Usuario_model();
        // session_start();
-        if ($_SESSION['registro_nuevo_cliente'][4] == $email || $_SESSION['registro_nuevo_client'][7] = $verification_code) {
+        if ($_SESSION['registro_nuevo_cliente'][4] == $email && $_SESSION['registro_nuevo_cliente'][7] == $verification_code) {
                
 
             $usuario->insertar_usuario($_SESSION['registro_nuevo_cliente'][8], $_SESSION['registro_nuevo_cliente'][1],
@@ -143,7 +143,8 @@ class ClienteController
       
            array_push($errores,"Correo y/o código equivocado");
           
-         $this->verificacion();// require_once "views/cliente/cliente.php";
+        // $this->verificacion();// require_once "views/cliente/cliente.php";
+        require_once "views/cliente/emailverification.php";
         }
     }
 }
