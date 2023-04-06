@@ -4,5 +4,5 @@ Options All -Indexes
 
 #Redireccionando errores a paginas de errores
 
-ErrorDocument 403 /views/errores/403.php
-ErrorDocument 404 /views/errores/404.php
+ErrorDocument 403 http://localhost/Proyecto-_Catedra_LIS_2023/views/Errores/403.html
+ErrorDocument 404 http://localhost/Proyecto-_Catedra_LIS_2023/views/Errores/404.html
