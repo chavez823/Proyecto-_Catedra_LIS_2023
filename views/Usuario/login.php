@@ -58,36 +58,6 @@
   </header>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
     <div class="container-login"> 
 		<div class="wrap-login"> 
@@ -113,12 +83,12 @@
                 <img class="avatar"src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="" align="center">
 					<!-- USUARIO --> 
 				<div class="wrap-input100"> 
-					<input class="input100" type="text" name="email" placeholder="Correo" required>	 
+					<input class="input100" type="text" name="email" placeholder="Correo" >	 
 					<span class="focus-efecto"></span> 
 				</div> 
 				<!-- CONTRASEÑA --> 
 				<div class="wrap-input100"> 
-					<input class="input100" type="password" name="password" placeholder="Contraseña" required> 
+					<input class="input100" type="password" name="password" placeholder="Contraseña"> 
 					<span class="focus-efecto"></span> 
 				</div>
                 <h6>¿No tienes una cuenta?</h6>

@@ -21,6 +21,18 @@
 			$Correo = $_POST['email'];
 			$Contrasenia=$_POST['password'];
 			$usuarios=new Usuario_model();
+
+			 if(empty($Correo) || empty($Contrasenia)){
+
+				$errores=array();
+      
+				array_push($errores,"Debes completar todos los campos");
+			   
+			  require_once "views/Usuario/login.php";
+				
+			 }
+
+			 else{
 			
 				if(count($usuarios->sesion($Correo,$Contrasenia)) > 0){
 					//echo var_dump($usuarios->sesion($Correo,$Contrasenia));
@@ -49,13 +61,14 @@
 					 // echo "Usuario y/o Contraseña incorrectos";
 					 $errores=array();
       
-					 array_push($errores,"Correo y/o código equivocado");
+					 array_push($errores,"Correo y/o contraseña equivocado");
 					
 				   require_once "views/Usuario/login.php";
 					 
 					  
 					 
 					}
+				}
 	
 				}
 
