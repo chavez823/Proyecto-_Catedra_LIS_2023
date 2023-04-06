@@ -86,8 +86,8 @@
                             
                     ?>
             <div class="box">
-            <input class="input" name="email" type="text" placeholder="email" >
-            <input class="input" name="verification_code" type="text" placeholder="Codigo de Verificacion" >
+            <input class="input" name="email" type="text" placeholder="email" required>
+            <input class="input" name="verification_code" type="text" placeholder="Codigo de Verificacion" required>
             
             </div>
                 <button type="submit" class="sesion" name="verify_email">

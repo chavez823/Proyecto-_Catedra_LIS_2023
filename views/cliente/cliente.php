@@ -77,22 +77,22 @@
                     <div class="column_1">
                         <!-- Nombre --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="name" placeholder="Nombres" >	 
+                            <input class="input100" type="text" name="name" placeholder="Nombres" required>	 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--DUI-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="dui" placeholder="DUI" > 
+                            <input class="input100" type="text" name="dui" placeholder="DUI" required> 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--Direccion-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="direccion" placeholder="Direccion" > 
+                            <input class="input100" type="text" name="direccion" placeholder="Direccion" required> 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--contraseña-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="password" name="password" placeholder="Contraseña" > 
+                            <input class="input100" type="password" name="password" placeholder="Contraseña" required> 
                             <span class="focus-efecto"></span> 
                         </div> 
                     </div>		
@@ -100,17 +100,17 @@
                     <div class="column_2">
                         <!-- Apellidos --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="apellido" placeholder="Apellidos" > 
+                            <input class="input100" type="text" name="apellido" placeholder="Apellidos" required> 
                             <span class="focus-efecto"></span> 
                         </div> 	
                          <!--Telefono-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="telefono" placeholder="Telefono" required> 
+                            <input class="input100" type="text" name="telefono" placeholder="Telefono"> 
                             <span class="focus-efecto"></span> 
                         </div>
                          <!--email-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="email" name="email" placeholder="Email" required  > 
+                            <input class="input100" type="text" name="email" placeholder="Email"> 
                             <span class="focus-efecto"></span> 
                         </div> 
 
