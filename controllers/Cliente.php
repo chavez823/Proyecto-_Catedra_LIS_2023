@@ -24,6 +24,7 @@ class ClienteController
     public function verificacion()
     {
         require_once "views/cliente/emailverification.php";
+        //echo var_dump($_SESSION['registro_nuevo_cliente']);
     }
 
     //muestra la pagina de login
@@ -47,15 +48,15 @@ class ClienteController
         $clientes = new Cliente_model();
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
        
+        
 
         if ($clientes->registrodui($Dui) != null || $clientes->registrocorreo($Correo) != null) {
-          //  echo var_dump($clientes->registrodui($Dui));
-          //  echo var_dump($clientes->registrocorreo($Correo));
+          //echo var_dump($clientes->registrodui($Dui));
+          //echo var_dump($clientes->registrocorreo($Correo));
            // echo "Dui y/o correo ya están en uso ";
            //echo '<script language="javascript">alert("Dui y/o correo ya están en uso");window.location.href="index.php?c=cliente"</script>';
-
-
-          $errores=array();
+          
+        $errores=array();
       
         array_push($errores,"Dui y/o correo ya están en uso");
           
@@ -63,7 +64,7 @@ class ClienteController
 
 
         } else {
-
+            
 
           // $mail = new PHPMailer(true);
 
@@ -114,6 +115,7 @@ class ClienteController
     
             }
         }
+        
     }
 
 
@@ -125,8 +127,9 @@ class ClienteController
         $Tipo="Cliente";
         $clientes = new Cliente_model();
         $usuario=  new  Usuario_model();
+       
        // session_start();
-        if ($_SESSION['registro_nuevo_cliente'][4] == $email || $_SESSION['registro_nuevo_client'][7] = $verification_code) {
+        if ($_SESSION['registro_nuevo_cliente'][4] == $email && $_SESSION['registro_nuevo_cliente'][7] == $verification_code) {
                
 
             $usuario->insertar_usuario($_SESSION['registro_nuevo_cliente'][8], $_SESSION['registro_nuevo_cliente'][1],
