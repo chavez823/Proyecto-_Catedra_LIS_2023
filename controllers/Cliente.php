@@ -48,28 +48,28 @@ class ClienteController
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
        
 
-        if ($clientes->registrodui($Dui) > 0 || $clientes->registrocorreo($Correo) > 0) {
-            //echo var_dump($clientes->registrodui($Dui));
-            //echo var_dump($clientes->registrocorreo($Correo));
+        if ($clientes->registrodui($Dui) != null || $clientes->registrocorreo($Correo) != null) {
+          //  echo var_dump($clientes->registrodui($Dui));
+          //  echo var_dump($clientes->registrocorreo($Correo));
            // echo "Dui y/o correo ya están en uso ";
            //echo '<script language="javascript">alert("Dui y/o correo ya están en uso");window.location.href="index.php?c=cliente"</script>';
 
 
-           $errores=array();
+          $errores=array();
       
-           array_push($errores,"Dui y/o correo ya están en uso");
+        array_push($errores,"Dui y/o correo ya están en uso");
           
-          require_once "views/cliente/cliente.php";
+        require_once "views/cliente/cliente.php";
 
 
         } else {
 
 
-         //  $mail = new PHPMailer(true);
+          // $mail = new PHPMailer(true);
 
             try {
 
-                /*$mail->SMTPDebug = 0;
+              /*  $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
@@ -85,6 +85,8 @@ class ClienteController
                 $mail->send();*/
 
                // session_start();
+              /* echo var_dump($clientes->registrodui($Dui));
+               echo var_dump($clientes->registrocorreo($Correo));*/
 
                 $_SESSION['registro_nuevo_cliente'] = array();
                 $_SESSION['registro_nuevo_cliente'][0] = $Dui;
@@ -97,18 +99,18 @@ class ClienteController
                 $_SESSION['registro_nuevo_cliente'][7] = $Token;
                 $_SESSION['registro_nuevo_cliente'][8] = $ID_Usuario;
 
-                $this->verificacion();
+               $this->verificacion();
 
 
-                exit();
+               exit();
             } catch (Exception $e) {
                // echo "Nose envió su token vuelva a intentarlo. Mailer Error: {/$mail->ErrorInfo}";
                $errores=array();
       
                array_push($errores,"Nose envió su token vuelva a intentarlo");
               
-             // require_once "views/cliente/cliente.php";
-             $this->verificacion();
+             require_once "views/cliente/cliente.php";
+             //$this->verificacion();
     
             }
         }

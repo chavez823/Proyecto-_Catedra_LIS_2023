@@ -55,7 +55,6 @@
         <!--OJO-->
 		<div class="wrap-login"> 
 			<form action="index.php?c=cliente&a=nuevo" method="post"> 
-
       <?php
                         if(isset($errores)){
                             if(count($errores)>0){
@@ -68,7 +67,8 @@
                             }
                         }
 
-                   ?>
+                            
+                    ?>
         
 				
 				<span class="login-form-title">Crear Cuenta</span> 		

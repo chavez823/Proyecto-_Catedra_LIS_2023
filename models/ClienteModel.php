@@ -39,11 +39,11 @@
 
            public function registrodui($Dui){
             $sentencia=$this->pdo->prepare("SELECT * FROM Cliente WHERE DUI='$Dui'");
-          /*  $sentencia->execute();
+           /* $sentencia->execute();
             $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
             $num=array_sum($row);
             return  $num;*/
-            $sentencia->execute();
+           $sentencia->execute();
 		$row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
         return  $row;
                 
@@ -56,7 +56,7 @@
            /* $sentencia->execute();
             $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
             $num=array_sum($row);
-            return  $num; */ 
+            return  $num; */
             $sentencia->execute();
 		$row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
         return  $row;
