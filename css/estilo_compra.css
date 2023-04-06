@@ -1,0 +1,72 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700);
+body{
+    background-color: #d8deea;
+}
+.container{
+margin-top: 70px;
+}
+
+h3, p {
+  
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
+  font-size: 1.14em;
+}
+
+p span.forte {
+  font-weight: 600;
+}
+
+i.verde {
+  color: #bada55;
+}
+
+i.griz {
+  color: #ccc;
+}
+
+.event_container {
+  background: #f4f4f4;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 300;
+  margin-top: 0.75em;
+  /* event online */
+  /* event offline */
+}
+.event_container .event-details {
+  margin-top: 15px;
+}
+.event_container h5 {
+  margin-top: 0;
+  text-transform: uppercase;
+  line-height: 135%;
+}
+.event_container .event {
+  text-align: center;
+  padding-top: 23px;
+  line-height: 150%;
+  cursor: pointer;
+  height: 85px;
+  font-weight: 400;
+}
+.event_container .event_online {
+  background: #bada55;
+}
+
+
+/* Medium Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .attendees .headers {
+    display: none;
+  }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .event_container .event {
+    height: 100px;
+  }
+}
