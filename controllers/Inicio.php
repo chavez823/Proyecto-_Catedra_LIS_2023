@@ -104,7 +104,8 @@
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
 						}
 					}else{ 
-						$IdProductos=array_column($_SESSION['CARRITO'],"ID"); //array column deposita todos los ids que estan en el carrito de compras
+						$IdProductos=array_column($_SESSION['CARRITO'],"ID"); 
+						//array column deposita todos los ids que estan en el carrito de compras
 						if(in_array($ID,$IdProductos)){
 							$carro=$_SESSION['CARRITO'];
 							$codigo_producto=$ID;
