@@ -88,6 +88,20 @@
     <div class="container-login"> 
 		<div class="wrap-login"> 
 			<form action="index.php?c=Inicio&a=sesion" method="post"> 
+      <?php
+                        if(isset($errores)){
+                            if(count($errores)>0){
+                                echo "<div class='alert alert-danger'><ul>";
+                                foreach ($errores as $error) {
+                                    echo "<li>$error</li>";
+                                }
+                                echo "</ul></div>";
+
+                            }
+                        }
+
+                            
+                    ?>
 
 				<!-- LOGO --> 
 				<span class="login-form-title">Iniciar Sesión</span> 

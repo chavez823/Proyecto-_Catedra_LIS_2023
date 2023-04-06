@@ -52,7 +52,16 @@ class ClienteController
             //echo var_dump($clientes->registrodui($Dui));
             //echo var_dump($clientes->registrocorreo($Correo));
            // echo "Dui y/o correo ya están en uso ";
-           echo '<script language="javascript">alert("Dui y/o correo ya están en uso");window.location.href="index.php?c=cliente"</script>';
+           //echo '<script language="javascript">alert("Dui y/o correo ya están en uso");window.location.href="index.php?c=cliente"</script>';
+
+
+           $errores=array();
+      
+           array_push($errores,"Dui y/o correo ya están en uso");
+          
+          require_once "views/cliente/cliente.php";
+
+
         } else {
 
 
@@ -94,6 +103,13 @@ class ClienteController
                 exit();
             } catch (Exception $e) {
                // echo "Nose envió su token vuelva a intentarlo. Mailer Error: {/$mail->ErrorInfo}";
+               $errores=array();
+      
+               array_push($errores,"Nose envió su token vuelva a intentarlo");
+              
+             // require_once "views/cliente/cliente.php";
+             $this->verificacion();
+    
             }
         }
     }
@@ -119,7 +135,13 @@ class ClienteController
             $this->login();
         } else {
            // echo "Correo y/o código equivocado";
-           echo '<script language="javascript">alert("Error de autentificacion");window.location.href="index.html"</script>';
+           //echo '<script language="javascript">alert("Error de autentificacion");window.location.href="index.html"</script>';
+
+           $errores=array();
+      
+           array_push($errores,"Correo y/o código equivocado");
+          
+         $this->verificacion();// require_once "views/cliente/cliente.php";
         }
     }
 }

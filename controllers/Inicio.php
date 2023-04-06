@@ -46,7 +46,13 @@
 					else{
 	  
 					
-					  echo "Usuario y/o Contraseña incorrectos";
+					 // echo "Usuario y/o Contraseña incorrectos";
+					 $errores=array();
+      
+					 array_push($errores,"Correo y/o código equivocado");
+					
+				   require_once "views/Usuario/login.php";
+					 
 					  
 					 
 					}

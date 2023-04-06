@@ -68,6 +68,20 @@
             dGRhdGU6bW9kaWZ5ADIwMjMtMDItMTNUMTM6MTU6NTArMDA6MDDR4Z0WAAAAKHRFWHRkYXRlOnRp
             bWVzdGFtcAAyMDIzLTAyLTEzVDEzOjE1OjUxKzAwOjAwIIO3fQAAAABJRU5ErkJggg=="></image>
             </svg>
+            <?php
+                        if(isset($errores)){
+                            if(count($errores)>0){
+                                echo "<div class='alert alert-danger'><ul>";
+                                foreach ($errores as $error) {
+                                    echo "<li>$error</li>";
+                                }
+                                echo "</ul></div>";
+
+                            }
+                        }
+
+                            
+                    ?>
             <div class="box">
             <input class="input" name="email" type="text" placeholder="email" required>
             <input class="input" name="verification_code" type="text" placeholder="Codigo de Verificacion" required>
