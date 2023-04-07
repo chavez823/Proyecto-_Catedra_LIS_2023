@@ -32,11 +32,6 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php?c=Inicio">Inicio</a>
             </li>
-            <!--<li class="nav-item">
-              <a class="nav-link active" href="../pages/Categorias.php">Categorias</a>
-            </li>-->
-        
-
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorias
@@ -138,5 +133,5 @@ include 'templates/footer.php';
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!--SLIDER-->
     <script src="https://kit.fontawesome.com/5c72b9dab8.js" crossorigin="anonymous"></script>
-    <script src="./js/slider.js"></script>
+    <script src="js/slider.js"></script>
 
