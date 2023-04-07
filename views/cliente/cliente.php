@@ -77,22 +77,22 @@
                     <div class="column_1">
                         <!-- Nombre --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="name" placeholder="Nombres" required>	 
+                            <input class="input100" type="text" name="name" placeholder="Nombres" >	 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--DUI-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="dui" placeholder="DUI" required> 
+                            <input class="input100" type="text" name="dui" placeholder="DUI" > 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--Direccion-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="direccion" placeholder="Direccion" required> 
+                            <input class="input100" type="text" name="direccion" placeholder="Direccion"> 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--contraseña-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="password" name="password" placeholder="Contraseña" required> 
+                            <input class="input100" type="password" name="password" placeholder="Contraseña" > 
                             <span class="focus-efecto"></span> 
                         </div> 
                     </div>		
