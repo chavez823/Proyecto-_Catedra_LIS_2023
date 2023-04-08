@@ -107,7 +107,7 @@
                         </div> 	
                          <!--Telefono-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="telefono" placeholder="Telefono" value="<?php $Telefono ?>"> 
+                            <input class="input100" type="text" name="telefono" placeholder="Telefono" value="<?php if(isset($Telefono)) echo $Telefono  ?>"> 
                             <span class="focus-efecto"></span> 
                         </div>
                          <!--email-->
@@ -141,33 +141,14 @@
 
 <?php
     include 'templates/footer.php'
+    /*if(preg_match('/^[76][0-9]{7}$/',$Telefono)==true){
+      return var_dump(true);
+    }
+    else{
+      var_dump("false");
+    }*/
+    
   ?>
+ 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
