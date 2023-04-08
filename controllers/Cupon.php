@@ -7,10 +7,15 @@ class CuponController {
 		}
 		//abre la pagina de categorias
 		public function ver_cupon(){
+			if(!empty($_SESSION['session'])){
 			$model = new Cupon_model();
 			$DUI=$model->getDUI($_SESSION['session']['ID_Usuario']);
 			$cupones =$model->getCupones($DUI[0]['DUI']);
-			require_once "views/Compras/compras.php";
+			require_once "views/Compras/compras.php";}else{
+				
+				header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Usuario');
+			}
+
 		}
 
 		public function compra_completa()

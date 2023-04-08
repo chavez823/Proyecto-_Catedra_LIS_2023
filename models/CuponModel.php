@@ -28,7 +28,7 @@ class Cupon_model {
         return $oferta;
     }
     public function  getCupones($DUI){
-        $sentencia=$this->pdo->prepare("SELECT C.ID_Cupon, O.Titulo FROM cupon C 
+        $sentencia=$this->pdo->prepare("SELECT C.ID_Cupon, O.Titulo, O.Descripcion FROM cupon C 
         INNER JOIN Cliente Cl ON Cl.DUI=C.DUI INNER JOIN Oferta O ON O.ID_Oferta=C.ID_Oferta WHERE C.DUI like '$DUI' ORDER BY O.Titulo");
         $sentencia->execute();
         $oferta=$sentencia->fetchAll(PDO::FETCH_ASSOC);
