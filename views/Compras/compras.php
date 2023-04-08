@@ -70,9 +70,7 @@
   
   <?php
   //Pruebas
-  $cont=4;
-
-  for($i=0;$i<$cont;$i++){
+  foreach ($cupones as $cupon) {
   ?>
   <!-- Todo lo de abajo se tendra que repetir en el foreach para leer los datos de la base-->
   
@@ -93,11 +91,11 @@
             <div class="row">
                 <div class="col-sm-5">
                     <em>Nombre - Cupon</em>
-                    <h5>Lorem ipsum dolor sit amet consectetur </h5>
+                    <h5><?=$cupon['Titulo']?> </h5>
                 </div>
                 <div class="col-sm-2">
                     <em>Codigo</em>
-                    <h5>04/26/2017</h5>
+                    <h5><?=$cupon['ID_Cupon']?></h5>
                 </div>
             
             </div>

@@ -3,11 +3,14 @@ class CuponController {
 		
 		public function __construct(){
 			require_once "models/CuponModel.php";
+			
 		}
 		//abre la pagina de categorias
 		public function ver_cupon(){
-		
-			require_once "views/Compras/compras.php";	
+			$model = new Cupon_model();
+			$DUI=$model->getDUI($_SESSION['session']['ID_Usuario']);
+			$cupones =$model->getCupones($DUI[0]['DUI']);
+			require_once "views/Compras/compras.php";
 		}
 
 		public function compra_completa()
@@ -15,7 +18,6 @@ class CuponController {
 					//echo var_dump($_SESSION['CARRITO']);
 					//echo var_dump($_SESSION['session']);
 					$model = new Cupon_model();
-					
 				
 					foreach ($_SESSION['CARRITO'] as $cupon) {
 						for ($j=0; $j < $cupon['CANTIDAD']; $j++) { 
@@ -27,8 +29,8 @@ class CuponController {
 							}
 							//Definiendo valores a insertar a la tabla del cupon
 							$codigo_cupon=$nombre_empresa[0]['ID_Empresa'].$num_aleatorio;
-							$DUI="167564";
-							$model->insertar_cupon($codigo_cupon, $DUI,$cupon['ID'], 2);
+							$DUI=$model->getDUI($_SESSION['session']['ID_Usuario']);
+							$model->insertar_cupon($codigo_cupon, $DUI[0]['DUI'],$cupon['ID'], 2);
 						}
 					}
 
