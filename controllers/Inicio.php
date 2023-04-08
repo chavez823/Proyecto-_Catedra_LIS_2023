@@ -46,6 +46,7 @@ use PHPMailer\PHPMailer\Exception;
 					$usuario=$usuarios->sesion($Correo,$Contrasenia);
 					//echo var_dump($usuario);
 				    $_SESSION['session']=array();
+					$_SESSION['session']["ID_Usuario"]=   $usuario[0]['ID_Usuario'];
 					$_SESSION['session']["nombre"]=   $usuario[0]['Nombres'];
 					$_SESSION['session']["apellido"]=   $usuario[0]['Apellidos'];
 					$_SESSION['session']["tipo_usuario"]=   $usuario[0]['Tipo'];
