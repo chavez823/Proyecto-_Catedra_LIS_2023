@@ -117,24 +117,24 @@ class ClienteController
         } else {
             
 
-          // $mail = new PHPMailer(true);
+           $mail = new PHPMailer(true);
 
             try {
 
-               /* $mail->SMTPDebug = 0;
+                $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = '';
-                $mail->Password = '';
+                $mail->Username = 'yam182141@gmail.com';
+			    $mail->Password = 'sfxovgjaykgnmmgb';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
-                $mail->setFrom('', 'Tienda-tech.com');
+                $mail->setFrom('yam182141@gmail.com', 'Tienda-tech.com');
                 $mail->addAddress($Correo, $Nombres);
                 $mail->isHTML(true);
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-                $mail->send();*/
+                $mail->send();
 
                // session_start();
               /* echo var_dump($clientes->registrodui($Dui));

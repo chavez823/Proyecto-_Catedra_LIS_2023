@@ -38,7 +38,7 @@
 			 }
 
 			 /*Con el correo Semita@horchata no dejara logearse*/
-			 if(validar_correo($Correo)){
+			 if(!validar_correo($Correo)){
 				$errores=array();
 				array_push($errores, "Tienes que ingresar un correo Valido");
 				require_once "views/Usuario/login.php";
@@ -98,7 +98,7 @@
 			 }
 
 			/*Con el correo Semita@horchata no dejara logearse*/
-			 if(validar_correo($Correo)){
+			 if(!validar_correo($Correo)){
 				$errores=array();
 				array_push($errores, "Tienes que ingresar un correo Valido");
 				require_once "views/Usuario/login.php";
@@ -114,12 +114,12 @@
 					$nombre=  $cambio[0]['Nombres'];
 					//$_SESSION['enviocontra']["id"]=  " $cambio[0]['ID_Usuario']";
 					
-				   // $mail = new PHPMailer(true);
+				    $mail = new PHPMailer(true);
 					
 
 					try {
 
-						/* $mail->SMTPDebug = 0;
+						  $mail->SMTPDebug = 0;
 						  $mail->isSMTP();
 						  $mail->Host = 'smtp.gmail.com';
 						  $mail->SMTPAuth = true;
@@ -132,7 +132,7 @@
 						  $mail->isHTML(true);
 						  $mail->Subject = 'Verificación de Correo ';
 						  $mail->Body    = '<p>Tu nueva contraseña de verificación para BUYIT es : <b style="font-size: 30px;">' . $Contrasenia . '</b></p>';
-						  $mail->send();*/
+						  $mail->send();
 
 						  //modificando la contrseña en la base de datos
 						  $usuarios->modificar_contraseña($Correo,$Contrasenia);
