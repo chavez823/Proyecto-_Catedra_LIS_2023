@@ -102,8 +102,8 @@ require 'class.phpmailer.php';
 				if(count($usuarios->registrocorreo($Correo)) > 0){
 					$Contrasenia=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
 					
-				    //$mail = new PHPMailer(true);
-					$mail = new PHPMailer\PHPMailer\PHPMailer(true);
+				    $mail = new PHPMailer(true);
+					
 
 					try {
 
