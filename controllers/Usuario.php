@@ -10,6 +10,16 @@ class UsuarioController{
         require_once "views/Usuario/login.php";	
     }
 
+    public function recuperacion(){
+        require_once "views/Usuario/recuperacioncontraseña.php";	
+    }
+
+
+
+
+
+
+
    /* public function pagina(){
         require_once "views/Menu/principal.php";
     }*/

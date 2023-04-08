@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/style_1.css">
     <link rel="stylesheet" href="css/categories.css">
 
+
+
 </head>
 <body>
 
@@ -52,7 +54,7 @@
   
     <div class="container-login"> 
 		<div class="wrap-login"> 
-			<form action="index.php?c=Inicio&a=sesion" method="post"> 
+			<form action="index.php?c=Inicio&a=recuperar" method="post"> 
       <?php
                         if(isset($errores)){
                             if(count($errores)>0){
@@ -69,7 +71,7 @@
                     ?>
 
 				<!-- LOGO --> 
-				<span class="login-form-title">Iniciar Sesión</span> 
+				<span class="login-form-title">Recuperación de Contraseña</span> 
 				<!--<img class="avatar"src="img/user.svg" alt="" align="center"> -->
                 <img class="avatar"src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="" align="center">
 					<!-- USUARIO --> 
@@ -77,18 +79,14 @@
 					<input class="input100" type="text" name="email" placeholder="Correo" >	 
 					<span class="focus-efecto"></span> 
 				</div> 
-				<!-- CONTRASEÑA --> 
-				<div class="wrap-input100"> 
-					<input class="input100" type="password" name="password" placeholder="Contraseña"> 
-					<span class="focus-efecto"></span> 
-				</div>
+				
                 <h6>¿No tienes una cuenta?</h6>
                 <h6>Regístrate<a href="index.php?c=cliente" class="">   aquí</a>
+	            </h6>	
+                <br>
+                <h6>¿Olvidaste tu contraseña?</h6>
+                <h6>Recupérala<a href="index.php?c=cliente" class="">  aquí</a>
 	            </h6>			
-<br>
-<h6>¿Olvidastes tu contrseña?</h6>
-                <h6>Recuperala<a href="index.php?c=usuario&a=recuperacion" class="">   aquí</a>
-	            </h6>
                 <button class="sesion">
                     Ingresar
                 </button>

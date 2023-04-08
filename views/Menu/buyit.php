@@ -30,16 +30,16 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php?c=categoria">Categorias</a>
             </li>
-           <!-- <li class="nav-item">
-              <a class="nav-link" href="./pages/Contacto.php">Contacto</a>
-            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?c=usuario">prueba login</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito"><i class="fa-solid fa-cart-shopping"></i> (<?php echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?>)</a>
 			  <!--Nota jacky le borre () y lo demas lo comente  -->
             </li>
             <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="index.php?c=usuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></i></a>
+          <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></a></i>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item active" href="index.php?c=cupon&a=ver_cupon">Historial de cupones</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -56,15 +56,15 @@
         
         <i id="left" class="fa-solid fa-angle-left"></i>
         <div class="carousel">
-            <img src="img/slider/img-1.jpg" alt="">
-            <img src="img/slider/img-2.jpg" alt="">
-            <img src="img/slider/img-3.jpg" alt="">
-            <img src="img/slider/img-4.jpg" alt="">
-            <img src="img/slider/img-5.jpg" alt="">
-            <img src="img/slider/img-6.jpg" alt="">
-            <img src="img/slider/img-7.jpg" alt="">
-            <img src="img/slider/img-8.jpg" alt="">
-            <img src="img/slider/img-9.jpg" alt="">                
+            <img src="img/slider/IMAGEN-1.jpg" alt="">
+            <img src="img/slider/IMAGEN-2.jpg" alt="">
+            <img src="img/slider/IMAGEN-3.jpg" alt="">
+            <img src="img/slider/IMAGEN-4.jpg" alt="">
+            <img src="img/slider/IMAGEN-5.jpg" alt="">
+            <img src="img/slider/IMAGEN-6.jpg" alt="">
+            <img src="img/slider/IMAGEN-7.jpg" alt="">
+            <img src="img/slider/IMAGEN-8.jpg" alt="">
+            <img src="img/slider/IMAGEN-9.jpg" alt="">                 
         </div>
         <i id="right" class="fa-solid fa-angle-right"></i>
     </div>
