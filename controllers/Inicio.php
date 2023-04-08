@@ -7,7 +7,7 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-require 'class.phpmailer.php';
+
 
 	class InicioController {
 			
