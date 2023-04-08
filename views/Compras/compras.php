@@ -98,6 +98,7 @@
                     <em>Codigo</em>
                     <h5><?=$cupon['ID_Cupon']?></h5>
                 </div>
+                <a href="index.php?c=Cupon&a=generarCupon&id=<?=$cupon['ID_Cupon']?>">Generar PDF</a>
             
             </div>
         </div>     
