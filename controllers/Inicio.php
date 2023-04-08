@@ -1,7 +1,14 @@
 <?php
 	include_once "controllers/vendor/autoload.php";
 	//include_once './Core/config.php';
+	//pdf
 	use Dompdf\Dompdf;
+	//envio de correo
+	use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'class.phpmailer.php';
+
 	class InicioController {
 			
 		public function __construct(){
@@ -72,6 +79,80 @@
 	
 				}
 
+
+
+			public function recuperar(){
+
+
+		   $Correo = $_POST['email'];
+		
+			$usuarios=new Usuario_model();
+
+			 if(empty($Correo)){
+
+				$errores=array();
+      
+				array_push($errores,"Debes colocar tu correo");
+			   
+			  require_once "views/Usuario/recuperacioncontraseña.php";
+				
+			 }
+
+			 else{
+			
+				if(count($usuarios->registrocorreo($Correo)) > 0){
+					$Contrasenia=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+					
+				    //$mail = new PHPMailer(true);
+					$mail = new PHPMailer\PHPMailer\PHPMailer(true);
+
+					try {
+
+						 $mail->SMTPDebug = 0;
+						  $mail->isSMTP();
+						  $mail->Host = 'smtp.gmail.com';
+						  $mail->SMTPAuth = true;
+						  $mail->Username = 'yam182141@gmail.com';
+						  $mail->Password = 'sfxovgjaykgnmmgb';
+						  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+						  $mail->Port = 587;
+						  $mail->setFrom('yam182141@gmail.com', 'Buyit.com');
+						  $mail->addAddress($Correo, $Nombres);
+						  $mail->isHTML(true);
+						  $mail->Subject = 'Verificación de Correo ';
+						  $mail->Body    = '<p>Tu nueva contraseña de verificación para BUYIT es : <b style="font-size: 30px;">' . $Contrasenia . '</b></p>';
+						  $mail->send();
+
+						  //modificando la contrseña en la base de datos
+						  $usuarios->modificar_contraseña($Correo,$Contrasenia);
+		  
+						
+						 exit();
+					  } catch (Exception $e) {
+						 
+						 $errores=array();
+				
+						 array_push($errores,"Nose envió su nueva contraseña vuelva a intentarlo");
+						
+						 require_once "views/Usuario/recuperacioncontraseña.php";
+					   
+			  
+					  }
+					}
+				
+
+					else{
+
+					 $errores=array();
+					 array_push($errores,"Correo no existe o esta equivocado");
+					
+				   require_once "views/Usuario/recuperacioncontraseña.php";
+					}
+					} 
+					}
+					
+				
+			
 
 
 				public function carrito($id){

@@ -11,26 +11,25 @@ class Usuario_model {
         $this->usuarios = array();
     }
 
-   /* public function get_Clientes()
-    {
-        $sql = "SELECT * FROM cliente";
-        $resultado = $this->db->query($sql);
-        while($row = $resultado->fetch_assoc())
-        {
-            $this->clientes[] = $row;
-        }
-        return $this->clientes;
+
+    public function registrocorreo($Correo){
+        $sentencia=$this->pdo->prepare("SELECT * FROM Usuario WHERE  Correo='$Correo'");
+		$sentencia->execute();
+		$row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return  $row;
+
+
     }
-    public function get_Usuarios()
-    {
-        $sql = "SELECT * FROM usuario";
-        $resultado = $this->db->query($sql);
-        while($row = $resultado->fetch_assoc())
-        {
-            $this->usuarios[] = $row;
-        }
-        return $this->usuarios;
-    }*/
+
+      public function modificar_contraseña($Correo,$Contrasenia){
+
+      
+        $sentencia = $this->pdo->prepare ("  UPDATE usuario SET Contrasenia = '$Contrasenia' WHERE Correo= $Correo");
+          	$sentencia->execute();
+              $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+              return  $row;
+
+      }
 
     public function insertar_usuario($ID_Usuario, $Nombres, $Apellidos, $Correo, $Contrasenia,  $Tipo){
 

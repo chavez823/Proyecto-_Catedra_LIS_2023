@@ -1,10 +1,15 @@
 <?php
 // doc de librería de php mailer 
-require_once 'vendor/autoload.php';
+
+//include_once "controllers/vendor/autoload.php";
+//require_once "controllers/vendor/autoload.php";
+use Dompdf\Dompdf;
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+require_once 'vendor/autoload.php';
 
 class ClienteController
 {
@@ -43,14 +48,14 @@ class ClienteController
         $Contrasenia = $_POST['password'];
         $Telefono = $_POST['telefono'];
         $Direccion = $_POST['direccion'];
-        //$Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-        $Token=1599;
+        $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+        //$Token=1599;
         $clientes = new Cliente_model();
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
        
         
 
-        if ($clientes->registrodui($Dui) != null || $clientes->registrocorreo($Correo) != null) {
+        if (count($clientes->registrodui($Dui)) >0 || count($clientes->registrocorreo($Correo)) >0) {
           //echo var_dump($clientes->registrodui($Dui));
           //echo var_dump($clientes->registrocorreo($Correo));
            // echo "Dui y/o correo ya están en uso ";
@@ -65,25 +70,24 @@ class ClienteController
 
         } else {
             
-
-          // $mail = new PHPMailer(true);
+           $mail = new PHPMailer(true);
 
             try {
 
-              /*  $mail->SMTPDebug = 0;
+               $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = '';
-                $mail->Password = '';
+                $mail->Username = 'yam182141@gmail.com';
+                $mail->Password = 'sfxovgjaykgnmmgb';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
-                $mail->setFrom('', 'Tienda-tech.com');
+                $mail->setFrom('yam182141@gmail.com', 'Tienda-tech.com');
                 $mail->addAddress($Correo, $Nombres);
                 $mail->isHTML(true);
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-                $mail->send();*/
+                $mail->send();
 
                // session_start();
               /* echo var_dump($clientes->registrodui($Dui));
