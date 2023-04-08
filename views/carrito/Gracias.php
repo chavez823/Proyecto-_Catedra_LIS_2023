@@ -16,15 +16,16 @@
         <div class="wrapper-1">
             <div class="wrapper-2">
                 <h1>Gracias</h1>
-                <p>! Gracias por comprar con los mejores ¡</p>     
+                <p>! Gracias por comprar con los mejores ¡</p>
+                <p>! Comprobante de compra enviado a su correo ¡</p>      
 
                 <button type="submit" class="go-home">
                   <a class="sin_" href="index.php?c=Inicio"> Regresar al incio </a> 
                 </button>
 
-                <button type="submit" class="go-home">
+                <!--<button type="submit" class="go-home">
                     <a class="sin_" href="index.php?c=Inicio&a=generarPdf">Crear Factura (PDF)</a> 
-                </button>
+                </button>-->
             </div>
          <!--   <div class="footer-like">
                 <p>No has Recibido El Correo?
