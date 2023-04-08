@@ -37,11 +37,11 @@
               <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito"><i class="fa-solid fa-cart-shopping"></i> (<?php echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?>)</a>
 			  <!--Nota jacky le borre () y lo demas lo comente  -->
             </li>
-            <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="index.php?c=usuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></a></i>
           <ul class="dropdown-menu">
-          <li> <a class="dropdown-item " href="index.php?c=usuario"> Login probando</a></li>
+            <li> <a class="dropdown-item " href="index.php?c=usuario"> Login probando</a></li>
             <li><a class="dropdown-item " href="index.php?c=cupon&a=ver_cupon">Historial de cupones</a></li>
             <li><hr class="dropdown-divider"></li>
             <li> <a class="dropdown-item " href="index.php?c=usuario&a=cambio">Cambiar Contraseña</a></li>
