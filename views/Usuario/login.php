@@ -62,7 +62,7 @@
                 <h6>Regístrate<a href="index.php?c=cliente" class="">   aquí</a>
 	            </h6>			
 <br>
-<h6>¿Olvidastes tu contrseña?</h6>
+<h6>¿Olvidaste tu contraseña?</h6>
                 <h6>Recuperala<a href="index.php?c=usuario&a=recuperacion" class="">   aquí</a>
 	            </h6>
                 <button class="sesion">
