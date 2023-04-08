@@ -57,7 +57,9 @@
 		<div class="wrap-login"> 
 			<form action="index.php?c=cliente&a=nuevo" method="post"> 
       <?php
-                        if(isset($errores)){
+
+
+                          if(isset($errores)){
                             if(count($errores)>0){
                                 echo "<div class='alert alert-danger'><ul>";
                                 foreach ($errores as $error) {
@@ -77,22 +79,22 @@
                     <div class="column_1">
                         <!-- Nombre --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="name" placeholder="Nombres" >	 
+                            <input class="input100" type="text" name="name" placeholder="Nombres" value="<?php if(isset($Nombres)) echo $Nombres?>" >	 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--DUI-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="dui" placeholder="DUI" > 
+                            <input class="input100" type="text" name="dui" placeholder="DUI" value="<?php  $Dui ?>" > 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--Direccion-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="direccion" placeholder="Direccion"> 
+                            <input class="input100" type="text" name="direccion" placeholder="Direccion" value="<?php $Direccion ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--contraseña-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="password" name="password" placeholder="Contraseña" > 
+                            <input class="input100" type="password" name="password" placeholder="Contraseña" value="<?php $Contrasenia ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
                     </div>		
@@ -100,17 +102,17 @@
                     <div class="column_2">
                         <!-- Apellidos --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="apellido" placeholder="Apellidos" required> 
+                            <input class="input100" type="text" name="apellido" placeholder="Apellidos"value="<?php  $Apellidos ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 	
                          <!--Telefono-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="telefono" placeholder="Telefono"> 
+                            <input class="input100" type="text" name="telefono" placeholder="Telefono" value="<?php $Telefono ?>"> 
                             <span class="focus-efecto"></span> 
                         </div>
                          <!--email-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="email" placeholder="Email"> 
+                            <input class="input100" type="text" name="email" placeholder="Email" value="<?php  $Correo ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
 

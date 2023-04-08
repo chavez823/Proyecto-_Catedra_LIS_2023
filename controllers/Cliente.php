@@ -41,6 +41,15 @@ class ClienteController
 
     public function nuevo()
     {
+        
+        $Nombres = "";
+$Apellidos = "";
+$Dui = "";
+$Correo = "";
+$Contrasenia = "";
+$Telefono = "";
+$Direccion = "";
+     
         $Nombres = $_POST['name'];
         $Apellidos = $_POST['apellido'];
         $Dui = $_POST['dui'];
@@ -52,10 +61,20 @@ class ClienteController
         //$Token=1599;
         $clientes = new Cliente_model();
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-       
+    
+        if(empty($Nombres)|| empty($Apellidos)|| empty($Dui)|| empty($Correo)|| empty($Contrasenia)||empty($Telefono)||empty($Direccion)){
+            $errores=array();
+      
+            array_push($errores,"Debes completar todos los campos");
+              
+            require_once "views/cliente/cliente.php";
+
+
+        }
+        else{
         
 
-        if (count($clientes->registrodui($Dui)) >0 || count($clientes->registrocorreo($Correo)) >0) {
+        if ($clientes->registrodui($Dui) !=null || $clientes->registrocorreo($Correo)!=null) {
           //echo var_dump($clientes->registrodui($Dui));
           //echo var_dump($clientes->registrocorreo($Correo));
            // echo "Dui y/o correo ya están en uso ";
@@ -71,11 +90,11 @@ class ClienteController
         } else {
             
 
-           $mail = new PHPMailer(true);
+          // $mail = new PHPMailer(true);
 
             try {
 
-                $mail->SMTPDebug = 0;
+               /* $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
@@ -88,7 +107,7 @@ class ClienteController
                 $mail->isHTML(true);
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-                $mail->send();
+                $mail->send();*/
 
                // session_start();
               /* echo var_dump($clientes->registrodui($Dui));
@@ -120,6 +139,8 @@ class ClienteController
     
             }
         }
+    }
+
         
     }
 
