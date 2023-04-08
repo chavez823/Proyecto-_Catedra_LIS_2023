@@ -1,7 +1,7 @@
 <?php
 // doc de librería de php mailer 
 //require_once 'vendor/autoload.php';
-
+require_once "./core/validaciones.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -42,13 +42,13 @@ class ClienteController
     public function nuevo()
     {
         
-       /* $Nombres = "";
-$Apellidos = "";
-$Dui = "";
-$Correo = "";
-$Contrasenia = "";
-$Telefono = "";
-$Direccion = "";*/
+    /*  $Nombres = "";
+        $Apellidos = "";
+        $Dui = "";
+        $Correo = "";
+        $Contrasenia = "";
+        $Telefono = "";
+        $Direccion = "";*/
      
         $Nombres = $_POST['name'];
         $Apellidos = $_POST['apellido'];
@@ -61,16 +61,43 @@ $Direccion = "";*/
         //$Token=1599;
         $clientes = new Cliente_model();
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-    
+
+        
         if(empty($Nombres)|| empty($Apellidos)|| empty($Dui)|| empty($Correo)|| empty($Contrasenia)||empty($Telefono)||empty($Direccion)){
-            $errores=array();
-      
-            array_push($errores,"Debes completar todos los campos");
-              
+            $errores=array();      
+            array_push($errores,"Debes completar todos los campos");              
             require_once "views/cliente/cliente.php";
-
-
         }
+
+
+        if(!texto($Nombres)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar Unicamente datos validos en nombre");                    
+            require_once "views/cliente/cliente.php";
+        }
+
+        if(!texto($Apellidos)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar Unicamente datos validos en apellido");                    
+            require_once "views/cliente/cliente.php";
+        }
+
+        if(!validar_dui($Dui)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar un numero de DUI valido");                    
+            require_once "views/cliente/cliente.php";
+        }
+
+        if(!validar_tel($Telefono)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar un numero de telefono valido");                    
+            require_once "views/cliente/cliente.php";
+        }
+        
+
+
+
+
         else{
         
 
@@ -177,4 +204,6 @@ $Direccion = "";*/
         }
     }
 }
+
+
 

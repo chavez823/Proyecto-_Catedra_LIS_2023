@@ -1,5 +1,6 @@
 <?php
 	include_once "controllers/vendor/autoload.php";
+	require_once "./core/validaciones.php";
 	//include_once './Core/config.php';
 	//pdf
 	use Dompdf\Dompdf;
@@ -24,20 +25,26 @@
 			require_once "views/Menu/buyit.php";	
 		}
 
+		/*Para Inicio de sesion*/
 		public function sesion(){ 
 			$Correo = $_POST['email'];
 			$Contrasenia=$_POST['password'];
 			$usuarios=new Usuario_model();
 
 			 if(empty($Correo) || empty($Contrasenia)){
-
-				$errores=array();
-      
-				array_push($errores,"Debes completar todos los campos");
-			   
-			  require_once "views/Usuario/login.php";
-				
+				$errores=array();    
+				array_push($errores,"Debes completar todos los campos");							   
+			  	require_once "views/Usuario/login.php";				
 			 }
+
+			 /*Con el correo Semita@horchata no dejara logearse*/
+			 if(validar_correo($Correo)){
+				$errores=array();
+				array_push($errores, "Tienes que ingresar un correo Valido");
+				require_once "views/Usuario/login.php";
+			 }
+			 			 
+
 
 			 else{
 			
@@ -66,41 +73,37 @@
 	
 				}
 	  
-					else{
-	  
-					
+				else{					
 					 // echo "Usuario y/o Contraseña incorrectos";
-					 $errores=array();
-      
-					 array_push($errores,"Correo y/o contraseña equivocado");
-					
-				   require_once "views/Usuario/login.php";
-					 
-					  
-					 
-					}
+				$errores=array();
+				array_push($errores,"Correo y/o contraseña equivocado");	
+				require_once "views/Usuario/login.php";	 
 				}
+			}
 	
-				}
+		}
 
 
 
-			public function recuperar(){
-
-
-		   $Correo = $_POST['email'];
+	public function recuperar(){
+		    $Correo = $_POST['email'];
 		
 			$usuarios=new Usuario_model();
 
 			 if(empty($Correo)){
-
-				$errores=array();
-      
-				array_push($errores,"Debes colocar tu correo");
-			   
-			  require_once "views/Usuario/recuperacioncontraseña.php";
+				$errores=array();      
+				array_push($errores,"Debes colocar tu correo");			   
+			  	require_once "views/Usuario/recuperacioncontraseña.php";
 				
 			 }
+
+			/*Con el correo Semita@horchata no dejara logearse*/
+			 if(validar_correo($Correo)){
+				$errores=array();
+				array_push($errores, "Tienes que ingresar un correo Valido");
+				require_once "views/Usuario/login.php";
+			 }
+
 
 			 else{
 			
@@ -142,7 +145,7 @@
 						 
 						 $errores=array();
 				
-						 array_push($errores,"Nose envió su nueva contraseña vuelva a intentarlo");
+						 array_push($errores,"No se ha enviado su nueva contraseña, vuelva a intentarlo");
 						
 						 require_once "views/Usuario/recuperacioncontraseña.php";
 					   
@@ -158,9 +161,10 @@
 					
 				   require_once "views/Usuario/recuperacioncontraseña.php";
 					}
-					} 
-					}
-                  public function cambiocontraseña(){
+				} 
+			}
+			
+            public function cambiocontraseña(){
 
 			//$Correo = $_POST['email'];
 			$Contrasenia=$_POST['password'];
