@@ -41,7 +41,7 @@
           <a class="nav-link dropdown-toggle" href="index.php?c=usuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></i></a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="index.php?c=categoria&a=belleza">Historial de cupones</a></li>
+            <li><a class="dropdown-item active" href="index.php?c=cupon&a=ver_cupon">Historial de cupones</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php?c=categoria">Cerrar Sesión</a></li>
           </ul>

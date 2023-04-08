@@ -42,7 +42,6 @@
 					$_SESSION['session']["nombre"]=   $usuario[0]['Nombres'];
 					$_SESSION['session']["apellido"]=   $usuario[0]['Apellidos'];
 					$_SESSION['session']["tipo_usuario"]=   $usuario[0]['Tipo'];
-					
 				 
 					$inicio = new Inicio_model();
 					$data["titulo"] = "Inicio";
@@ -189,10 +188,7 @@
 				public function pagar(){
 					require_once ('views/carrito/Pago_tarjeta.php');
 				}
-			 	public function compra_completa()
-				{
-					require_once ('views/carrito/Gracias.php');
-				}
+			 	
 				public function pdf(){
 					echo var_dump($_SESSION['CARRITO']);
 				}
