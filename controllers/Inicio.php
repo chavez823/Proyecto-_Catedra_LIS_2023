@@ -180,6 +180,9 @@ use PHPMailer\PHPMailer\Exception;
 				//if($Contrasenia1==$_SESSION['session']["Contrseña"]){
 
 					$usuarios->modificar_contraseña($_SESSION['session']["correo"],$Contrasenia);
+					$inicio = new Inicio_model();
+					$data["titulo"] = "Inicio";
+					$data["Ofertas"] = $inicio->get_inicio();
 				
 					//require_once "views/Usuario/login.php";
 					require_once "views/Menu/buyit.php";
