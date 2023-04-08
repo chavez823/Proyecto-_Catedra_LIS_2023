@@ -49,6 +49,10 @@ use PHPMailer\PHPMailer\Exception;
 					$_SESSION['session']["nombre"]=   $usuario[0]['Nombres'];
 					$_SESSION['session']["apellido"]=   $usuario[0]['Apellidos'];
 					$_SESSION['session']["tipo_usuario"]=   $usuario[0]['Tipo'];
+					//capturando contrseña y corre para el cambio
+					$_SESSION['session']["Contrseña"]=   $usuario[0]['Contrasenia'];
+					$_SESSION['session']["correo"]=   $usuario[0]['Correo'];
+
 				 
 					$inicio = new Inicio_model();
 					$data["titulo"] = "Inicio";
@@ -100,10 +104,6 @@ use PHPMailer\PHPMailer\Exception;
 			 else{
 			
 				if(count($usuarios->registrocorreo($Correo)) > 0){
-
-
-
-
 					$Contrasenia=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
 					$cambio=$usuarios->registrocorreo($Correo);
 					//$_SESSION['enviocontra']=array();
@@ -159,9 +159,44 @@ use PHPMailer\PHPMailer\Exception;
 					}
 					} 
 					}
-					
+                  public function cambiocontraseña(){
+
+			//$Correo = $_POST['email'];
+			$Contrasenia=$_POST['password'];
+			$usuarios=new Usuario_model();
+
+			 if(empty($Contrasenia)){
+
+				$errores=array();
+      
+				array_push($errores,"Debes escribir una contraseña");
+			   
+			  require_once "views/Usuario/cambiodecontraseña.php";
 				
-			
+			 }
+
+			 else{
+				//if($Contrasenia1==$_SESSION['session']["Contrseña"]){
+
+					$usuarios->modificar_contraseña($_SESSION['session']["correo"],$Contrasenia);
+				
+					//require_once "views/Usuario/login.php";
+					require_once "views/Menu/buyit.php";
+
+				}
+
+				/*else{
+
+					$errores=array();
+      
+				array_push($errores,"Debes escribir una contraseña");
+			   
+			  require_once "views/Usuario/cambiodecontraseña.php";
+
+
+				}*/
+
+			 }
 
 
 				public function carrito($id){

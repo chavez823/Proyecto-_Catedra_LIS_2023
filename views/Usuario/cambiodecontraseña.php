@@ -50,7 +50,7 @@
   
     <div class="container-login"> 
 		<div class="wrap-login"> 
-			<form action="index.php?c=Inicio&a=sesion" method="post"> 
+			<form action="index.php?c=Inicio&a=cambiocontraseña" method="post"> 
       <?php
                         if(isset($errores)){
                             if(count($errores)>0){
@@ -67,17 +67,17 @@
                     ?>
 
 				<!-- LOGO --> 
-				<span class="login-form-title">Iniciar Sesión</span> 
+				<span class="login-form-title">Cambio de contraseña</span> 
 				<!--<img class="avatar"src="img/user.svg" alt="" align="center"> -->
                 <img class="avatar"src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="" align="center">
 					<!-- USUARIO --> 
-				<div class="wrap-input100"> 
-					<input class="input100" type="text" name="email" placeholder="Correo" >	 
+				<!--<div class="wrap-input100"> 
+					<input class="input100" type="text" name="anterior" placeholder="Contraseña Anterior" >	 
 					<span class="focus-efecto"></span> 
-				</div> 
-				<!-- CONTRASEÑA --> 
+				</div>-->
+				<!-- CONTRASEÑA -->
 				<div class="wrap-input100"> 
-					<input class="input100" type="password" name="password" placeholder="Contraseña"> 
+					<input class="input100" type="password" name="password" placeholder="Contraseña nueva"> 
 					<span class="focus-efecto"></span> 
 				</div>
                
