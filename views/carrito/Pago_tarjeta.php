@@ -73,6 +73,7 @@
         <h1>Informacion de pago</h1>
     </div>
     <!--Inicio diseño Tarjeta-->
+  
     <div class="container preload">
         <div class="creditcard">
             <!--FRENTE TARJETA-->
@@ -176,8 +177,9 @@
             <!--FINAL REVERSO TARJETA-->
         </div>
     </div>
+    
     <!--FINAL diseño Tarjeta-->
-
+    
     <!--Inicio de toma de datos "FORMULARIO"-->
 <form action="" method="post">
     <div class="form-container">
@@ -216,13 +218,16 @@
         </div>
         
         <div class="btn_div">
-            <a  href="index.php?c=Inicio&a=compra_completa" class="end_s">Pagar</a>    
+            <a  href="index.php?c=Cupon&a=compra_completa" class="end_s">Pagar</a>    
         </div>
     </div>
 </form>
+
     
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script><script  src="js/script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
+  <script  src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
  
 </body>
 </html>

@@ -1,10 +1,6 @@
 <?php
 // doc de librería de php mailer 
-
-//include_once "controllers/vendor/autoload.php";
-//require_once "controllers/vendor/autoload.php";
-use Dompdf\Dompdf;
-
+require_once 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -70,11 +66,12 @@ class ClienteController
 
         } else {
             
-           $mail = new PHPMailer(true);
+
+          // $mail = new PHPMailer(true);
 
             try {
 
-               $mail->SMTPDebug = 0;
+              /*  $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
