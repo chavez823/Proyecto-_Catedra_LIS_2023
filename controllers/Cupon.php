@@ -18,18 +18,18 @@ class CuponController {
 					
 				
 					foreach ($_SESSION['CARRITO'] as $cupon) {
-					
-
-						//Creacion del cupon
-						$num_aleatorio=rand(0,9);
-						$nombre_empresa=$model->getNombreEmpresa($cupon['ID']);
-						for ($i=0; $i < 6; $i++) { 
-							$num_aleatorio .= rand(0,9);
+						for ($j=0; $j < $cupon['CANTIDAD']; $j++) { 
+							//Creacion del cupon
+							$num_aleatorio=rand(0,9);
+							$nombre_empresa=$model->getNombreEmpresa($cupon['ID']);
+							for ($i=0; $i < 6; $i++) { 
+								$num_aleatorio .= rand(0,9);
+							}
+							//Definiendo valores a insertar a la tabla del cupon
+							$codigo_cupon=$nombre_empresa[0]['ID_Empresa'].$num_aleatorio;
+							$DUI="167564";
+							$model->insertar_cupon($codigo_cupon, $DUI,$cupon['ID'], 2);
 						}
-						//Definiendo valores a insertar a la tabla del cupon
-						$codigo_cupon=$nombre_empresa[0]['ID_Empresa'].$num_aleatorio;
-						$DUI="167564";
-						$model->insertar_cupon($codigo_cupon, $DUI,$cupon['ID'], 2);
 					}
 
 					//Borra todas las ofertas del carrito
