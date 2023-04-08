@@ -82,11 +82,7 @@
 				
                 <h6>¿No tienes una cuenta?</h6>
                 <h6>Regístrate<a href="index.php?c=cliente" class="">   aquí</a>
-	            </h6>	
-                <br>
-                <h6>¿Olvidaste tu contraseña?</h6>
-                <h6>Recupérala<a href="index.php?c=cliente" class="">  aquí</a>
-	            </h6>			
+	            </h6>				
                 <button class="sesion">
                     Ingresar
                 </button>

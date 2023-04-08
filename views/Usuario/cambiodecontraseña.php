@@ -80,15 +80,9 @@
 					<input class="input100" type="password" name="password" placeholder="Contraseña"> 
 					<span class="focus-efecto"></span> 
 				</div>
-                <h6>¿No tienes una cuenta?</h6>
-                <h6>Regístrate<a href="index.php?c=cliente" class="">   aquí</a>
-	            </h6>			
-<br>
-<h6>¿Olvidaste tu contraseña?</h6>
-                <h6>Recuperala<a href="index.php?c=usuario&a=recuperacion" class="">   aquí</a>
-	            </h6>
+               
                 <button class="sesion">
-                    Ingresar
+                    Cambiar
                 </button>
 			</form> 
 		</div> 

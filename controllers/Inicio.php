@@ -101,14 +101,22 @@ use PHPMailer\PHPMailer\Exception;
 			 else{
 			
 				if(count($usuarios->registrocorreo($Correo)) > 0){
+
+
+
+
 					$Contrasenia=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+					$cambio=$usuarios->registrocorreo($Correo);
+					//$_SESSION['enviocontra']=array();
+					$nombre=  $cambio[0]['Nombres'];
+					//$_SESSION['enviocontra']["id"]=  " $cambio[0]['ID_Usuario']";
 					
-				    $mail = new PHPMailer(true);
+				   // $mail = new PHPMailer(true);
 					
 
 					try {
 
-						 $mail->SMTPDebug = 0;
+						/* $mail->SMTPDebug = 0;
 						  $mail->isSMTP();
 						  $mail->Host = 'smtp.gmail.com';
 						  $mail->SMTPAuth = true;
@@ -117,14 +125,16 @@ use PHPMailer\PHPMailer\Exception;
 						  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 						  $mail->Port = 587;
 						  $mail->setFrom('yam182141@gmail.com', 'Buyit.com');
-						  $mail->addAddress($Correo, $Nombres);
+						  $mail->addAddress($Correo, $nombre);
 						  $mail->isHTML(true);
 						  $mail->Subject = 'Verificación de Correo ';
 						  $mail->Body    = '<p>Tu nueva contraseña de verificación para BUYIT es : <b style="font-size: 30px;">' . $Contrasenia . '</b></p>';
-						  $mail->send();
+						  $mail->send();*/
 
 						  //modificando la contrseña en la base de datos
 						  $usuarios->modificar_contraseña($Correo,$Contrasenia);
+
+						 require_once "views/Usuario/login.php";
 		  
 						
 						 exit();
