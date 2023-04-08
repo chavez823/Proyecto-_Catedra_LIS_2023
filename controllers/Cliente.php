@@ -42,13 +42,13 @@ class ClienteController
     public function nuevo()
     {
         
-        $Nombres = "";
+       /* $Nombres = "";
 $Apellidos = "";
 $Dui = "";
 $Correo = "";
 $Contrasenia = "";
 $Telefono = "";
-$Direccion = "";
+$Direccion = "";*/
      
         $Nombres = $_POST['name'];
         $Apellidos = $_POST['apellido'];

@@ -84,17 +84,17 @@
                         </div> 
                         <!--DUI-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="dui" placeholder="DUI" value="<?php  $Dui ?>" > 
+                            <input class="input100" type="text" name="dui" placeholder="DUI" value="<?php if(isset($Dui)) echo $Dui ?>" > 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--Direccion-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="direccion" placeholder="Direccion" value="<?php $Direccion ?>"> 
+                            <input class="input100" type="text" name="direccion" placeholder="Direccion" value="<?php  if(isset($Direccion)) echo $Direccion ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--contraseña-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="password" name="password" placeholder="Contraseña" value="<?php $Contrasenia ?>"> 
+                            <input class="input100" type="password" name="password" placeholder="Contraseña" value="<?php if(isset($Contrasenia)) echo $Contrasenia ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
                     </div>		
@@ -102,7 +102,7 @@
                     <div class="column_2">
                         <!-- Apellidos --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="apellido" placeholder="Apellidos"value="<?php  $Apellidos ?>"> 
+                            <input class="input100" type="text" name="apellido" placeholder="Apellidos" value="<?php if(isset($Apellidos)) echo $Apellidos ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 	
                          <!--Telefono-->
@@ -112,7 +112,7 @@
                         </div>
                          <!--email-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="email" placeholder="Email" value="<?php  $Correo ?>"> 
+                            <input class="input100" type="text" name="email" placeholder="Email" value="<?php if(isset($Correo)) echo  $Correo ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
 
