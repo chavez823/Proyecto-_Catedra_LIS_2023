@@ -24,10 +24,11 @@ class Usuario_model {
       public function modificar_contraseña($Correo,$Contrasenia){
 
       
-        $sentencia = $this->pdo->prepare ("  UPDATE usuario SET Contrasenia = '$Contrasenia' WHERE Correo= $Correo");
+        $sentencia = $this->pdo->prepare ("  UPDATE usuario SET Contrasenia = '$Contrasenia' WHERE  Correo= '$Correo'");
           	$sentencia->execute();
               $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
               return  $row;
+             // ID_Usuario
 
       }
 
