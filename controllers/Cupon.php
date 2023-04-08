@@ -151,7 +151,7 @@ class CuponController {
 					$archivo = $rutaGuardado.$nombreArchivo;
 					$nombre='Envio del detalle de la compra';
 					try {   
-						$mail = new PHPMailer(true);
+						/*$mail = new PHPMailer(true);
 						$mail->IsSMTP(); // Using SMTP.
 						$mail->CharSet = 'utf-8';
 						$mail->SMTPDebug = 0; // Enables SMTP debug information - SHOULD NOT be active on production servers!
@@ -161,11 +161,11 @@ class CuponController {
 						$mail->Port = 587; // Setting the SMTP port for the GMAIL server.
 
 						//Usuario con contraseña autorizada por gmail
-						$mail->Username = ""; // SMTP account username (GMail email address).
-						$mail->Password = ''; // Contraseña creada a partir de google, para permisos de aplicacion
+						$mail->Username = "yam182141@gmail.com"; // SMTP account username (GMail email address).
+						$mail->Password = 'sfxovgjaykgnmmgb'; // Contraseña creada a partir de google, para permisos de aplicacion
 						
 						//Envio de mensaje
-						$mail->SetFrom('', 'me'); // De quien - match the GMail email.
+						$mail->SetFrom('yam182141@gmail.com', 'me'); // De quien - match the GMail email.
 						$mail->AddAddress($_SESSION['session']['correo'], 'Someone Else'); // Para email / name.
 
 						//Mensaje
@@ -173,12 +173,12 @@ class CuponController {
 						$mail->Body = 'Nombre' .$nombre;
 						//mensaje con archivo, direccion del archivo
 						$mail->addAttachment($archivo); 
-						$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
+						$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';*/
 						
 						//Para enviar
-						$mail->send();
+						//$mail->send();
 					} catch (Exception $e) {
-						echo "La cotización no ha sido enviada: {$mail->ErrorInfo}";
+						//echo "La cotización no ha sido enviada: {$mail->ErrorInfo}";
 					}
 					//Borra todas las ofertas del carrito
 					$_SESSION['CARRITO']=array();
@@ -270,7 +270,7 @@ class CuponController {
 					$dompdf->output(); //crea el archivo
 					$outPut=$dompdf->output();
 					file_put_contents($rutaGuardado.$nombreArchivo,$outPut); // funcion que mueve el archivo a la ruta definida 
-					header("location: http://localhost/Proyecto-_Catedra_LIS_2023/pdfs_cupon/".$nombreArchivo);
+					header("location:pdfs_cupon/".$nombreArchivo);
 				}
 
 
