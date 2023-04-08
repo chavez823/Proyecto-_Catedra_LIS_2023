@@ -86,8 +86,8 @@
                             
                     ?>
             <div class="box">
-            <input class="input" name="email" type="text" placeholder="email" value="<?php if(isset($Correo)) echo  $Correo ?>">
-            <input class="input" name="verification_code" type="text" placeholder="Codigo de Verificacion" value="<?php if(isset($Token)) echo  $Token ?>">
+            <input class="input" name="email" type="text" placeholder="email" value="<?php if(isset($email)) echo  $email ?>">
+            <input class="input" name="verification_code" type="text" placeholder="Codigo de Verificacion" value="<?php if(isset($$verification_code)) echo  $$verification_code ?>">
             
             </div>
                 <button type="submit" class="sesion" name="verify_email">

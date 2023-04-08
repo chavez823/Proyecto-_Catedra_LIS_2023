@@ -76,7 +76,7 @@
                 <img class="avatar"src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="" align="center">
 					<!-- USUARIO --> 
 				<div class="wrap-input100"> 
-					<input class="input100" type="text" name="email" placeholder="Correo" >	 
+					<input class="input100" type="text" name="email" placeholder="Correo" value="<?php if(isset($Correo)) echo  $Correo ?>" >	 
 					<span class="focus-efecto"></span> 
 				</div> 
 				

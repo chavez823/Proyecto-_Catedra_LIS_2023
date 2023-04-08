@@ -77,7 +77,7 @@
 				</div>-->
 				<!-- CONTRASEÑA -->
 				<div class="wrap-input100"> 
-					<input class="input100" type="password" name="password" placeholder="Contraseña nueva"> 
+					<input class="input100" type="password" name="password" placeholder="Contraseña nueva" value="<?php if(isset($Contrasenia)) echo  $Contrasenia ?>"> 
 					<span class="focus-efecto"></span> 
 				</div>
                
