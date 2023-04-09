@@ -8,9 +8,13 @@
     <title>BUYIT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=2479'>
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt|Source+Code+Pro:300,400,600" rel="stylesheet"><link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt|Source+Code+Pro:300,400,600" rel="stylesheet">
+
     <!--Propio-->
     <link rel="stylesheet" href="css/style_1.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/drop.css">
     <!--Slider-->
     <link rel="stylesheet" href="css/style_2_s.css">
   </head>
@@ -39,12 +43,6 @@
             Categorias
           </a>
           <ul class="dropdown-menu">
-           <!-- <li><a class="dropdown-item active" href="pages/Belleza.php">Belleza</a></li>
-            <li><a class="dropdown-item" href="pages/salud.php">Salud</a></li>
-            <li><a class="dropdown-item" href="pages/Restaurant.php">Restaurante</a></li>
-            <li><a class="dropdown-item" href="pages/Super.php">Supermercado</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="pages/Categorias.php">Principal</a></li>-->
             <li><a class="dropdown-item active" href="index.php?c=categoria&a=belleza">Belleza</a></li>
             <li><a class="dropdown-item" href="index.php?c=categoria&a=salud">Salud</a></li>
             <li><a class="dropdown-item" href="index.php?c=categoria&a=restaurante">Restaurante</a></li>
@@ -52,16 +50,32 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
           </ul>
-        </li>
+        </li>            
             <li class="nav-item">
-              <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito">Carrito(<?php
-                        //condicionador ternario
-                        echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
-                    ?>)</a>
+                 <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito"><i class="fa-solid fa-cart-shopping"></i> (<?php echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?>)</a>			  
             </li>
-            <li class="nav-item">
-              <a href="index.php?c=usuario" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
-            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <?php if(!isset($_SESSION['session']))  { ?>
+
+                  <li> <a class="dropdown-item " href="index.php?c=usuario"> Login</a></li>
+                  <li><hr class="dropdown-divider"></li>
+
+                  <?php  } else { ?>                  
+
+                  <li><a class="dropdown-item " href="index.php?c=cupon&a=ver_cupon">Ver Cupones</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li> <a class="dropdown-item " href="index.php?c=usuario&a=cambio">Ajustes</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="index.php?c=usuario&a=logout">Log out</a></li>
+
+                  <?php } ?>
+                </ul>
+              </li>
           </ul>
         </div>
       </div>
@@ -74,7 +88,7 @@
     </div>
     <!--Inicio diseño Tarjeta-->
   
-    <div class="container preload">
+    <div class="container preload" id="pago">
         <div class="creditcard">
             <!--FRENTE TARJETA-->
             <div class="front">
@@ -180,9 +194,9 @@
     
     <!--FINAL diseño Tarjeta-->
     
-    <!--Inicio de toma de datos "FORMULARIO"-->
+<!--Inicio de toma de datos "FORMULARIO"-->
 <form action="" method="post">
-    <div class="form-container">
+    <div class="form-container" id="f_orm">
         <div class="field-container">
             <label for="name">Nombre</label>
             <!--INPUT-->
@@ -228,6 +242,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js'></script>
   <script  src="js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/5c72b9dab8.js" crossorigin="anonymous"></script>
  
 </body>
 </html>

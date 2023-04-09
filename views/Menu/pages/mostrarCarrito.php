@@ -10,6 +10,7 @@
     <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=2479'>
     <!--Propio-->
     <link rel="stylesheet" href="css/style_1.css">
+    <link rel="stylesheet" href="css/drop.css">
     <!--Slider-->
     <link rel="stylesheet" href="css/style_2_s.css">
 
@@ -45,15 +46,33 @@
             <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
           </ul>
         </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Carrito(<?php
-                        //condicionador ternario
-                        echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
-                    ?>)</a>
-            </li>
-            <li class="nav-item">
-              <a href="index.php?c=usuario" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
-            </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito"><i class="fa-solid fa-cart-shopping"></i> (<?php echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?>)</a>			  
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <?php if(!isset($_SESSION['session']))  { ?>
+
+                  <li> <a class="dropdown-item " href="index.php?c=usuario"> Login</a></li>
+                  <li><hr class="dropdown-divider"></li>
+
+                  <?php  } else { ?>                  
+
+                  <li><a class="dropdown-item " href="index.php?c=cupon&a=ver_cupon">Ver Cupones</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li> <a class="dropdown-item " href="index.php?c=usuario&a=cambio">Ajustes</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="index.php?c=usuario&a=logout">Log out</a></li>
+
+                  <?php } ?>
+                </ul>
+              </li>
+
+
           </ul>
         </div>
       </div>
@@ -133,5 +152,5 @@ include 'templates/footer.php';
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!--SLIDER-->
     <script src="https://kit.fontawesome.com/5c72b9dab8.js" crossorigin="anonymous"></script>
-    <script src="js/slider.js"></script>
-
+    <script src="js/slider.js"></script>  
+</html>
