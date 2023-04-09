@@ -52,7 +52,7 @@ define("Aqui","<a href='index.php?c=cliente' > aquí</a>");
   
     <div class="container-login"> 
 		<div class="wrap-login"> 
-			<form action="index.php?c=Inicio&a=sesion" method="post"> 
+			<form action="index.php?c=usuario&a=sesion" method="post"> 
       <?php
                         if(isset($errores)){
                             if(count($errores)>0){

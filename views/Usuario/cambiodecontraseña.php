@@ -50,7 +50,7 @@
   
     <div class="container-login"> 
 		<div class="wrap-login"> 
-			<form action="index.php?c=Inicio&a=cambiocontraseña" method="post"> 
+			<form action="index.php?c=usuario&a=cambiocontraseña" method="post"> 
       <?php
                         if(isset($errores)){
                             if(count($errores)>0){

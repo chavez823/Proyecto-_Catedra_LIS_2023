@@ -38,15 +38,21 @@
 			  <!--Nota jacky le borre () y lo demas lo comente  -->
             </li>
           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="index.php?c=usuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></a></i>
           <ul class="dropdown-menu">
-            <li> <a class="dropdown-item " href="index.php?c=usuario"> Login probando</a></li>
+            <?php if(!isset($_SESSION['session']))  { ?>
+            <li> <a class="dropdown-item " href="index.php?c=usuario"> Login</a></li>
+            <li><hr class="dropdown-divider"></li>
+
+            <?php  } else { ?>
+            
             <li><a class="dropdown-item " href="index.php?c=cupon&a=ver_cupon">Historial de cupones</a></li>
             <li><hr class="dropdown-divider"></li>
             <li> <a class="dropdown-item " href="index.php?c=usuario&a=cambio">Cambiar Contraseña</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="index.php?c=inicio">Cerrar Sesión</a></li>
+            <li><a class="dropdown-item" href="index.php?c=usuario&a=logout">Cerrar Sesión</a></li>
+            <?php } ?>
           </ul>
           </ul>
         </div>
