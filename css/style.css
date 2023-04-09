@@ -1,18 +1,17 @@
 body {
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
+    padding: 0; 
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     min-height: 100vh;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -56,8 +55,9 @@ body {
     grid-template-columns: auto auto;
     grid-template-rows: 90px 90px 90px;
     grid-template-areas: "name name""number number""expiration security";
-    max-width: 400px;
-    padding: 20px;
+    max-width: 600px;
+    margin-right: 50px;
+    margin-left: -20px;
     color: #707070;
 }
 
@@ -89,6 +89,7 @@ input {
     -moz-transition: none !important;
     -ms-transition: none !important;
     -o-transition: none !important;
+    
 }
 
 .container {
@@ -96,7 +97,6 @@ input {
     max-width: 400px;
     max-height: 251px;
     height: 54vw;
-    padding: 20px;
 }
 
 #ccsingle {
@@ -507,4 +507,12 @@ input {
   
   .back_v:hover svg {
     transform: translateY(-50%) rotate(-90deg);
+  }
+
+  #pago{
+    margin-left:250px;
+  }
+
+  #f_orm{
+    margin-left: -20px;
   }
