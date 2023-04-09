@@ -54,7 +54,7 @@
   
     <div class="container-login"> 
 		<div class="wrap-login"> 
-			<form action="index.php?c=Inicio&a=recuperar" method="post"> 
+			<form action="index.php?c=usuario&a=recuperar" method="post"> 
       <?php
                         if(isset($errores)){
                             if(count($errores)>0){
