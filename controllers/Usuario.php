@@ -18,26 +18,26 @@ class UsuarioController{
         require_once "models/InicioModel.php";
 
     }
-    
+      //abre  ala pagina login 
     public function index(){
         require_once "views/Usuario/login.php";	
     }
-
+    //abre  ala pagina recuperacion
     public function recuperacion(){
         require_once "views/Usuario/recuperacioncontraseña.php";	
     }
-
+       //abre  ala pagina de cambio de contraseña 
     public function cambio(){
         require_once "views/Usuario/cambiodecontraseña.php";	
     }
 
-
+//metodo ocupado en la pagina de login 
     public function sesion(){ 
         
         $Correo = $_POST['email'];
         $Contrasenia=$_POST['password'];
         $usuarios=new Usuario_model();
-
+          //validaciones
          if(empty($Correo) || empty($Contrasenia)){
             $errores=array();    
             array_push($errores,"Debes completar todos los campos");							   
@@ -54,11 +54,11 @@ class UsuarioController{
 
 
          else{
-        
+              //comprueba que el usuario exista 
             if(count($usuarios->sesion($Correo,$Contrasenia)) > 0){
-                //echo var_dump($usuarios->sesion($Correo,$Contrasenia));
+                 //
                 $usuario=$usuarios->sesion($Correo,$Contrasenia);
-                //echo var_dump($usuario);
+                //
                 $_SESSION['session']=array();
                 $_SESSION['session']["ID_Usuario"]=   $usuario[0]['ID_Usuario'];
                 $_SESSION['session']["nombre"]=   $usuario[0]['Nombres'];
@@ -70,7 +70,7 @@ class UsuarioController{
 
              
                 $inicio = new Inicio_model();
-                //$data["titulo"] = "Inicio";
+                //
                 $data["Ofertas"] = $inicio->get_inicio();
     
                 
@@ -98,7 +98,7 @@ class UsuarioController{
         $Correo = $_POST['email'];
     
         $usuarios=new Usuario_model();
-
+          //validaciones 
          if(empty($Correo)){
             $errores=array();      
             array_push($errores,"Debes colocar tu correo");			   
@@ -107,6 +107,7 @@ class UsuarioController{
          }
 
         /*Con el correo Semita@horchata no dejara logearse*/
+
          if(!validar_correo($Correo)){
             $errores=array();
             array_push($errores, "Tienes que ingresar un correo Valido");
@@ -115,14 +116,15 @@ class UsuarioController{
 
 
          else{
-        
+         //comprueba que el correo exita en la base de datos 
             if(count($usuarios->registrocorreo($Correo)) > 0){
                 $Contrasenia=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+
                 $cambio=$usuarios->registrocorreo($Correo);
-                //$_SESSION['enviocontra']=array();
-                $nombre=  $cambio[0]['Nombres'];
-                //$_SESSION['enviocontra']["id"]=  " $cambio[0]['ID_Usuario']";
                 
+                $nombre=  $cambio[0]['Nombres'];
+                
+                //envia la nueva contraseña 
                 $mail = new PHPMailer(true);
                 
 
@@ -144,6 +146,8 @@ class UsuarioController{
                       $mail->send();*/
 
                       //modificando la contrseña en la base de datos
+
+                      //inserta la nueva contraseña 
                       $usuarios->modificar_contraseña($Correo,$Contrasenia);
 
                      require_once "views/Usuario/login.php";
@@ -175,10 +179,10 @@ class UsuarioController{
         
         public function cambiocontraseña(){
 
-        //$Correo = $_POST['email'];
+    
         $Contrasenia=$_POST['password'];
         $usuarios=new Usuario_model();
-
+           //validacion 
          if(empty($Contrasenia)){
 
             $errores=array();
@@ -191,10 +195,10 @@ class UsuarioController{
 
          else{
         
-
+                //inserta la nueva contraseña recordando  que $_SESSION['session']["correo"] toma el valor del correo con el que inicio el cliente sesion 
                 $usuarios->modificar_contraseña($_SESSION['session']["correo"],$Contrasenia);
                 $inicio = new Inicio_model();
-                $data["titulo"] = "Inicio";
+                
                 $data["Ofertas"] = $inicio->get_inicio();
             
                 
@@ -205,14 +209,14 @@ class UsuarioController{
             
 
          }
-
+        // metodo que sirve para cerrar sesion 
 
          public function logout(){
-
+              //vacia las varables de sesion
              session_unset();
-            
+             //destruye las varibles de  sesiones 
              session_destroy();
-            
+            //nos redirreciona ala pagina de inicio 
              header('location: index.php?c=Inicio');
             
             

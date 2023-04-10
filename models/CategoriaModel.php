@@ -3,7 +3,7 @@
 	class Categoria_model {
 		
 		private $pdo;
-		private $inicio;
+		//private $inicio;
 		private $ofertas;
 		
 		public function __construct(){
@@ -13,12 +13,7 @@
 		}
 		
 
-		
-
-
-		//Intentado actualizar consultas de mysqli a pdo
-
-		  //consultas para las categorias  segun su id de empresa 
+		  //consultas para las categorias  segun su categoria de rubro de empresa 
 		  public function belleza(){
 			$sentencia=$this->pdo->prepare( " SELECT * FROM `oferta` WHERE Categoria='Belleza'");		
 			$sentencia->execute();

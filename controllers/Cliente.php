@@ -29,7 +29,7 @@ class ClienteController
     public function verificacion()
     {
         require_once "views/cliente/emailverification.php";
-        //echo var_dump($_SESSION['registro_nuevo_cliente']);
+        
     }
 
     //muestra la pagina de login
@@ -38,18 +38,10 @@ class ClienteController
         require_once "views/Usuario/login.php";
     }
 
-
+   //para tomar los datos del nuevo cliente y su usuario
     public function nuevo()
     {
-        
-    /*  $Nombres = "";
-        $Apellidos = "";
-        $Dui = "";
-        $Correo = "";
-        $Contrasenia = "";
-        $Telefono = "";
-        $Direccion = "";*/
-     
+    
         $Nombres = $_POST['name'];
         $Apellidos = $_POST['apellido'];
         $Dui = $_POST['dui'];
@@ -62,7 +54,7 @@ class ClienteController
         $clientes = new Cliente_model();
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
 
-        
+           //vlidaciones
         if(empty($Nombres)|| empty($Apellidos)|| empty($Dui)|| empty($Correo)|| empty($Contrasenia)||empty($Telefono)||empty($Direccion)){
             $errores=array();      
             array_push($errores,"Debes completar todos los campos");              
@@ -100,7 +92,7 @@ class ClienteController
 
         else{
         
-
+           //comprueba que el correo y el dui no esten registrados 
         if ($clientes->registrodui($Dui) !=null || $clientes->registrocorreo($Correo)!=null) {
           //echo var_dump($clientes->registrodui($Dui));
           //echo var_dump($clientes->registrocorreo($Correo));
@@ -115,7 +107,7 @@ class ClienteController
 
 
         } else {
-            
+            //envia el correo con el token 
 
          //  $mail = new PHPMailer(true);
 
@@ -136,10 +128,10 @@ class ClienteController
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
                 $mail->send();*/
 
-               // session_start();
+               
               /* echo var_dump($clientes->registrodui($Dui));
                echo var_dump($clientes->registrocorreo($Correo));*/
-
+                 //se almacenan los datos del nuevo cliente en variables de sesión 
                 $_SESSION['registro_nuevo_cliente'] = array();
                 $_SESSION['registro_nuevo_cliente'][0] = $Dui;
                 $_SESSION['registro_nuevo_cliente'][1] = $Nombres;
@@ -150,7 +142,7 @@ class ClienteController
                 $_SESSION['registro_nuevo_cliente'][6] = $Direccion;
                 $_SESSION['registro_nuevo_cliente'][7] = $Token;
                 $_SESSION['registro_nuevo_cliente'][8] = $ID_Usuario;
-
+                //luego ocupamos el metodo de verificacion
                $this->verificacion();
 
 
@@ -162,7 +154,7 @@ class ClienteController
                array_push($errores,"Nose envió su token vuelva a intentarlo");
               
              require_once "views/cliente/cliente.php";
-             //$this->verificacion();
+            
     
             }
         }
@@ -171,7 +163,7 @@ class ClienteController
         
     }
 
-
+     //este metodo registra funciona con la pagina de verificacion de correo 
     public function registrar()
     {
 
@@ -180,16 +172,16 @@ class ClienteController
         $Tipo="Cliente";
         $clientes = new Cliente_model();
         $usuario=  new  Usuario_model();
+         //comprueba que el correo sea igual al que se ingreso en la pagina de de registro y que el token sea igual que se mando al correo 
        
-       // session_start();
         if ($_SESSION['registro_nuevo_cliente'][4] == $email && $_SESSION['registro_nuevo_cliente'][7] == $verification_code) {
                
-
+           //inserta los datos necesarios en tabla usuario 
             $usuario->insertar_usuario($_SESSION['registro_nuevo_cliente'][8], $_SESSION['registro_nuevo_cliente'][1],
             $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][4],  $_SESSION['registro_nuevo_cliente'][3],$Tipo);
-
+              //inserta los datos necesarios en tabla cliente 
            $clientes->insertar($_SESSION['registro_nuevo_cliente'][0], $_SESSION['registro_nuevo_cliente'][1], $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][3], $_SESSION['registro_nuevo_cliente'][4], $_SESSION['registro_nuevo_cliente'][5], $_SESSION['registro_nuevo_cliente'][6], $_SESSION['registro_nuevo_cliente'][7], $_SESSION['registro_nuevo_cliente'][8]);
-            //session_destroy();
+            //llamamos al metodo login 
             $this->login();
         } else {
            // echo "Correo y/o código equivocado";
@@ -199,7 +191,7 @@ class ClienteController
       
            array_push($errores,"Correo y/o código equivocado");
           
-        // $this->verificacion();// require_once "views/cliente/cliente.php";
+        
         require_once "views/cliente/emailverification.php";
         }
     }

@@ -12,11 +12,7 @@
 		}
 
 
-     // public prueba()
-
-
-
-
+    //metodos que extraen los datos de las consultas del modelo de categorias y los inserta en una variable
 		public function belleza (){
 			$belleza =  new Categoria_model();
 
