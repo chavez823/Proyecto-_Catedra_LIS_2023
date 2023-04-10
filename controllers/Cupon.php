@@ -32,11 +32,11 @@ class CuponController {
 		public function compra_completa()
 				{
 					
-					$model = new Cupon_model();
-					$dompdf = new Dompdf();
+					$model = new Cupon_model();//se instancia la clase del modelo cupon para usar sus metodos 
+					$dompdf = new Dompdf();//se instacia la clase dompdf que genera el pdf
 					//Comienza la generacion del pdf
-					$productos=$_SESSION['CARRITO'];
-					ob_start(); 
+					$productos=$_SESSION['CARRITO'];//todos los elementos del carrito se almacenan en productos
+					ob_start(); //da la pauta para comenzar a generar el contenido del pdf
 					echo "<!DOCTYPE html>";
 					echo "<html lang=\"en\">";
 					echo "<head>";
@@ -82,8 +82,8 @@ class CuponController {
 					echo "</style>";
 					echo "</head>";
 					echo "<body>";
-					$nombreImagen = "img/Logo_1.png";
-					$imagenBase64 =  "data:image/png;base64," .base64_encode(file_get_contents($nombreImagen));
+					$nombreImagen = "img/Logo_1.png";//ubicacion de la imagen del logo
+					$imagenBase64 =  "data:image/png;base64," .base64_encode(file_get_contents($nombreImagen));//se convierte la imagen del logo a base 64 para que se vea en el detalle
 					echo "<img src=".$imagenBase64." class=\"img1\">";
 					echo "<h1>Detalle de compra</h1>";
 					echo "<br/>";
@@ -96,26 +96,25 @@ class CuponController {
 					echo "<th>Codigo Cupon</th>";
 					echo "</thead>";
 					$total=0;
-					foreach ($_SESSION['CARRITO'] as $cupon) {
+					foreach ($_SESSION['CARRITO'] as $cupon) {//dividimos cada elemento del arreglo del carrito en un arreglo cupon que incluye toda la informacion de la oferta 
 							
-						for ($j=0; $j < $cupon['CANTIDAD']; $j++) { 
-							//Creacion del cupon
+						for ($j=0; $j < $cupon['CANTIDAD']; $j++) { //se corre el ciclo la cantidad de veces que se a comprado una oferta para generar un numero de cupon unico por cada oferta.
 							echo "<tr>";
 							echo "<td>".$cupon['ID']."</td>";
 							echo "<td>".$cupon['NOMBRE']."</td>";
 							echo "<td>".$cupon['DESCRIPCION']."</td>";
 							echo "<td>$ ".$cupon['PRECIO']."</td>";
-							$total=$total+$cupon['PRECIO'];
-							$num_aleatorio=rand(0,9);
-							$nombre_empresa=$model->getNombreEmpresa($cupon['ID']);
+							$total=$total+$cupon['PRECIO'];//se suman los precios para luego mostrar el total.
+							$num_aleatorio=rand(0,9);//genera el primer numero aleatorio
+							$nombre_empresa=$model->getNombreEmpresa($cupon['ID']);//se obtiene el nombre de la empresa dependiendo del id del cupon
 							for ($i=0; $i < 6; $i++) { 
-								$num_aleatorio .= rand(0,9);
+								$num_aleatorio .= rand(0,9);//se concatena los siguientes 6 numeros aletorios
 							}
 							//Definiendo valores a insertar a la tabla del cupon
-							$codigo_cupon=$nombre_empresa[0]['ID_Empresa'].$num_aleatorio;
-							echo "<td>".$codigo_cupon."</td>";
-							$DUI=$model->getDUI($_SESSION['session']['ID_Usuario']);
-							$model->insertar_cupon($codigo_cupon, $DUI[0]['DUI'],$cupon['ID'], 2);
+							$codigo_cupon=$nombre_empresa[0]['ID_Empresa'].$num_aleatorio; //Creacion del codigo del cupon
+							echo "<td>".$codigo_cupon."</td>"; //impresion del codigo en el pdf
+							$DUI=$model->getDUI($_SESSION['session']['ID_Usuario']);//se obtiene el numero de dui del cliente mediante su id de usuario
+							$model->insertar_cupon($codigo_cupon, $DUI[0]['DUI'],$cupon['ID'], 2);//cada cupon se inserta en la tabla cupon 1 por 1 
 							echo "</tr>";
 						}
 					}
@@ -180,14 +179,14 @@ class CuponController {
 					} catch (Exception $e) {
 						//echo "La cotización no ha sido enviada: {$mail->ErrorInfo}";
 					}
-					//Borra todas las ofertas del carrito
+					//Borra todas las ofertas del carrito y se renderiza la vista de gracias.
 					$_SESSION['CARRITO']=array();
 					require_once ('views/carrito/Gracias.php');
 				}
 
 				public function generarCupon($id_cupon){
 					$model = new Cupon_model();
-					$cupon_detalle=$model->getCupon($id_cupon);
+					$cupon_detalle=$model->getCupon($id_cupon);//se obtiene el cupon mediante el id del cupon pasado por parametro
 					$dompdf = new Dompdf();
 					ob_start(); 
 					echo "<!DOCTYPE html>";
@@ -247,6 +246,7 @@ class CuponController {
 					echo "<th>Descripción</th>";
 					echo "</thead>";
 					foreach ($cupon_detalle as $cupon) {	
+							//se imprimen todos los detalles del cupon 
 							echo "<tr>";
 							echo "<td>".$cupon['ID_Cupon']."</td>";
 							echo "<td>".$cupon['Titulo']."</td>";
@@ -270,7 +270,7 @@ class CuponController {
 					$dompdf->output(); //crea el archivo
 					$outPut=$dompdf->output();
 					file_put_contents($rutaGuardado.$nombreArchivo,$outPut); // funcion que mueve el archivo a la ruta definida 
-					header("location:pdfs_cupon/".$nombreArchivo);
+					header("location:pdfs_cupon/".$nombreArchivo);//se redirecciona al pdf 
 				}
 
 

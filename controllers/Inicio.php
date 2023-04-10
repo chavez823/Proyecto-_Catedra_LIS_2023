@@ -35,12 +35,12 @@
 				public function carrito($id){
 				
 				
-					$info_oferta=explode("/",$id);
+					$info_oferta=explode("/",$id); 
 					if(!empty($_SESSION['session'])){
 
 					
-					$inicio = new Inicio_model();
-					$promo=$inicio->get_promo($info_oferta[0]);
+					$inicio = new Inicio_model();//se instancia la clase de inicio para poder usar su metodos 
+					$promo=$inicio->get_promo($info_oferta[0]);//get promo obtiene la oferta elegida para comprar
 					$ID=$promo[0]['ID_Oferta'];
 					$NOMBRE=$promo[0]['Titulo'];
 					$DESCRIPCION=$promo[0]['Descripcion'];
@@ -56,9 +56,8 @@
 							'IMAGEN'=>$IMAGEN,
 							'PRECIO'=>$PRECIO
 						);
-						$_SESSION['CARRITO'][0]=$elemento;
-						//cargando la vista de ofertas
-						//echo var_dump($_SESSION['CARRITO']);
+						$_SESSION['CARRITO'][0]=$elemento; //la oferta elegida se almacena en la primera posicion del arreglo
+						//Dependiendo desde que categoria se agregue al carrito se direccionara a la vista correspondiente
 						if($info_oferta[1]=='')
 						{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
@@ -77,11 +76,12 @@
 					}else{ 
 						$IdProductos=array_column($_SESSION['CARRITO'],"ID"); 
 						//array column deposita todos los ids que estan en el carrito de compras
+						//in array verifica que si el ID de la oferta elegida esta en el arreglo IdProductos 
 						if(in_array($ID,$IdProductos)){
 							$carro=$_SESSION['CARRITO'];
 							$codigo_producto=$ID;
 							foreach ($carro as $indice => $oferta) {
-							if($oferta['ID']==$codigo_producto){
+							if($oferta['ID']==$codigo_producto){//recorre todo el arreglo del carrito y cuando encuentra que los ID conciden modifica el valor de la cantidad en el indice que encontro la coincidencia
 								$carro[$indice]['CANTIDAD'] += 1;
 							}
 						}
@@ -115,7 +115,7 @@
 							'IMAGEN'=>$IMAGEN,
 							'PRECIO'=>$PRECIO
 						);
-						$_SESSION['CARRITO'][$numeroProductos]=$elemento;
+						$_SESSION['CARRITO'][$numeroProductos]=$elemento;//Se almacena la oferta segun el numero de ofertas que estan actualmente en el carrito
 						//cargando la vista de ofertas
 						if($info_oferta[1]==''){
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
@@ -142,40 +142,38 @@
 				} 
 
 				public function mostrarCarrito(){
-					require_once ('views/Menu/pages/mostrarCarrito.php');
+					require_once ('views/Menu/pages/mostrarCarrito.php');//mustra la vista del carrtio 
 				}
 				public function pagar(){
-					require_once ('views/carrito/Pago_tarjeta.php');
+					require_once ('views/carrito/Pago_tarjeta.php');//muestra la vista para pagar
 				}
 			 	
-				public function pdf(){
-					echo var_dump($_SESSION['CARRITO']);
-				}
+				
 
 				public function delete($ID){
 						//Aqui se define cada objeto del carrito mediante del indice
 						foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-							if($producto['ID']==$ID){
+							if($producto['ID']==$ID){//cuando el indice en el arreglo del carrito coicide con el que se paso por parametro se procede a la eliminacion
 								unset($_SESSION['CARRITO'][$indice]);
-								echo "<script>alert('Elemento borrado...');</script>";
+								//echo "<script>alert('Elemento borrado...');</script>";
 							}
 						}
 						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
 				}
 				public function restar($ID, $CANTIDAD=1){
-					$carro=$_SESSION['CARRITO'];
+					$carro=$_SESSION['CARRITO'];//almacenamos el arreglo del carrito en la variable carro para poder comparar los elementos
 					foreach ($carro as $indice => $producto) {
-					if($producto['ID']==$ID){
-						$identificador=$indice;
-						$cantidadActual=$producto['CANTIDAD'];
+					if($producto['ID']==$ID){//cuando el ID coicida con el indice pasado por parametro 
+						$identificador=$indice;//se guarda el indice 
+						$cantidadActual=$producto['CANTIDAD'];//se guarda la cantidad actual
 						}
 					}
 					if($cantidadActual==1){
-						unset($_SESSION['CARRITO'][$identificador]);
+						unset($_SESSION['CARRITO'][$identificador]);//si la cantidad corresponde a 1 se elimina el elemento
 					}
 					else{
-						$carro[$identificador]['CANTIDAD'] -= $CANTIDAD;
-						$_SESSION['CARRITO']=$carro;
+						$carro[$identificador]['CANTIDAD'] -= $CANTIDAD;//si es mayor a uno solo se resta un elementos
+						$_SESSION['CARRITO']=$carro; //el arreglo carro se alamcena en la variable de sesion del carrito
 					}
 					header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
 				}
