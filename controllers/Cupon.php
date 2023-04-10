@@ -31,7 +31,14 @@ class CuponController {
 
 		public function compra_completa()
 				{
+					$fecha = $_POST['fecha_exp'];
+					$codigovencimiento=$_POST['cvv'];
+					$nombre_representate=$_POST['Nombre_t'];
 					
+
+
+
+
 					$model = new Cupon_model();//se instancia la clase del modelo cupon para usar sus metodos 
 					$dompdf = new Dompdf();//se instacia la clase dompdf que genera el pdf
 					//Comienza la generacion del pdf
