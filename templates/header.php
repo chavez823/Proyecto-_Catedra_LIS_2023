@@ -37,6 +37,9 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
+            </li>
 
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +49,7 @@
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=belleza">Belleza</a></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=salud">Salud</a></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=restaurante">Restaurante</a></li>
-                <li><a class="dropdown-item" href="index.php?c=categoria&a=otros">Otros</a></li>
+                <li><a class="dropdown-item" href="index.php?c=categoria&a=otros">Super</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
               </ul>

@@ -89,11 +89,11 @@ CREATE TABLE Cupon (
     KEY `fk_cupon_oferta`(`ID_Oferta`),
     KEY `fk_cupon_estado_cupon` (`ID_Estado_Cupon`)
 )ENGINE=InnoDB;
-INSERT INTO estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de aprobaci�n'), ('2', 'Aprobadas futuras '),
+INSERT INTO estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de aprobacion'), ('2', 'Aprobadas futuras '),
  ('3', 'Activas'), ('4', ' Pasadas'),
  ('5', 'Rechazadas'), ('6', 'Descartadas');
 INSERT INTO rubro (ID_Rubro, Nombre) 
-VALUES ('1', 'Sal�n de belleza'), ('2', 'Restaurante '),
+VALUES ('1', 'Salon de belleza'), ('2', 'Restaurante '),
 ('3', 'Taller'), ('4', 'Estructuras met�licas'),
  ('5', 'Super mercado'), ('6', 'Farmacia');
 INSERT INTO empresa (ID_Empresa,  Nombre, Direccion, NombreContacto, Telefono, Correo, PorcentajeComision, ID_Rubro) 
@@ -115,7 +115,9 @@ Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la 
 (12, 'Jamon al 2x1', 'Super', 100, 'por la compra de un jamon te llevas el segundo gratis', 'valido todos los fines de semana', '2023-05-01', '2023-05-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2017/05/02/14/55/black-forest-ham-2278383_1280.jpg', 'EMP001', 6, 'No cumple los reglametos de la cuponeria', '2023-05-01'),
 (13, 'Viertes todo amitad de precio', 'Super', 100, 'Todos los productos a mitad de precio', 'No importa la cantidad de productos', '2023-05-01', '2023-08-01', 6, 4.5, 'https://cdn.pixabay.com/photo/2015/09/21/14/23/supermarket-949912_1280.jpg', 'EMP002', 3, '', '2023-08-01'),
 (14, 'Dia de frutas', 'Super', 100, 'La libra de frutas con un 40% de descuento', 'Cualquier estilo de corte', '2023-05-01', '2023-08-01', 4, 2.4, 'https://cdn.pixabay.com/photo/2013/02/04/22/47/fruits-77946_1280.jpg', 'EMP002', 3, '', '2023-08-01'),
-(15, 'Sabado de mechas', 'Belleza', 100, 'Mechas con el 25% de descuento', 'No importa el largo del cabello', '2023-04-01', '2023-04-03', 25, 15, 'https://cdn.pixabay.com/photo/2019/11/20/06/27/hair-4639295_1280.jpg', 'EMP004', 5, 'No cumple los reglametos de la cuponeria ', '2023-04-03');
+(15, 'Sabado de mechas', 'Belleza', 100, 'Mechas con el 25% de descuento', 'No importa el largo del cabello', '2023-04-01', '2023-04-03', 25, 15, 'https://cdn.pixabay.com/photo/2019/11/20/06/27/hair-4639295_1280.jpg', 'EMP004', 5, 'No cumple los reglametos de la cuponeria ', '2023-04-03'),
+(16, 'VITASIL M ', 'Salud', 100, 'Por la compra de VITASIL M te llevas el segundo a mitad de precio ', '30 CAPSULAS  por caja (VITAMINAS+MINERALES)', '2023-05-01', '2023-09-01', 10, 7.5, 'https://fasani.b-cdn.net/productos/ecommerce/A8265.jpg?class=Medium', 'EMP003', 3, NULL, '2023-09-01'),
+(17, 'CEREBROFOS INFANTIL X 120 ML con el 25% ', 'Salud', 100, 'Compra un CEREBROFOS INFANTIL X 120 ML  con un descuento del 25% canjeable en todas nuestras sucursales y tiendas online', NULL, '2023-04-06', '2024-12-04', 5.6, 4.2, 'https://fasani.b-cdn.net/productos/ecommerce/A1581.jpg?class=Medium', 'EMP003', 3, NULL, '2023-09-01');
 
 
 
@@ -136,7 +138,7 @@ Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la 
 
 INSERT INTO usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
 VALUES 
- ('0' , 'Armando' , 'L�pez', '234567', 'armando.lopez@lis.com', 'Administrador'),
+ ('0' , 'Armando' , 'Lopez', '234567', 'armando.lopez@lis.com', 'Administrador'),
  ('1', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@horchata.com', 'Cliente');
 INSERT INTO empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
 VALUES ('1', 'EMP001', '1',  'Administrador');
