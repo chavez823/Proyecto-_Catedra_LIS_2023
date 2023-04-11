@@ -3,16 +3,15 @@
 	class Inicio_model {
 		
 		private $pdo;
-		private $inicio;
-		private $ofertas;
+		//private $inicio;
+		//private $ofertas;
 		
 		public function __construct(){
 			$this->pdo = Conectar::conexion();
-			$this->ofertas = array();
+			//$this->ofertas = array();
 			
 		}
 		
-
 		public function get_inicio()
 		{
 			
@@ -22,7 +21,7 @@
 			
 			return $listaOfertas;
 		}
-		
+		 //metodo ocupado en el carrito 
 		public function get_promo($id='')
 		{
 			$sentencia=$this->pdo->prepare("SELECT * FROM `oferta` WHERE ID_Oferta like '$id'");

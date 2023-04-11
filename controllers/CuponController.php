@@ -17,16 +17,20 @@ class CuponController {
 			
 			
 		}
-		//abre la pagina de categorias
+
+
+		//muestra los cupones comprados
 		public function ver_cupon(){
+			//si esta definida 
 			if(!empty($_SESSION['session'])){
 			$model = new Cupon_model();
 			$DUI=$model->getDUI($_SESSION['session']['ID_Usuario']);
 			$cupones =$model->getCupones($DUI[0]['DUI']);
-			require_once "views/Compras/compras.php";}else{
+			require_once "views/Compras/compras.php";}
+			//else{
 				
-				header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Usuario');
-			}
+				//header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Usuario');
+			//}
 
 		}
 
@@ -92,8 +96,6 @@ class CuponController {
 		public function compra_completa()
 				{
 					
-
-
 					$model = new Cupon_model();//se instancia la clase del modelo cupon para usar sus metodos 
 					$dompdf = new Dompdf();//se instacia la clase dompdf que genera el pdf
 					//Comienza la generacion del pdf
@@ -157,7 +159,10 @@ class CuponController {
 					echo "<th>Precio</th>";
 					echo "<th>Codigo Cupon</th>";
 					echo "</thead>";
+
 					$total=0;
+					//generando los  cupones comprados
+					//estaba recorriendo la in formacion para la factura en el total 
 					foreach ($_SESSION['CARRITO'] as $cupon) {//dividimos cada elemento del arreglo del carrito en un arreglo cupon que incluye toda la informacion de la oferta 
 							
 						for ($j=0; $j < $cupon['CANTIDAD']; $j++) { //se corre el ciclo la cantidad de veces que se a comprado una oferta para generar un numero de cupon unico por cada oferta.
@@ -167,6 +172,7 @@ class CuponController {
 							echo "<td>".$cupon['DESCRIPCION']."</td>";
 							echo "<td>$ ".$cupon['PRECIO']."</td>";
 							$total=$total+$cupon['PRECIO'];//se suman los precios para luego mostrar el total.
+
 							$num_aleatorio=rand(0,9);//genera el primer numero aleatorio
 							$nombre_empresa=$model->getNombreEmpresa($cupon['ID']);//se obtiene el nombre de la empresa dependiendo del id del cupon
 							for ($i=0; $i < 6; $i++) { 
@@ -185,11 +191,12 @@ class CuponController {
 					echo "<td class=\"tdb\"></td>";
 					echo "<td class=\"tdb\"></td>";
 					echo "<th>Total</th>";
-					echo "<td>$".$total."</td>";
+					echo "<td>$".$total."</td>";//para la factura 
 					echo "</tr>";
 					echo "</table>";
 					echo "</body>";
 					echo "</html>";
+					//fin de la factura 
 
 
 					$html = ob_get_clean(); //ob_get_clean captura toda la información y lo amacenamos en una variable
@@ -246,6 +253,7 @@ class CuponController {
 					require_once ('views/carrito/Gracias.php');
 				
 			}
+			//para cupones individuales 
 
 				public function generarCupon($id_cupon){
 					$model = new Cupon_model();

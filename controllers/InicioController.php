@@ -30,11 +30,11 @@
 
 
 
-
+  //recibe la variable id  que trae el numero de la vista y el id de la oferta 
 
 				public function carrito($id){
 				
-				
+				//se convirtio de nuevo a un arreglo con emplode con indice de cero a uno 
 					$info_oferta=explode("/",$id); 
 					if(!empty($_SESSION['session'])){
 
@@ -58,6 +58,7 @@
 						);
 						$_SESSION['CARRITO'][0]=$elemento; //la oferta elegida se almacena en la primera posicion del arreglo
 						//Dependiendo desde que categoria se agregue al carrito se direccionara a la vista correspondiente
+						//array 
 						if($info_oferta[1]=='')
 						{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
@@ -74,6 +75,7 @@
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
 						}
 					}else{ 
+						
 						$IdProductos=array_column($_SESSION['CARRITO'],"ID"); 
 						//array column deposita todos los ids que estan en el carrito de compras
 						//in array verifica que si el ID de la oferta elegida esta en el arreglo IdProductos 
@@ -115,7 +117,8 @@
 							'IMAGEN'=>$IMAGEN,
 							'PRECIO'=>$PRECIO
 						);
-						$_SESSION['CARRITO'][$numeroProductos]=$elemento;//Se almacena la oferta segun el numero de ofertas que estan actualmente en el carrito
+						//Se almacena la oferta segun el numero de ofertas que estan actualmente en el carrito
+						$_SESSION['CARRITO'][$numeroProductos]=$elemento;
 						//cargando la vista de ofertas
 						if($info_oferta[1]==''){
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio');
@@ -135,7 +138,7 @@
 						
 					}
 				}else{
-				
+				//por si la session no esta definida 
 					header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Usuario');
 				}
 
@@ -154,6 +157,7 @@
 						//Aqui se define cada objeto del carrito mediante del indice
 						foreach ($_SESSION['CARRITO'] as $indice => $producto) {
 							if($producto['ID']==$ID){//cuando el indice en el arreglo del carrito coicide con el que se paso por parametro se procede a la eliminacion
+								//un vaciado dependiendo el id de oferta 
 								unset($_SESSION['CARRITO'][$indice]);
 								//echo "<script>alert('Elemento borrado...');</script>";
 							}
@@ -161,6 +165,7 @@
 						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
 				}
 				public function restar($ID, $CANTIDAD=1){
+					
 					$carro=$_SESSION['CARRITO'];//almacenamos el arreglo del carrito en la variable carro para poder comparar los elementos
 					foreach ($carro as $indice => $producto) {
 					if($producto['ID']==$ID){//cuando el ID coicida con el indice pasado por parametro 
