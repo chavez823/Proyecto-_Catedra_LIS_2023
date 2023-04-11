@@ -84,8 +84,25 @@
   </header>
   
 
+<br>
+<br>
+<br>
+<?php
+                        if(isset($errores)){
+                            if(count($errores)>0){
+                                echo "<div class='alert alert-danger'><ul>";
+                                foreach ($errores as $error) {
+                                    echo "<li>$error</li>";
+                                }
+                                echo "</ul></div>";
 
+                            }
+                        }
+
+                            
+                    ?>
     <div class="payment-title">
+
         <h1>Informacion de pago</h1>
     </div>
 
@@ -108,16 +125,16 @@
                             </g>
                             <path class="darkcolor greydark" d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
                         </g>
-                        <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4"></text>
-                        <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6"></text>
+                        <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4"><?php if(isset($numero_t)) echo  $numero_t ?></text>
+                        <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6"><?php if(isset($nombre_representante)) echo  $nombre_representante ?></text>
                         <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">Nombre del representante</text>
                         <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">Vencimiento</text>
                         <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">Numero de tarjeta</text>
                         <g>
-                            <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" class="st2 st5 st9"></text>
+                            <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" class="st2 st5 st9"><?php if(isset($fecha)) echo  $fecha ?></text>
                             <text transform="matrix(1 0 0 1 479.3848 417.0097)" class="st2 st10 st11">Feca</text>
                             <text transform="matrix(1 0 0 1 479.3848 435.6762)" class="st2 st10 st11">Valida</text>
-                            <polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9 		" />
+                            <polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9" />
                         </g>
                         <g id="cchip">
                             <g>
@@ -181,13 +198,13 @@
                             <rect x="42.9" y="224.5" class="st4" width="664.1" height="10.5" />
                             <path class="st5" d="M701.1,184.6H618h-8h-10v64.5h10h8h83.1c3.3,0,6-2.7,6-6v-52.5C707.1,187.3,704.4,184.6,701.1,184.6z" />
                         </g>
-                        <text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity" class="st6 st7"></text>
+                        <text transform="matrix(1 0 0 1 621.999 227.2734)" id="svgsecurity" class="st6 st7"><?php if(isset($codigovencimiento)) echo  $codigovencimiento ?></text>
                         <g class="st8">
                             <text transform="matrix(1 0 0 1 518.083 280.0879)" class="st9 st6 st10">Codigo de Seguridad</text>
                         </g>
                         <rect x="58.1" y="378.6" class="st11" width="375.5" height="13.5" />
                         <rect x="58.1" y="405.6" class="st11" width="421.7" height="13.5" />
-                        <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13"></text>
+                        <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" class="st12 st13"><?php if(isset($nombre_representante)) echo  $nombre_representante ?></text>
                     </g>
                 </svg>
             </div>
@@ -196,6 +213,7 @@
     </div>
     
     <!--FINAL diseño Tarjeta-->
+   
     
 <!--Inicio de toma de datos "FORMULARIO"-->
 <form action="index.php?c=Cupon&a=compra" method="post">
@@ -240,21 +258,10 @@
         </div>
     </div>
 </form>
+<br>
+<br>
 
-<?php
-                        if(isset($errores)){
-                            if(count($errores)>0){
-                                echo "<div class='alert alert-danger'><ul>";
-                                foreach ($errores as $error) {
-                                    echo "<li>$error</li>";
-                                }
-                                echo "</ul></div>";
 
-                            }
-                        }
-
-                            
-                    ?>
 
 
     

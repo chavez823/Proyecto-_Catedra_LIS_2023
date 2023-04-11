@@ -49,6 +49,7 @@ class ClienteController
         $Contrasenia = $_POST['password'];
         $Telefono = $_POST['telefono'];
         $Direccion = $_POST['direccion'];
+        //multiplica el tiempo que  tenemos por un numero rand y solo toma de  0 a 6 digitos 
         $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
         //$Token=1599;
         $clientes = new Cliente_model();
