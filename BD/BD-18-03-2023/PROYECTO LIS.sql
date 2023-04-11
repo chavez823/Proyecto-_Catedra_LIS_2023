@@ -15,7 +15,7 @@ CREATE TABLE Usuario (
 	ID_Usuario INT NOT NULL,
     Nombres VARCHAR(100) NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
-    Contrasenia VARCHAR(15) NOT NULL,
+    Contrasenia VARCHAR(256) NOT NULL,
     Correo VARCHAR(50) NOT NULL,
     Tipo VARCHAR(10) NOT NULL,
     PRIMARY KEY (ID_Usuario)
@@ -56,7 +56,7 @@ CREATE TABLE Cliente (
 	DUI INT NOT NULL,
 	Nombres VARCHAR(100) NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
-    Contrasenia VARCHAR(255) NOT NULL,
+    Contrasenia VARCHAR(256) NOT NULL,
     Correo VARCHAR(50) NOT NULL,
     Telefono VARCHAR(8) NOT NULL,
     Direccion VARCHAR (255) NOT NULL,

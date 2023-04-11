@@ -23,7 +23,7 @@
 
         public function insertar($Dui,$Nombres, $Apellidos,$Contrasenia, $Correo, $Telefono, $Direccion, $Token, $ID_Usuario)
         {  
-           $sentencia = $this->pdo->prepare("INSERT INTO `cliente` (`DUI`, `Nombres`, `Apellidos`, `Contrasenia`, `Correo`, `Telefono`, `Direccion`, `Token`, `ID_Usuario`) VALUES ('$Dui','$Nombres', '$Apellidos','$Contrasenia', '$Correo', '$Telefono', '$Direccion', '$Token', '$ID_Usuario' )");
+           $sentencia = $this->pdo->prepare("INSERT INTO `cliente` (`DUI`, `Nombres`, `Apellidos`, `Contrasenia`, `Correo`, `Telefono`, `Direccion`, `Token`, `ID_Usuario`) VALUES ('$Dui','$Nombres', '$Apellidos',SHA2('$Contrasenia',256), '$Correo', '$Telefono', '$Direccion', '$Token', '$ID_Usuario' )");
            $sentencia->execute();
            $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
            return  $row;

@@ -63,25 +63,25 @@ class ClienteController
         }
 
 
-        if(!texto($Nombres)){
+        elseif(!texto($Nombres)){
             $errores=array();
             array_push($errores,"Debes Ingresar Unicamente datos validos en nombre");                    
             require_once "views/cliente/cliente.php";
         }
 
-        if(!texto($Apellidos)){
+        elseif(!texto($Apellidos)){
             $errores=array();
             array_push($errores,"Debes Ingresar Unicamente datos validos en apellido");                    
             require_once "views/cliente/cliente.php";
         }
 
-        if(!validar_dui($Dui)){
+        elseif(!validar_dui($Dui)){
             $errores=array();
             array_push($errores,"Debes Ingresar un numero de DUI valido");                    
             require_once "views/cliente/cliente.php";
         }
 
-        if(!validar_tel($Telefono)){
+       else if(!validar_tel($Telefono)){
             $errores=array();
             array_push($errores,"Debes Ingresar un numero de telefono valido");                    
             require_once "views/cliente/cliente.php";
@@ -94,7 +94,7 @@ class ClienteController
         //else{
         
            //comprueba que el correo y el dui no esten registrados 
-        if ($clientes->registrodui($Dui) !=null || $clientes->registrocorreo($Correo)!=null) {
+       else if ($clientes->registrodui($Dui) !=null || $clientes->registrocorreo($Correo)!=null) {
           //echo var_dump($clientes->registrodui($Dui));
           //echo var_dump($clientes->registrocorreo($Correo));
            // echo "Dui y/o correo ya están en uso ";
