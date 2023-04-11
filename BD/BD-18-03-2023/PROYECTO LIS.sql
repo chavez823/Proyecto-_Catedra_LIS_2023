@@ -1,4 +1,4 @@
-CREATE SCHEMA `proyecto`;
+CREATE database `proyecto`;
 USE `proyecto`;
 
 CREATE TABLE estado_oferta (
@@ -17,7 +17,7 @@ CREATE TABLE Usuario (
     Apellidos VARCHAR(100) NOT NULL,
     Contrasenia VARCHAR(256) NOT NULL,
     Correo VARCHAR(50) NOT NULL,
-    Tipo VARCHAR(10) NOT NULL,
+    Tipo VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_Usuario)
 )ENGINE=InnoDB; 
 CREATE TABLE Empresa (
@@ -69,7 +69,7 @@ CREATE TABLE Empleado (
 	ID_Empleado INT NOT NULL,
     ID_Empresa VARCHAR(6) NOT NULL,
     ID_Usuario INT NOT NULL,
-    Tipo VARCHAR(10) NOT NULL,
+    Tipo VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_Empleado),
     KEY `fk_empleado_usuario` (`ID_Usuario`),
     KEY `fk_empleado_empresa` (`ID_Empresa`)
@@ -94,13 +94,13 @@ INSERT INTO estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de apro
  ('5', 'Rechazadas'), ('6', 'Descartadas');
 INSERT INTO rubro (ID_Rubro, Nombre) 
 VALUES ('1', 'Salon de belleza'), ('2', 'Restaurante '),
-('3', 'Taller'), ('4', 'Estructuras met�licas'),
+('3', 'Taller'), ('4', 'Estructuras metalicas'),
  ('5', 'Super mercado'), ('6', 'Farmacia');
-INSERT INTO empresa (ID_Empresa,  Nombre, Direccion, NombreContacto, Telefono, Correo, PorcentajeComision, ID_Rubro) 
+INSERT INTO Empresa (ID_Empresa,  Nombre, Direccion, NombreContacto, Telefono, Correo, PorcentajeComision, ID_Rubro) 
 VALUES 
 ('EMP001', 'Pollo de Oro', 'Blvr. del ejercito, Centro comercial Plaza Mundo, 2 nivel, Soyapango ', 'Mario Rivas', '77223344', 'armando.lopez@lis.com', '0.1', '2'), ('EMP002', 'El Super De Todos', 'PR2X+6P5, Blvr. del Ejercito Nacional, Soyapango', 'Luis Garcia', '77669955', 'super.todos@lis.com', '0.05', '5'),
  ('EMP003', 'Farmacia Amigo','Frente a, Entre 5a y 7a Avenida Norte y, 15 Calle Pte., San Salvador', 'Arturo Ram�rez ', '66789045', 'farma.amigo@gmail.com', '0.15', '6'), ('EMP004', 'Destellos Vicky Sal�n ', 'P.� Gral. Escal�n 3656, San Salvador', 'Victoria Flores', '77452987', 'destellos.vicky@lis.com', '0.08', '1');
-Insert INTO  oferta (ID_Oferta , Titulo, Categoria, CantLimite, Descripcion,Detalles,FechaInicio, FechaFin, PrecioOriginal, PrecioOferta, Imagen,ID_Empresa, ID_EstadoOferta, Justificacion, FechaLimite)
+Insert INTO  Oferta (ID_Oferta , Titulo, Categoria, CantLimite, Descripcion,Detalles,FechaInicio, FechaFin, PrecioOriginal, PrecioOferta, Imagen,ID_Empresa, ID_EstadoOferta, Justificacion, FechaLimite)
 Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la mitad de cada Plato del restaurante', 'Incluye postres y bebida ', '2023-05-01', '2023-08-01', 9.5, 4.75, 'https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_1280.jpg', 'EMP001', 3, '', '2023-08-01'),
 (2, 'Lunes de hamburguesas al 2X1 ', 'Restaurante', 80, 'Por la compra de una hamburguesa te llevas dos ', 'Incluye papas y bebida ', '2023-05-01', '2023-08-01', 14, 7, 'https://cdn.pixabay.com/photo/2020/06/24/22/08/spicy-5337836_1280.jpg', 'EMP001', 3, '', '2023-08-01'),
 (3, 'Miercoles de alitas', 'Restaurante', 80, 'Al compar el primer combo de alitas tellevas el Segundo a mitad de precio', 'Incluye papas y bebida', '2023-05-01', '2023-08-01', 16, 12, 'https://cdn.pixabay.com/photo/2016/07/31/18/00/chicken-1559579_1280.jpg', 'EMP001', 1, '', '2023-08-01'),
@@ -136,41 +136,41 @@ Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la 
 
 
 
-INSERT INTO usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
+INSERT INTO Usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
 VALUES 
  ('0' , 'Armando' , 'Lopez', '234567', 'armando.lopez@lis.com', 'Administrador'),
  ('1', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@horchata.com', 'Cliente');
-INSERT INTO empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
-VALUES ('1', 'EMP001', '1',  'Administrador');
-Insert Into cliente (DUI, Nombres,Apellidos,Contrasenia,Correo,Telefono , Direccion , Token, ID_Usuario) 
-VALUES  ('00167564', 'Richard Mario','Molina Aguilar','1599','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ', 'cliente1', '1');
-INSERT INTO estado_Cupon( ID_Estado_Cupon, Estado)
+INSERT INTO Empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
+VALUES ('1', 'EMP001', '1',  'Admin');
+Insert Into Cliente (DUI, Nombres,Apellidos,Contrasenia,Correo,Telefono , Direccion , Token, ID_Usuario) 
+VALUES  ('00167564', 'Richard Mario','Molina Aguilar','1599','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ', 'cliente1', '2');
+INSERT INTO Estado_Cupon( ID_Estado_Cupon, Estado)
 VALUES
 ('01', 'Canjeado'), ('02', 'Sin canjear');
-INSERT INTO cupon(ID_Cupon, DUI, ID_Oferta, ID_Estado_Cupon)
+INSERT INTO Cupon(ID_Cupon, DUI, ID_Oferta, ID_Estado_Cupon)
 Values 
 ('001', '00167564', '1', '01'), ('002', '00167564', '5', '02');
 
 
-ALTER TABLE `cupon`
-  ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `cliente` (`DUI`),
+ALTER TABLE `Cupon`
+  ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `Cliente` (`DUI`),
   ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `oferta` (`ID_Oferta`),
   ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `estado_cupon` (`ID_Estado_Cupon`);
 
 
-ALTER TABLE `empleado`
-  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`),
-  ADD CONSTRAINT `empleado_ibfk_2` FOREIGN KEY (`ID_Empresa`) REFERENCES `empresa` (`ID_Empresa`);
+ALTER TABLE `Empleado`
+  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuario` (`ID_Usuario`),
+  ADD CONSTRAINT `empleado_ibfk_2` FOREIGN KEY (`ID_Empresa`) REFERENCES `Empresa` (`ID_Empresa`);
 
 
-ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`ID_Rubro`) REFERENCES `rubro` (`ID_Rubro`);
+ALTER TABLE `Empresa`
+  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`ID_Rubro`) REFERENCES `Rubro` (`ID_Rubro`);
 
 
-ALTER TABLE `oferta`
-  ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`ID_Empresa`) REFERENCES `empresa` (`ID_Empresa`),
-  ADD CONSTRAINT `oferta_ibfk_2` FOREIGN KEY (`ID_EstadoOferta`) REFERENCES `estado_oferta` (`ID_EstadoOferta`);
+ALTER TABLE `Oferta`
+  ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`ID_Empresa`) REFERENCES `Empresa` (`ID_Empresa`),
+  ADD CONSTRAINT `oferta_ibfk_2` FOREIGN KEY (`ID_EstadoOferta`) REFERENCES `Estado_oferta` (`ID_EstadoOferta`);
 COMMIT;
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Cliente`
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
