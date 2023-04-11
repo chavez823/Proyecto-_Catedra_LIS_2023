@@ -29,67 +29,23 @@ class CuponController {
 
 		}
 
-
-
-
-       public function compra(){
-
-		$fecha = $_POST['fecha_exp'];
+		public function compra_completa()
+				{
+					$fecha = $_POST['fecha_exp'];
 					$codigovencimiento=$_POST['cvv'];
 					$nombre_representante=$_POST['Nombre_t'];
                    $numero_t=$_POST['Numero_t'];
-				  // var_dump($_POST);
 
-					if(empty($nombre_representate)  ){
+					if(empty($nombre_representate)||empty($codigovencimiento)||empty($fecha)||empty($numero_t)){
 
 						$errores=array();
   
-						array_push($errores,"Debes escribir nombre");
+						array_push($errores,"Debes escribir todos los campos");
 					   
 					  require_once "views/carrito/Pago_tarjeta.php";
 
 					}
-					else if(empty($codigovencimiento))
-					{
-						$errores=array();
-  
-						array_push($errores,"Debes escribir codigo");
-					   
-					  require_once "views/carrito/Pago_tarjeta.php";
-
-					}
-					else if(empty($fecha))
-					{
-						$errores=array();
-  
-						array_push($errores,"Debes escribir fecha");
-					   
-					  require_once "views/carrito/Pago_tarjeta.php";
-					}
-					
-					else if(empty($numero_t)){
-
-                        $errores=array();
-  
-						array_push($errores,"Debe completar el numero de tarjeta");
-					   
-					  require_once "views/carrito/Pago_tarjeta.php";
-					}
-
 					else{
-
-						$this->compra_completa();
-					}
-
-	   }
-
-
-
-
-
-		public function compra_completa()
-				{
-					
 
 
 					$model = new Cupon_model();//se instancia la clase del modelo cupon para usar sus metodos 
@@ -210,7 +166,7 @@ class CuponController {
 					$archivo = $rutaGuardado.$nombreArchivo;
 					$nombre='Envio del detalle de la compra';
 					try {   
-						$mail = new PHPMailer(true);
+						/*$mail = new PHPMailer(true);
 						$mail->IsSMTP(); // Using SMTP.
 						$mail->CharSet = 'utf-8';
 						$mail->SMTPDebug = 0; // Enables SMTP debug information - SHOULD NOT be active on production servers!
@@ -232,18 +188,17 @@ class CuponController {
 						$mail->Body = 'Nombre' .$nombre;
 						//mensaje con archivo, direccion del archivo
 						$mail->addAttachment($archivo); 
-						$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
+						$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';*/
 						
 						//Para enviar
-						$mail->send();
+						//$mail->send();
 					} catch (Exception $e) {
 						//echo "La cotización no ha sido enviada: {$mail->ErrorInfo}";
 					}
 					//Borra todas las ofertas del carrito y se renderiza la vista de gracias.
 					$_SESSION['CARRITO']=array();
-
 					require_once ('views/carrito/Gracias.php');
-				
+				}
 			}
 
 				public function generarCupon($id_cupon){
