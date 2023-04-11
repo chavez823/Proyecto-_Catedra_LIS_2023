@@ -49,11 +49,7 @@
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=belleza">Belleza</a></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=salud">Salud</a></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=restaurante">Restaurante</a></li>
-<<<<<<< HEAD
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=super">Otros</a></li>
-=======
-                <li><a class="dropdown-item" href="index.php?c=categoria&a=otros">Super</a></li>
->>>>>>> deefc63f6994d6590a26828bac13abc5ca7ae8a4
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
               </ul>

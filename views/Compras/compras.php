@@ -68,12 +68,13 @@
 
 
 
-
-
-
-
 <div class="container">
-  
+<?php 
+    //Comprueba si tiene algo el carrito
+    if(sizeof($cupones)> 0) {
+    
+      //echo var_dump($_SESSION['CARRITO']);
+?>
   <div class="row">
     <div class="col-sm-12">
       <h3 style="text-align: center; font-weight: bold;">Cupones Adquiridos</h3>      
@@ -120,7 +121,38 @@
 <?php
   }
 ?>
-    
+    <?php
+    }else{
+    ?>
+        <div class="alert alert-success">
+           <h3>No hay cupones comprados...!</h3> 
+        </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    <?php }?>
 
 </div><!-- end of container -->
 
