@@ -1,5 +1,8 @@
 <?php
 include_once "controllers/vendor/autoload.php";	
+/*Para Validaciones*/
+require_once "core/validaciones.php";
+
 use Dompdf\Dompdf;
 require 'Phpmailer/Exception.php';
 require 'Phpmailer/PHPMailer.php';
@@ -36,15 +39,35 @@ class CuponController {
 					$nombre_representante=$_POST['Nombre_t'];
                    $numero_t=$_POST['Numero_t'];
 
-					if(empty($nombre_representate)||empty($codigovencimiento)||empty($fecha)||empty($numero_t)){
+					if(empty($nombre_representante)||empty($codigovencimiento)||empty($fecha)||empty($numero_t)){
 
 						$errores=array();
   
 						array_push($errores,"Debes escribir todos los campos");
 					   
 					  require_once "views/carrito/Pago_tarjeta.php";
-
 					}
+
+					/*Valida el numero de tarjeta*/
+					if(!validar_t_num($numero_t)){
+						$errores=array();
+						array_push($errores,"Revise la informacion de su tarjeta");			
+						require_once "views/carrito/Pago_tarjeta.php";
+					}
+					/*Valida fecha*/
+					if(!validar_date($fecha)){
+						$errores=array();
+						array_push($errores,"Revise la informacion de su tarjeta");			
+						require_once "views/carrito/Pago_tarjeta.php";
+					}
+					/*Valida cvv*/
+					if(!valida_cvv($codigovencimiento)){
+						$errores=array();
+						array_push($errores,"Revise la informacion de su tarjeta");			
+						require_once "views/carrito/Pago_tarjeta.php";
+					}
+
+					
 					else{
 
 
