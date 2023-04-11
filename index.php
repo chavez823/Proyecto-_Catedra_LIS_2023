@@ -3,9 +3,8 @@
 	require_once "config/config.php";
 	require_once "core/routes.php";
 	require_once "config/database.php";
-	//require_once "controllers/Vehiculos.php";
-	require_once "controllers/Inicio.php";
-	require_once "controllers/Categoria.php";
+	//require_once "controllers/Inicio.php";
+	//require_once "controllers/Categoria.php";
 	
 	if(isset($_GET['c'])){
 		

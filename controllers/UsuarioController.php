@@ -130,7 +130,7 @@ class UsuarioController{
 
                 try {
 
-                     /*// $mail->SMTPDebug = 0;
+                      $mail->SMTPDebug = 0;
                       $mail->isSMTP();
                       $mail->Host = 'smtp.gmail.com';
                       $mail->SMTPAuth = true;
@@ -143,7 +143,7 @@ class UsuarioController{
                       $mail->isHTML(true);
                       $mail->Subject = 'Verificación de Correo ';
                       $mail->Body    = '<p>Tu nueva contraseña de verificación para BUYIT es : <b style="font-size: 30px;">' . $Contrasenia . '</b></p>';
-                      $mail->send();*/
+                      $mail->send();
 
                       //modificando la contrseña en la base de datos
 

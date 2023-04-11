@@ -198,7 +198,7 @@
     <!--FINAL diseño Tarjeta-->
     
 <!--Inicio de toma de datos "FORMULARIO"-->
-<form action="index.php?c=Cupon&a=compra_completa" method="post">
+<form action="index.php?c=Cupon&a=compra" method="post">
 
     <div class="form-container" id="f_orm">
         <div class="field-container">
@@ -236,7 +236,7 @@
         </div>
         
         <div class="btn_div">
-            <button  class="end_s">Pagar</button>    
+            <button type="submit"  class="end_s" >Pagar</button>    
         </div>
     </div>
 </form>

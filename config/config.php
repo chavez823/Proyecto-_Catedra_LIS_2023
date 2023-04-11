@@ -1,7 +1,7 @@
 <?php
 	
 
-	define("CONTROLADOR_PRINCIPAL", "Inicio");
+	define("CONTROLADOR_PRINCIPAL", "InicioController");
 	define("ACCION_PRINCIPAL", "index");
 	
 ?>

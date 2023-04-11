@@ -90,7 +90,7 @@ class ClienteController
 
 
 
-        else{
+        //else{
         
            //comprueba que el correo y el dui no esten registrados 
         if ($clientes->registrodui($Dui) !=null || $clientes->registrocorreo($Correo)!=null) {
@@ -106,14 +106,16 @@ class ClienteController
         require_once "views/cliente/cliente.php";
 
 
-        } else {
+        } 
+        
+        else {
             //envia el correo con el token 
 
-         //  $mail = new PHPMailer(true);
+           $mail = new PHPMailer(true);
 
             try {
 
-               /* $mail->SMTPDebug = 0;
+                $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
@@ -126,7 +128,7 @@ class ClienteController
                 $mail->isHTML(true);
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-                $mail->send();*/
+                $mail->send();
 
                
               /* echo var_dump($clientes->registrodui($Dui));
@@ -157,7 +159,7 @@ class ClienteController
             
     
             }
-        }
+        //}
     }
 
         
