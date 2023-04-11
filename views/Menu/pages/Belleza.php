@@ -5,10 +5,11 @@
     <!--Funcional con php-->
 
    <main> 
-    <!--?php
-   $model=new OfertaModel();
-   $listaCupones=$model->get_oferta(1);    
-    ?-->
+    <?php
+  // $model=new OfertaModel();
+   //$listaCupones=$model->get_oferta(1); 
+
+    ?>
       
       <div class="profile-area">
             <p class="Parrafo">LO MEJOR PARA TU CUIDADO PERSONAL</p>
@@ -16,30 +17,29 @@
               <div class="row">
     <?php
 
-    foreach($data["Categorias"] as $cupones){?>
+    foreach($ofertas as $cupones){?>
+    <?php
+     //se crea un arreglo asociativo  y se almacena el id de oferta y se le asigna ala variable vista un numero 2, para manejarlo en el carrito y  para renderizar la misma  vista de belleza y se repite con las de mas  categorías
+    $info = ['ID' => $cupones['ID_Oferta'], 'vista' => 2];
+   //con implode se hizo una conversion de array a string y le asignamos el separador de /
+    $info_carrito = implode("/", $info);
+    ?>
         
          
                 <div class="col-md-4">
                   <div class="card">
-                    <div class="img1"><img src="<?php echo $cupones['Imagen'] ?>" alt=""></div><!--Fondo CARD-->
-                    <div class="img2"><img src="img/ramen_3.jpg" alt=""></div>                  
+                    <div class="img1"><img src="<?php echo $cupones['Imagen'] ?>" alt=""></div>
+                    <!--Fondo CARD-->
+                    <!--<div class="img2"><img src="img/ramen_3.jpg" alt=""></div>-->         
                     <div class="main-text">
                       <h1><?php echo $cupones['Titulo'] ?></h1>
                       <p>$<?php echo $cupones['PrecioOferta'] ?></p>
-                      <form action="" method="post">
-                        <input type="hidden" name="id" id="id" value="<?php echo  $cupones['ID_Oferta'];?>">
-                        <input type="hidden" name="nombre" id="nombre" value="<?php echo $cupones['Titulo'];?>">
-                        <input type="hidden" name="precio" id="precio" value="<?php echo $cupones['PrecioOferta'];?>">
-                        <input type="hidden" name="cantidad" id="cantidad" value="<?php echo 1;?>">
-                        <button class="btn btn-primary" 
-                                type="submit" 
-                                name="btnAccion" 
-                                value="Agregar"
-                                >Agregar al carrito
-                        </button>
-                      </form>                    
+                      <p><?php echo $cupones['Descripcion'] ?></p>
+                      <!-- aqui pasamos el array asociativo convertido en string osea el id oferta y la vista -->
+                      <a href="index.php?c=Inicio&a=carrito&id=<?=$info_carrito?>" class="btn btn-primary">Agregar al carrito</a>                   
                     </div>    
                   </div>
+                  <br>
                 </div>
     <?php
     }

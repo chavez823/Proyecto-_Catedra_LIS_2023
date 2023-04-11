@@ -2,14 +2,14 @@
   
 	class Cliente_model {
 		
-		private $db;
+		private $pdo;
 		private $clientes;
 		
 		public function __construct(){
-			$this->db = Conectar::conexion();
-			//$this->clientes = array();
+			$this->pdo = Conectar::conexion();
+			$this->clientes = array();
 		}
-        //consulta por siquisieramos ver todos los clientes 
+
        /* public function get_Clientes()
 		{
 			$sql = "SELECT * FROM cliente";
@@ -20,32 +20,57 @@
 			}
 			return $this->clientes;
 		}*/
-         //para insertar un nuevo cliente 
+
         public function insertar($Dui,$Nombres, $Apellidos,$Contrasenia, $Correo, $Telefono, $Direccion, $Token, $ID_Usuario)
         {  
-           $resultado = $this->db->query("INSERT INTO `cliente` (`DUI`, `Nombres`, `Apellidos`, `Contrasenia`, `Correo`, `Telefono`, `Direccion`, `Token`, `ID_Usuario`) VALUES ('$Dui','$Nombres', '$Apellidos','$Contrasenia', '$Correo', '$Telefono', '$Direccion', '$Token', '$ID_Usuario' )");
-           return $resultado;
+           $sentencia = $this->pdo->prepare("INSERT INTO `Cliente` (`DUI`, `Nombres`, `Apellidos`, `Contrasenia`, `Correo`, `Telefono`, `Direccion`, `Token`, `ID_Usuario`) VALUES ('$Dui','$Nombres', '$Apellidos',SHA2('$Contrasenia',256), '$Correo', '$Telefono', '$Direccion', '$Token', '$ID_Usuario' )");
+           $sentencia->execute();
+           $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+           return  $row;
+   
          
         }
-            //Nos devuelve la cantidad de filas en la que cumpla la consulta donde el dui que ingresa el cliente para registrarse es igual al de la base de datos 
-           public function registrodui($Dui ){
-            $resultado = $this->db->query("SELECT * FROM Cliente WHERE DUI='$Dui'");
-            $row = $resultado->fetch_array();
-                  return  $row;
+    
+           //este llano en vez de el ocupamos las variables de session
+        /*public function modificar($email, $verification_code){
+            $resultado = $this->db->query("UPDATE Cliente SET Fecha_Verificacion_Email = NOW() WHERE Correo = '$email' AND Token = '$verification_code' " );
+            return $resultado;
+        }*/
+
+           public function registrodui($Dui){
+            $sentencia=$this->pdo->prepare("SELECT * FROM  `Cliente` WHERE DUI='$Dui'");
+           /* $sentencia->execute();
+            $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $num=array_sum($row);
+            return  $num;*/
+           $sentencia->execute();
+		$row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return  $row;
                 
            }
        
-     //Nos devuelve la cantidad de filas en la que cumpla la consulta donde el correo que ingresa el cliente para registrarse es igual al de la base de datos 
 
         public function registrocorreo($Correo){
-            $resultado = $this->db->query("SELECT * FROM Cliente WHERE  Correo='$Correo'");
-            $row = $resultado->fetch_array();
-                  return  $row;    
+
+            $sentencia=$this->pdo->prepare("SELECT * FROM `Cliente` WHERE  Correo='$Correo'");
+           /* $sentencia->execute();
+            $row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $num=array_sum($row);
+            return  $num; */
+            $sentencia->execute();
+		$row=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+        return  $row;
+            
+            
+
+
+
+
+
            }
 
                
-           }
-          
+           }  
 
 
 

@@ -14,7 +14,9 @@ include '../carrito.php';*/
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!--Propio-->
     <link rel="stylesheet" href="css/style_1.css">
+    <link rel="stylesheet" href="css/drop.css">    
     <link rel="stylesheet" href="css/categories.css">
+
   </head>
   <body >
   <header>
@@ -33,20 +35,33 @@ include '../carrito.php';*/
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
+            
             <li class="nav-item">
-              <a class="nav-link" href="../pages/Contacto.php">Contacto</a>
+                 <a class="nav-link" href="index.php?c=Inicio&a=mostrarCarrito"><i class="fa-solid fa-cart-shopping"></i> (<?php echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));?>)</a>			  
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../mostrarCarrito.php">Carrito(<?php
-                        //condicionador ternario
-                        echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
-                    ?>)</a>
-            </li>
-            <li class="nav-item">
-              <a href="index.php?c=usuario" class="nav-link">Login <i class="fa-solid fa-user"></i></a>
-            </li>
-            <li class="nav-item">  
-            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php echo  isset($_SESSION['session'])?$_SESSION['session']['nombre']:"Login" ?> <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <?php if(!isset($_SESSION['session']))  { ?>
+
+                  <li> <a class="dropdown-item " href="index.php?c=usuario"> Login</a></li>
+                  <li><hr class="dropdown-divider"></li>
+
+                  <?php  } else { ?>                  
+
+                  <li><a class="dropdown-item " href="index.php?c=cupon&a=ver_cupon">Ver Cupones</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li> <a class="dropdown-item " href="index.php?c=usuario&a=cambio">Ajustes</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="index.php?c=usuario&a=logout">Log out</a></li>
+
+                  <?php } ?>
+                </ul>
+              </li>
+
           </ul> 
         </div>
       </div>
@@ -77,7 +92,7 @@ include '../carrito.php';*/
                     </div>
                     <div class="flip-card-back">                                            
                           <div class="waviy title">
-                            <a href="index.php?c=categoria&a=belleza" class="a_w">
+                          <a href="index.php?c=categoria&a=belleza" class="a_w">
                               <span style="--i:1" class="belle">B</span>
                               <span style="--i:2" class="belle">E</span>
                               <span style="--i:3" class="belle">L</span>
@@ -152,7 +167,7 @@ include '../carrito.php';*/
                     </div>
                     <div class="flip-card-back">                        
                         <div class="waviy title">
-                          <a href="index.php?c=categoria&a=super" class="a_w">
+                          <a href="index.php?c=categoria&a=otros" class="a_w">
                             <span style="--i:1" class="super">S</span>
                             <span style="--i:2" class="super">U</span>
                             <span style="--i:3" class="super">P</span>
@@ -170,9 +185,7 @@ include '../carrito.php';*/
             
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
     <!--SLIDER-->
     <script src="https://kit.fontawesome.com/5c72b9dab8.js" crossorigin="anonymous"></script>
     <script src="js/slider.js"></script>

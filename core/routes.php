@@ -3,7 +3,7 @@
 	function cargarControlador($controlador){
 		
 		$nombreControlador = ucwords($controlador)."Controller";
-		$archivoControlador = 'controllers/'.ucwords($controlador).'.php';
+		$archivoControlador = 'controllers/'.ucwords($controlador)/*.'Controller'*/.'.php';
 		
 		if(!is_file($archivoControlador)){
 			
@@ -14,7 +14,7 @@
 		$control = new $nombreControlador();
 		return $control;
 	}
-	
+	//lo ocupamos para pasar un parametro 
 	function cargarAccion($controller, $accion, $id = null){
 		
 		if(isset($accion) && method_exists($controller, $accion)){

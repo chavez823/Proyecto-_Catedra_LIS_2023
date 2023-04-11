@@ -2,39 +2,33 @@
 	
 	class Inicio_model {
 		
-		private $db;
-		private $inicio;
-		private $ofertas;
+		private $pdo;
+		//private $inicio;
+		//private $ofertas;
 		
 		public function __construct(){
-			$this->db = Conectar::conexion();
-			$this->ofertas = array();
+			$this->pdo = Conectar::conexion();
+			//$this->ofertas = array();
 			
 		}
 		
-        //consulta que muestra solo 3 ofertas para la pagina inicio(buyit)
 		public function get_inicio()
 		{
-			$sql = " SELECT * FROM `oferta` LIMIT 3";
-			$resultado = $this->db->query($sql);
-			while($row = $resultado->fetch_assoc())
-			{
-				$this->ofertas[] = $row;
-			}
-			return $this->ofertas;
+			
+			$sentencia=$this->pdo->prepare("SELECT * FROM `Oferta` LIMIT 3");
+			$sentencia->execute();
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			
+			return $listaOfertas;
 		}
-	
-
-
-		
-
-
-
-
-
-
-
-		
+		 //metodo ocupado en el carrito 
+		public function get_promo($id='')
+		{
+			$sentencia=$this->pdo->prepare("SELECT * FROM `Oferta` WHERE ID_Oferta like '$id'");
+			$sentencia->execute();
+			$oferta=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $oferta;
+		}
 	
 	} 
 ?>

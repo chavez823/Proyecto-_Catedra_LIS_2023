@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
  <!--nose de que son link-->
+ <!--alertas-->
+ <script src="js/alertify.js" type="text/javascript"></script>
 
 	  <!--ICONO-->
 	  <link rel="shortcut icon" href="img/icono.ico" type="image/x-icon">
@@ -41,18 +43,6 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../pages/Contacto.php">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../mostrarCarrito.php">Carrito(<?php
-                        //condicionador ternario
-                        echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
-                    ?>)</a>
-            </li>
-          
-            <li class="nav-item">  
-            </li>
           </ul> 
         </div>
       </div>
@@ -66,6 +56,22 @@
         <!--OJO-->
 		<div class="wrap-login"> 
 			<form action="index.php?c=cliente&a=nuevo" method="post"> 
+      <?php
+
+
+                          if(isset($errores)){
+                            if(count($errores)>0){
+                                echo "<div class='alert alert-danger'><ul>";
+                                foreach ($errores as $error) {
+                                    echo "<li>$error</li>";
+                                }
+                                echo "</ul></div>";
+
+                            }
+                        }
+
+                            
+                    ?>
         
 				
 				<span class="login-form-title">Crear Cuenta</span> 		
@@ -73,22 +79,22 @@
                     <div class="column_1">
                         <!-- Nombre --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="name" placeholder="Nombres" required>	 
+                            <input class="input100" type="text" name="name" placeholder="Nombres" value="<?php if(isset($Nombres)) echo $Nombres?>" >	 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--DUI-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="dui" placeholder="DUI" required> 
+                            <input class="input100" type="text" name="dui" placeholder="DUI" value="<?php if(isset($Dui)) echo $Dui ?>" > 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--Direccion-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="direccion" placeholder="Direccion" required> 
+                            <input class="input100" type="text" name="direccion" placeholder="Direccion" value="<?php  if(isset($Direccion)) echo $Direccion ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
                         <!--contraseña-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="password" name="password" placeholder="Contraseña" required> 
+                            <input class="input100" type="password" name="password" placeholder="Contraseña" value="<?php if(isset($Contrasenia)) echo $Contrasenia ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
                     </div>		
@@ -96,17 +102,17 @@
                     <div class="column_2">
                         <!-- Apellidos --> 
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="apellido" placeholder="Apellidos" required> 
+                            <input class="input100" type="text" name="apellido" placeholder="Apellidos" value="<?php if(isset($Apellidos)) echo $Apellidos ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 	
                          <!--Telefono-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="text" name="telefono" placeholder="Telefono" required> 
+                            <input class="input100" type="text" name="telefono" placeholder="Telefono" value="<?php if(isset($Telefono)) echo $Telefono  ?>"> 
                             <span class="focus-efecto"></span> 
                         </div>
                          <!--email-->
                         <div class="wrap-input100"> 
-                            <input class="input100" type="email" name="email" placeholder="Email" required  > 
+                            <input class="input100" type="text" name="email" placeholder="Email" value="<?php if(isset($Correo)) echo  $Correo ?>"> 
                             <span class="focus-efecto"></span> 
                         </div> 
 
@@ -135,33 +141,14 @@
 
 <?php
     include 'templates/footer.php'
+    /*if(preg_match('/^[76][0-9]{7}$/',$Telefono)==true){
+      return var_dump(true);
+    }
+    else{
+      var_dump("false");
+    }*/
+    
   ?>
+ 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

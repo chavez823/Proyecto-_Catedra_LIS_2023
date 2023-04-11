@@ -2,83 +2,59 @@
 	
 	class Categoria_model {
 		
-		private $db;
-		private $inicio;
+		private $pdo;
+		//private $inicio;
 		private $ofertas;
 		
 		public function __construct(){
-			$this->db = Conectar::conexion();
+			$this->pdo = Conectar::conexion();
 			$this->ofertas = array();
 			
 		}
 		
-          //consulta que muestra todas las ofertas 
-		public function get_inicio()
-		{
-			$sql = " SELECT * FROM `oferta`";
-			$resultado = $this->db->query($sql);
-			while($row = $resultado->fetch_assoc())
-			{
-				$this->ofertas[] = $row;
-			}
-			return $this->ofertas;
+
+		  //consultas para las categorias  segun su categoria de rubro de empresa 
+		  public function belleza(){
+			$sentencia=$this->pdo->prepare( " SELECT * FROM `Oferta` WHERE `Categoria`='Belleza'");		
+			$sentencia->execute();
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
+			
 		}
-
-
-
-		  //consultas para las categorias  segun su id de empresa 
-		public function belleza(){
-		$sql = " SELECT * FROM `oferta` WHERE ID_Empresa='EMP004'";
-		$resultado = $this->db->query($sql);
-		while($row = $resultado->fetch_assoc())
-		{
-			$this->ofertas[] = $row;
-		}
-		return $this->ofertas;
-	}
-
-	public function restaurante(){
-		$sql = " SELECT * FROM `oferta` WHERE ID_Empresa='EMP001'";
-		$resultado = $this->db->query($sql);
-		while($row = $resultado->fetch_assoc())
-		{
-			$this->ofertas[] = $row;
-		}
-		return $this->ofertas;
-	}
-
-	public function salud(){
-		$sql = " SELECT * FROM `oferta` WHERE ID_Empresa='EMP003'";
-		$resultado = $this->db->query($sql);
-		while($row = $resultado->fetch_assoc())
-		{
-			$this->ofertas[] = $row;
-		}
-		return $this->ofertas;
-	}
-
-	public function super(){
-		$sql = " SELECT * FROM `oferta` WHERE ID_Empresa='EMP002'";
-		$resultado = $this->db->query($sql);
-		while($row = $resultado->fetch_assoc())
-		{
-			$this->ofertas[] = $row;
-		}
-		return $this->ofertas;
-	}
-
 	
+		public function restaurante(){
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `Oferta` WHERE Categoria='Restaurante'");		
+			$sentencia->execute();			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
+		}
+	
+		public function salud(){
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `Oferta` WHERE Categoria='Salud'");		
+			$sentencia->execute();
+			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
+		}
+	
+		public function otros(){
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `Oferta` WHERE Categoria='otros'");		
+			$sentencia->execute();
+			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
+		}
+
+		public function super(){
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `Oferta` WHERE Categoria='Super'");		
+			$sentencia->execute();
+			
+			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+			return $listaOfertas;
+		}
 
 
-		
 
-
-
-
-
-
-
-		
 	
 	} 
 ?>

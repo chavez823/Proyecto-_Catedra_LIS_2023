@@ -16,6 +16,9 @@
     <!--Propio-->
     <link rel="stylesheet" href="css/style_1.css">
     <link rel="stylesheet" href="css/categories.css">
+     <!--alertas-->
+ <script src="js/alertify.js" type="text/javascript"></script>
+
 
 
     <title>Document</title>
@@ -38,18 +41,7 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.php?c=inicio">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../pages/Contacto.php">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../mostrarCarrito.php">Carrito(<?php
-                        //condicionador ternario
-                        echo (empty($_SESSION['CARRITO'])?0:array_sum(array_column($_SESSION['CARRITO'],"CANTIDAD")));
-                    ?>)</a>
-            </li>
-          
-            <li class="nav-item">  
-            </li>
+       
           </ul> 
         </div>
       </div>
@@ -79,9 +71,23 @@
             dGRhdGU6bW9kaWZ5ADIwMjMtMDItMTNUMTM6MTU6NTArMDA6MDDR4Z0WAAAAKHRFWHRkYXRlOnRp
             bWVzdGFtcAAyMDIzLTAyLTEzVDEzOjE1OjUxKzAwOjAwIIO3fQAAAABJRU5ErkJggg=="></image>
             </svg>
+            <?php
+                        if(isset($errores)){
+                            if(count($errores)>0){
+                                echo "<div class='alert alert-danger'><ul>";
+                                foreach ($errores as $error) {
+                                    echo "<li>$error</li>";
+                                }
+                                echo "</ul></div>";
+
+                            }
+                        }
+
+                            
+                    ?>
             <div class="box">
-            <input class="input" name="email" type="text" placeholder="email" required>
-            <input class="input" name="verification_code" type="text" placeholder="Codigo de Verificacion" required>
+            <input class="input" name="email" type="text" placeholder="email" value="<?php if(isset($email)) echo  $email ?>">
+            <input class="input" name="verification_code" type="text" placeholder="Codigo de Verificacion" value="<?php if(isset($$verification_code)) echo  $$verification_code ?>">
             
             </div>
                 <button type="submit" class="sesion" name="verify_email">

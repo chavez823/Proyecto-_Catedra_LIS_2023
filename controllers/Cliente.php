@@ -1,10 +1,15 @@
 <?php
 // doc de librería de php mailer 
-require_once 'vendor/autoload.php';
-
+//require_once 'vendor/autoload.php';
+require_once "./core/validaciones.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+require_once 'controllers/vendor/autoload.php';
+require 'Phpmailer/Exception.php';
+require 'Phpmailer/PHPMailer.php';
+require 'Phpmailer/SMTP.php';
+
 
 class ClienteController
 {
@@ -24,6 +29,7 @@ class ClienteController
     public function verificacion()
     {
         require_once "views/cliente/emailverification.php";
+        
     }
 
     //muestra la pagina de login
@@ -32,9 +38,10 @@ class ClienteController
         require_once "views/Usuario/login.php";
     }
 
- //metodo que se ejecuta luego de apretar el boton de crear cuenta del formulario de registro de cliente 
+   //para tomar los datos del nuevo cliente y su usuario
     public function nuevo()
     {
+    
         $Nombres = $_POST['name'];
         $Apellidos = $_POST['apellido'];
         $Dui = $_POST['dui'];
@@ -42,63 +49,92 @@ class ClienteController
         $Contrasenia = $_POST['password'];
         $Telefono = $_POST['telefono'];
         $Direccion = $_POST['direccion'];
-
-        //codigo random del token 
+        //multiplica el tiempo que  tenemos por un numero rand y solo toma de  0 a 6 digitos 
         $Token = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-        //obejeto de la clase cliente model 
+        //$Token=1599;
         $clientes = new Cliente_model();
-        //crea un id de usuario random;
         $ID_Usuario=substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-       //comprueba que el dui y el correo no esten  registrados o en uso 
-        if ($clientes->registrodui($Dui) > 0 || $clientes->registrocorreo($Correo) > 0) {
-            echo "Dui y/o correo ya están en uso ";
-        } else {
+
+           //vlidaciones
+        if(empty($Nombres)|| empty($Apellidos)|| empty($Dui)|| empty($Correo)|| empty($Contrasenia)||empty($Telefono)||empty($Direccion)){
+            $errores=array();      
+            array_push($errores,"Debes completar todos los campos");              
+            require_once "views/cliente/cliente.php";
+        }
 
 
-            // si no esta registrado envia el codigo del token al correo y crea las variables de Session que serviran en el metodo registrar para guardar el usuario y cliente nuevo 
+        elseif(!texto($Nombres)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar Unicamente datos validos en nombre");                    
+            require_once "views/cliente/cliente.php";
+        }
 
-            $mail = new PHPMailer(true);
+        elseif(!texto($Apellidos)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar Unicamente datos validos en apellido");                    
+            require_once "views/cliente/cliente.php";
+        }
+
+        elseif(!validar_dui($Dui)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar un numero de DUI valido");                    
+            require_once "views/cliente/cliente.php";
+        }
+
+       else if(!validar_tel($Telefono)){
+            $errores=array();
+            array_push($errores,"Debes Ingresar un numero de telefono valido");                    
+            require_once "views/cliente/cliente.php";
+        }
+        
+
+
+
+
+        //else{
+        
+           //comprueba que el correo y el dui no esten registrados 
+       else if ($clientes->registrodui($Dui) !=null || $clientes->registrocorreo($Correo)!=null) {
+          //echo var_dump($clientes->registrodui($Dui));
+          //echo var_dump($clientes->registrocorreo($Correo));
+           // echo "Dui y/o correo ya están en uso ";
+           //echo '<script language="javascript">alert("Dui y/o correo ya están en uso");window.location.href="index.php?c=cliente"</script>';
+          
+        $errores=array();
+      
+        array_push($errores,"Dui y/o correo ya están en uso");
+          
+        require_once "views/cliente/cliente.php";
+
+
+        } 
+        
+        else {
+            //envia el correo con el token 
+
+           $mail = new PHPMailer(true);
 
             try {
 
                 $mail->SMTPDebug = 0;
-
-
                 $mail->isSMTP();
-
-
                 $mail->Host = 'smtp.gmail.com';
-
-
                 $mail->SMTPAuth = true;
-
-
-                $mail->Username = 'buyitshoplis@gmail.com';
-
-
-                $mail->Password = 'nwbjbxlpvjvooqwj';
-
-
+                $mail->Username = 'yam182141@gmail.com';
+			    $mail->Password = 'sfxovgjaykgnmmgb';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-
-
                 $mail->Port = 587;
-
-
-                $mail->setFrom('pepeshoes01lis@gmail.com', 'Tienda-tech.com');
-
-
+                $mail->setFrom('yam182141@gmail.com', 'Tienda-tech.com');
                 $mail->addAddress($Correo, $Nombres);
-
                 $mail->isHTML(true);
-
-
                 $mail->Subject = 'Verificación de Correo ';
                 $mail->Body    = '<p>Tu código de verificación es : <b style="font-size: 30px;">' . $Token . '</b></p>';
-
                 $mail->send();
-                //creando las variables de session
-                session_start();
+
+               
+              /* echo var_dump($clientes->registrodui($Dui));
+               echo var_dump($clientes->registrocorreo($Correo));*/
+                 //se almacenan los datos del nuevo cliente en variables de sesión 
                 $_SESSION['registro_nuevo_cliente'] = array();
                 $_SESSION['registro_nuevo_cliente'][0] = $Dui;
                 $_SESSION['registro_nuevo_cliente'][1] = $Nombres;
@@ -109,19 +145,28 @@ class ClienteController
                 $_SESSION['registro_nuevo_cliente'][6] = $Direccion;
                 $_SESSION['registro_nuevo_cliente'][7] = $Token;
                 $_SESSION['registro_nuevo_cliente'][8] = $ID_Usuario;
-                //llama al metdo verificacion que es el que abre el formulario de verificacion
-                $this->verificacion();
+                //luego ocupamos el metodo de verificacion
+               $this->verificacion();
 
 
-                exit();
+               exit();
             } catch (Exception $e) {
-                echo "Nose envió su token vuelva a intentarlo. Mailer Error: {$mail->ErrorInfo}";
+               // echo "Nose envió su token vuelva a intentarlo. Mailer Error: {/$mail->ErrorInfo}";
+               $errores=array();
+      
+               array_push($errores,"Nose envió su token vuelva a intentarlo");
+              
+             require_once "views/cliente/cliente.php";
+            
+    
             }
-        }
+        //}
     }
 
+        
+    }
 
-    //registra o guarda un nuevo cliente 
+     //este metodo registra funciona con la pagina de verificacion de correo 
     public function registrar()
     {
 
@@ -130,25 +175,30 @@ class ClienteController
         $Tipo="Cliente";
         $clientes = new Cliente_model();
         $usuario=  new  Usuario_model();
-        session_start();
-          //verifica que el correo y el token o codigo sean iguales al que ingreso en el formulario de registro y que el toque sea igual al que se envio al correo si es asi se crea el nuevo cliente guardando los datos en la base de datos
-        if ($_SESSION['registro_nuevo_cliente'][4] == $email || $_SESSION['registro_nuevo_client'][7] = $verification_code) {
+         //comprueba que el correo sea igual al que se ingreso en la pagina de de registro y que el token sea igual que se mando al correo 
+       
+        if ($_SESSION['registro_nuevo_cliente'][4] == $email && $_SESSION['registro_nuevo_cliente'][7] == $verification_code) {
                
-            //llena primero la tabla usuario 
+           //inserta los datos necesarios en tabla usuario 
             $usuario->insertar_usuario($_SESSION['registro_nuevo_cliente'][8], $_SESSION['registro_nuevo_cliente'][1],
             $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][4],  $_SESSION['registro_nuevo_cliente'][3],$Tipo);
-            //llena de segundo la tabla cliente 
+              //inserta los datos necesarios en tabla cliente 
            $clientes->insertar($_SESSION['registro_nuevo_cliente'][0], $_SESSION['registro_nuevo_cliente'][1], $_SESSION['registro_nuevo_cliente'][2], $_SESSION['registro_nuevo_cliente'][3], $_SESSION['registro_nuevo_cliente'][4], $_SESSION['registro_nuevo_cliente'][5], $_SESSION['registro_nuevo_cliente'][6], $_SESSION['registro_nuevo_cliente'][7], $_SESSION['registro_nuevo_cliente'][8]);
-            //luego destruye las variables de session
-           session_destroy();
-
-            //lo manda ala pagina de login 
+            //llamamos al metodo login 
             $this->login();
-
-
-
         } else {
-            echo "Correo y/o código equivocado";
+           // echo "Correo y/o código equivocado";
+           //echo '<script language="javascript">alert("Error de autentificacion");window.location.href="index.html"</script>';
+
+           $errores=array();
+      
+           array_push($errores,"Correo y/o código equivocado");
+          
+        
+        require_once "views/cliente/emailverification.php";
         }
     }
 }
+
+
+
