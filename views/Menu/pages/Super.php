@@ -16,7 +16,7 @@
               <div class="row">
     <?php
 
-    foreach($ot as $cupones){?>
+    foreach($su as $cupones){?>
          <?php
             $info = ['ID' => $cupones['ID_Oferta'], 'vista' => 5];
             $info_carrito = implode("/", $info);

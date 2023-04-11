@@ -167,7 +167,7 @@ include '../carrito.php';*/
                     </div>
                     <div class="flip-card-back">                        
                         <div class="waviy title">
-                          <a href="index.php?c=categoria&a=otros" class="a_w">
+                          <a href="index.php?c=categoria&a=super" class="a_w">
                             <span style="--i:1" class="super">S</span>
                             <span style="--i:2" class="super">U</span>
                             <span style="--i:3" class="super">P</span>
