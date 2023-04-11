@@ -46,7 +46,7 @@
 		}
 
 		public function super(){
-			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='super'");		
+			$sentencia=$this->pdo->prepare(" SELECT * FROM `oferta` WHERE Categoria='Super'");		
 			$sentencia->execute();
 			
 			$listaOfertas=$sentencia->fetchAll(PDO::FETCH_ASSOC);

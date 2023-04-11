@@ -69,7 +69,7 @@
 						}else if($info_oferta[1]=='4'){
 						header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=salud');
 						}else if($info_oferta[1]=='5'){
-							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=otros');
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=super');
 						}
 						else{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
@@ -99,7 +99,7 @@
 							}else if($info_oferta[1]=='4'){
 								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=salud');
 							}else if($info_oferta[1]=='5'){
-								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=otros');
+								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=super');
 							}
 							else{
 								header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
@@ -129,7 +129,7 @@
 						}else if($info_oferta[1]=='4'){
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=salud');
 						}else if($info_oferta[1]=='5'){
-							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=otros');
+							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=categoria&a=super');
 						}
 						else{
 							header('location:'.'/Proyecto-_Catedra_LIS_2023/index.php?c=Inicio&a=mostrarCarrito');
