@@ -33,10 +33,19 @@ class CuponController {
 				{
 					$fecha = $_POST['fecha_exp'];
 					$codigovencimiento=$_POST['cvv'];
-					$nombre_representate=$_POST['Nombre_t'];
-					
+					$nombre_representante=$_POST['Nombre_t'];
+                   $numero_t=$_POST['Numero_t'];
 
+					if(empty($nombre_representate)||empty($codigovencimiento)||empty($fecha)||empty($numero_t)){
 
+						$errores=array();
+  
+						array_push($errores,"Debes escribir todos los campos");
+					   
+					  require_once "views/carrito/Pago_tarjeta.php";
+
+					}
+					else{
 
 
 					$model = new Cupon_model();//se instancia la clase del modelo cupon para usar sus metodos 
@@ -190,6 +199,7 @@ class CuponController {
 					$_SESSION['CARRITO']=array();
 					require_once ('views/carrito/Gracias.php');
 				}
+			}
 
 				public function generarCupon($id_cupon){
 					$model = new Cupon_model();
