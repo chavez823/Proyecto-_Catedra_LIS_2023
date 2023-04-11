@@ -46,7 +46,7 @@
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=belleza">Belleza</a></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=salud">Salud</a></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria&a=restaurante">Restaurante</a></li>
-                <li><a class="dropdown-item" href="index.php?c=categoria&a=otros">Otros</a></li>
+                <li><a class="dropdown-item" href="index.php?c=categoria&a=super">Otros</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="index.php?c=categoria">Principal</a></li>
               </ul>

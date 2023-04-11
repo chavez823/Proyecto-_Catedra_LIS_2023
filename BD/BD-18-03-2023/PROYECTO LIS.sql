@@ -1,5 +1,4 @@
-CREATE SCHEMA `proyecto`;
-USE `proyecto`;
+
 
 CREATE TABLE estado_oferta (
     ID_EstadoOferta INT NOT NULL,
@@ -11,7 +10,7 @@ CREATE TABLE rubro (
     Nombre VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_Rubro)
 )ENGINE=InnoDB; 
-CREATE TABLE Usuario (
+CREATE TABLE usuario (
 	ID_Usuario INT NOT NULL,
     Nombres VARCHAR(100) NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
@@ -20,7 +19,7 @@ CREATE TABLE Usuario (
     Tipo VARCHAR(10) NOT NULL,
     PRIMARY KEY (ID_Usuario)
 )ENGINE=InnoDB; 
-CREATE TABLE Empresa (
+CREATE TABLE empresa (
 	ID_Empresa VARCHAR(6) UNIQUE NOT NULL,
     Nombre VARCHAR(100) NOT NULL,
     Direccion VARCHAR(255) NOT NULL,
@@ -32,7 +31,7 @@ CREATE TABLE Empresa (
     PRIMARY KEY (ID_Empresa),
     KEY fk_empresa_rubro (ID_Rubro)
 )ENGINE=InnoDB;
-CREATE TABLE Oferta (
+CREATE TABLE oferta (
 	ID_Oferta INT NOT NULL,
     Titulo VARCHAR(100) NOT NULL,
     Categoria VARCHAR(100) NOT NULL,
@@ -52,7 +51,7 @@ CREATE TABLE Oferta (
     KEY `fk_oferta_empresa` (`ID_Empresa`),
     KEY `fk_oferta_oestado` (`ID_EstadoOferta`)
 )ENGINE=InnoDB; 
-CREATE TABLE Cliente (
+CREATE TABLE cliente (
 	DUI INT NOT NULL,
 	Nombres VARCHAR(100) NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
@@ -65,7 +64,7 @@ CREATE TABLE Cliente (
     PRIMARY KEY (DUI),
     KEY `fk_empleado_usuario` (`ID_Usuario`)
 )ENGINE=InnoDB;
-CREATE TABLE Empleado (
+CREATE TABLE empleado (
 	ID_Empleado INT NOT NULL,
     ID_Empresa VARCHAR(6) NOT NULL,
     ID_Usuario INT NOT NULL,
@@ -74,12 +73,12 @@ CREATE TABLE Empleado (
     KEY `fk_empleado_usuario` (`ID_Usuario`),
     KEY `fk_empleado_empresa` (`ID_Empresa`)
 )ENGINE=InnoDB; 
-CREATE TABLE Estado_Cupon (
+CREATE TABLE estado_Cupon (
 	ID_Estado_Cupon INT NOT NULL,
     Estado VARCHAR (50) NOT NULL,
     PRIMARY KEY (ID_Estado_Cupon)
 )ENGINE=InnoDB; 
-CREATE TABLE Cupon (
+CREATE TABLE cupon (
 	ID_Cupon VARCHAR(13) NOT NULL,
     DUI INT NOT NULL,
     ID_Oferta INT NOT NULL,
