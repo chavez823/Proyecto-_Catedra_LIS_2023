@@ -47,7 +47,7 @@ class CuponController {
 
 						$errores=array();
   
-						array_push($errores,"nombre");
+						array_push($errores,"Revisa tus datos de la tarjeta");
 					   
 					  require_once "views/carrito/Pago_tarjeta.php";
 
@@ -55,7 +55,7 @@ class CuponController {
 					 if (empty($codigovencimiento )){
 						$errores=array();
   
-						array_push($errores,"codigo");
+						array_push($errores,"Revisa tus datos de la tarjeta");
 					   
 					  require_once "views/carrito/Pago_tarjeta.php";
 
@@ -63,7 +63,7 @@ class CuponController {
 					else if (empty($fecha)){
 						$errores=array();
   
-						array_push($errores,"fecha");
+						array_push($errores,"Revisa tus datos de la tarjeta");
 					   
 					  require_once "views/carrito/Pago_tarjeta.php";
 
@@ -72,7 +72,7 @@ class CuponController {
                    else if  (empty($numero_t)){
 					$errores=array();
   
-						array_push($errores," tarjeta");
+						array_push($errores,"Revisa tus datos de la tarjeta");
 					   
 					  require_once "views/carrito/Pago_tarjeta.php";
 

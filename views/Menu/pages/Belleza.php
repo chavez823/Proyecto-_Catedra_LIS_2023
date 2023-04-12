@@ -34,6 +34,8 @@
                     <div class="main-text">
                       <h1><?php echo $cupones['Titulo'] ?></h1>
                       <p>$<?php echo $cupones['PrecioOferta'] ?></p>
+                      <p>Fecha de Inicio: <?php echo $cupones['FechaFin'] ?></p>
+                      <p>Valido hasta <?php echo $cupones['Descripcion'] ?></p>
                       <p><?php echo $cupones['Descripcion'] ?></p>
                       <!-- aqui pasamos el array asociativo convertido en string osea el id oferta y la vista -->
                       <a href="index.php?c=Inicio&a=carrito&id=<?=$info_carrito?>" class="btn btn-primary">Agregar al carrito</a>                   
