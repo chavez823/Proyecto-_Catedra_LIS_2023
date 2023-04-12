@@ -7,5 +7,5 @@ Options All -Indexes
 ErrorDocument 403 http://localhost/Proyecto-_Catedra_LIS_2023/views/Errores/403.html
 ErrorDocument 404 http://localhost/Proyecto-_Catedra_LIS_2023/views/Errores/404.html
 
-#para evitar errores en el hosting con las variables de sesion 
+#para evitar errores en el hosting con las variables de session 
  php_flag output_buffering on
