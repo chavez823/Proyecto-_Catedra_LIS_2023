@@ -3,11 +3,11 @@
 	class Conectar {
 		/*mvc*/
 		public static function conexion(){
-			$servidor="mysql:dbname=id20590177_proyecto;host=localhost";
+			$servidor="mysql:dbname=id20598249_proyecto;host=localhost";
 
 			try {
 
-				$pdo= new PDO($servidor,"id20590177_root","Inuyashay_1599",
+				$pdo= new PDO($servidor,"id20598249_root","Inuyashay_1599",
 					  array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
 					  //echo "<script>alert('Conectado...')</script>";
 			} catch (PDOException $e) {

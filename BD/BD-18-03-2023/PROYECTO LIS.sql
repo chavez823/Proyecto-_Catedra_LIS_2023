@@ -141,9 +141,9 @@ VALUES
  ('0' , 'Armando' , 'Lopez', '234567', 'armando.lopez@lis.com', 'Administrador'),
  ('1', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@horchata.com', 'Cliente');
 INSERT INTO Empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
-VALUES ('1', 'EMP001', '1',  'Admin');
+VALUES ('1', 'EMP001', '0',  'Admin');
 Insert Into Cliente (DUI, Nombres,Apellidos,Contrasenia,Correo,Telefono , Direccion , Token, ID_Usuario) 
-VALUES  ('00167564', 'Richard Mario','Molina Aguilar','1599','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ', 'cliente1', '2');
+VALUES  ('00167564', 'Richard Mario','Molina Aguilar','1599','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ', 'cliente1', '1');
 INSERT INTO Estado_Cupon( ID_Estado_Cupon, Estado)
 VALUES
 ('01', 'Canjeado'), ('02', 'Sin canjear');
