@@ -153,13 +153,16 @@ Values
 
 
 ALTER TABLE `Cupon`
-  ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `Cliente` (`DUI`),
-  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `oferta` (`ID_Oferta`),
-  ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `estado_cupon` (`ID_Estado_Cupon`);
+  ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `Cliente` (`DUI`);
+  ALTER TABLE `Cupon`
+  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `Oferta` (`ID_Oferta`);
+  ALTER TABLE `Cupon`
+  ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `Estado_Cupon` (`ID_Estado_Cupon`);
 
 
 ALTER TABLE `Empleado`
-  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuario` (`ID_Usuario`),
+  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuario` (`ID_Usuario`);
+  ALTER TABLE `Empleado`
   ADD CONSTRAINT `empleado_ibfk_2` FOREIGN KEY (`ID_Empresa`) REFERENCES `Empresa` (`ID_Empresa`);
 
 
@@ -168,9 +171,10 @@ ALTER TABLE `Empresa`
 
 
 ALTER TABLE `Oferta`
-  ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`ID_Empresa`) REFERENCES `Empresa` (`ID_Empresa`),
-  ADD CONSTRAINT `oferta_ibfk_2` FOREIGN KEY (`ID_EstadoOferta`) REFERENCES `Estado_oferta` (`ID_EstadoOferta`);
-COMMIT;
+  ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`ID_Empresa`) REFERENCES `Empresa` (`ID_Empresa`);
+  ALTER TABLE `Oferta`
+  ADD CONSTRAINT `oferta_ibfk_2` FOREIGN KEY (`ID_EstadoOferta`) REFERENCES `estado_oferta` (`ID_EstadoOferta`);
+
 ALTER TABLE `Cliente`
   ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
+
