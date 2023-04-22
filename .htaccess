@@ -1,5 +1,6 @@
 # Permite reescribir las peticiones de URL
 allow from all
+
 Options All -Indexes
 
 #Redireccionando errores a paginas de errores

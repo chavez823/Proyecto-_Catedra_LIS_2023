@@ -1,21 +1,18 @@
-<<<<<<< HEAD
 
-=======
 CREATE database `proyecto`;
 USE `proyecto`;
->>>>>>> deefc63f6994d6590a26828bac13abc5ca7ae8a4
 
-CREATE TABLE estado_oferta (
+CREATE TABLE Estado_oferta (
     ID_EstadoOferta INT NOT NULL,
     Nombre VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_EstadoOferta)
 )ENGINE=InnoDB; 
-CREATE TABLE rubro (
+CREATE TABLE Rubro (
 	ID_Rubro INT NOT NULL,
     Nombre VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_Rubro)
 )ENGINE=InnoDB; 
-CREATE TABLE usuario (
+CREATE TABLE Usuario (
 	ID_Usuario INT NOT NULL,
     Nombres VARCHAR(100) NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
@@ -24,7 +21,7 @@ CREATE TABLE usuario (
     Tipo VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_Usuario)
 )ENGINE=InnoDB; 
-CREATE TABLE empresa (
+CREATE TABLE Empresa (
 	ID_Empresa VARCHAR(6) UNIQUE NOT NULL,
     Nombre VARCHAR(100) NOT NULL,
     Direccion VARCHAR(255) NOT NULL,
@@ -36,7 +33,7 @@ CREATE TABLE empresa (
     PRIMARY KEY (ID_Empresa),
     KEY fk_empresa_rubro (ID_Rubro)
 )ENGINE=InnoDB;
-CREATE TABLE oferta (
+CREATE TABLE Oferta (
 	ID_Oferta INT NOT NULL,
     Titulo VARCHAR(100) NOT NULL,
     Categoria VARCHAR(100) NOT NULL,
@@ -56,7 +53,7 @@ CREATE TABLE oferta (
     KEY `fk_oferta_empresa` (`ID_Empresa`),
     KEY `fk_oferta_oestado` (`ID_EstadoOferta`)
 )ENGINE=InnoDB; 
-CREATE TABLE cliente (
+CREATE TABLE Cliente (
 	DUI INT NOT NULL,
 	Nombres VARCHAR(100) NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
@@ -69,7 +66,7 @@ CREATE TABLE cliente (
     PRIMARY KEY (DUI),
     KEY `fk_empleado_usuario` (`ID_Usuario`)
 )ENGINE=InnoDB;
-CREATE TABLE empleado (
+CREATE TABLE Empleado (
 	ID_Empleado INT NOT NULL,
     ID_Empresa VARCHAR(6) NOT NULL,
     ID_Usuario INT NOT NULL,
@@ -78,12 +75,12 @@ CREATE TABLE empleado (
     KEY `fk_empleado_usuario` (`ID_Usuario`),
     KEY `fk_empleado_empresa` (`ID_Empresa`)
 )ENGINE=InnoDB; 
-CREATE TABLE estado_Cupon (
+CREATE TABLE Estado_Cupon (
 	ID_Estado_Cupon INT NOT NULL,
     Estado VARCHAR (50) NOT NULL,
     PRIMARY KEY (ID_Estado_Cupon)
 )ENGINE=InnoDB; 
-CREATE TABLE cupon (
+CREATE TABLE Cupon (
 	ID_Cupon VARCHAR(13) NOT NULL,
     DUI INT NOT NULL,
     ID_Oferta INT NOT NULL,
@@ -93,10 +90,10 @@ CREATE TABLE cupon (
     KEY `fk_cupon_oferta`(`ID_Oferta`),
     KEY `fk_cupon_estado_cupon` (`ID_Estado_Cupon`)
 )ENGINE=InnoDB;
-INSERT INTO estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de aprobacion'), ('2', 'Aprobadas futuras '),
+INSERT INTO Estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de aprobacion'), ('2', 'Aprobadas futuras '),
  ('3', 'Activas'), ('4', ' Pasadas'),
  ('5', 'Rechazadas'), ('6', 'Descartadas');
-INSERT INTO rubro (ID_Rubro, Nombre) 
+INSERT INTO Rubro (ID_Rubro, Nombre) 
 VALUES ('1', 'Salon de belleza'), ('2', 'Restaurante '),
 ('3', 'Taller'), ('4', 'Estructuras metalicas'),
  ('5', 'Super mercado'), ('6', 'Farmacia');
@@ -145,7 +142,7 @@ VALUES
  ('0' , 'Armando' , 'Lopez', '234567', 'armando.lopez@lis.com', 'Administrador'),
  ('1', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@horchata.com', 'Cliente');
 INSERT INTO Empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
-VALUES ('1', 'EMP001', '1',  'Admin');
+VALUES ('1', 'EMP001', '0',  'Admin');
 Insert Into Cliente (DUI, Nombres,Apellidos,Contrasenia,Correo,Telefono , Direccion , Token, ID_Usuario) 
 VALUES  ('00167564', 'Richard Mario','Molina Aguilar','1599','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ', 'cliente1', '2');
 INSERT INTO Estado_Cupon( ID_Estado_Cupon, Estado)
@@ -158,8 +155,8 @@ Values
 
 ALTER TABLE `Cupon`
   ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `Cliente` (`DUI`),
-  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `oferta` (`ID_Oferta`),
-  ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `estado_cupon` (`ID_Estado_Cupon`);
+  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `Oferta` (`ID_Oferta`),
+  ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `Estado_cupon` (`ID_Estado_Cupon`);
 
 
 ALTER TABLE `Empleado`
