@@ -19,6 +19,7 @@ CREATE TABLE Usuario (
     Contrasenia VARCHAR(256) NOT NULL,
     Correo VARCHAR(50) NOT NULL,
     Tipo VARCHAR(50) NOT NULL,
+     Token VARCHAR(10)  NULL,
     PRIMARY KEY (ID_Usuario)
 )ENGINE=InnoDB; 
 CREATE TABLE Empresa (
@@ -57,11 +58,9 @@ CREATE TABLE Cliente (
 	DUI INT NOT NULL,
 	Nombres VARCHAR(100) NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
-    Contrasenia VARCHAR(256) NOT NULL,
     Correo VARCHAR(50) NOT NULL,
     Telefono VARCHAR(8) NOT NULL,
     Direccion VARCHAR (255) NOT NULL,
-    Token VARCHAR(10) NOT NULL,
     ID_Usuario INT NOT NULL,
     PRIMARY KEY (DUI),
     KEY `fk_empleado_usuario` (`ID_Usuario`)
@@ -137,14 +136,14 @@ Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la 
 
 
 
-INSERT INTO Usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo) 
+INSERT INTO Usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo, Token) 
 VALUES 
- ('0' , 'Armando' , 'Lopez', '234567', 'armando.lopez@lis.com', 'Administrador'),
- ('1', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@horchata.com', 'Cliente');
+ ('0' , 'Armando' , 'Lopez', '234567', 'armando.lopez@lis.com', 'Administrador', Null),
+ ('1', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@horchata.com', 'Cliente',Null );
 INSERT INTO Empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
-VALUES ('1', 'EMP001', '0',  'Admin');
-Insert Into Cliente (DUI, Nombres,Apellidos,Contrasenia,Correo,Telefono , Direccion , Token, ID_Usuario) 
-VALUES  ('00167564', 'Richard Mario','Molina Aguilar','1599','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ', 'cliente1', '1');
+VALUES ('1', 'EMP001', '0',  'Administrador');
+Insert Into Cliente (DUI, Nombres,Apellidos,Correo,Telefono , Direccion ,  ID_Usuario) 
+VALUES  ('00167564', 'Richard Mario','Molina Aguilar','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ',  '1');
 INSERT INTO Estado_Cupon( ID_Estado_Cupon, Estado)
 VALUES
 ('01', 'Canjeado'), ('02', 'Sin canjear');
