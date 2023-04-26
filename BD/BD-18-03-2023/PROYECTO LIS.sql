@@ -62,6 +62,7 @@ CREATE TABLE Cliente (
     Telefono VARCHAR(8) NOT NULL,
     Direccion VARCHAR (255) NOT NULL,
     ID_Usuario INT NOT NULL,
+     Token VARCHAR(10)  NULL,
     PRIMARY KEY (DUI),
     KEY `fk_empleado_usuario` (`ID_Usuario`)
 )ENGINE=InnoDB;
@@ -120,30 +121,14 @@ Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la 
 (17, 'CEREBROFOS INFANTIL X 120 ML con el 25% ', 'Salud', 100, 'Compra un CEREBROFOS INFANTIL X 120 ML  con un descuento del 25% canjeable en todas nuestras sucursales y tiendas online', NULL, '2023-04-06', '2024-12-04', 5.6, 4.2, 'https://fasani.b-cdn.net/productos/ecommerce/A1581.jpg?class=Medium', 'EMP003', 3, NULL, '2023-09-01');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 INSERT INTO Usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo, Token) 
 VALUES 
  ('0' , 'Armando' , 'Lopez', '234567', 'armando.lopez@lis.com', 'Administrador', Null),
  ('1', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@horchata.com', 'Cliente',Null );
 INSERT INTO Empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
 VALUES ('1', 'EMP001', '0',  'Administrador');
-Insert Into Cliente (DUI, Nombres,Apellidos,Correo,Telefono , Direccion ,  ID_Usuario) 
-VALUES  ('00167564', 'Richard Mario','Molina Aguilar','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ',  '1');
+Insert Into Cliente (DUI, Nombres,Apellidos,Correo,Telefono , Direccion ,  ID_Usuario, Token) 
+VALUES  ('00167564', 'Richard Mario','Molina Aguilar','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ',  '1', '1520');
 INSERT INTO Estado_Cupon( ID_Estado_Cupon, Estado)
 VALUES
 ('01', 'Canjeado'), ('02', 'Sin canjear');
