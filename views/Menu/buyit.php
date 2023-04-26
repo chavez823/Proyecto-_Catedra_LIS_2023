@@ -51,7 +51,7 @@
                 <ul class="dropdown-menu">
                   <?php if(!isset($_SESSION['session']))  { ?>
 
-                  <li> <a class="dropdown-item " href="index.php?c=usuario"> Login</a></li>
+                  <li> <a class="dropdown-item " href="/login"> Login</a></li>
                   <li><hr class="dropdown-divider"></li>
 
                   <?php  } else { ?>                  
