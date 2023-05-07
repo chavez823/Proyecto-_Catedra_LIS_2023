@@ -131,7 +131,7 @@ Insert Into Cliente (DUI, Nombres,Apellidos,Correo,Telefono , Direccion ,  ID_Us
 VALUES  ('00167564', 'Richard Mario','Molina Aguilar','semita@horchata.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ',  '1', '1520');
 INSERT INTO Estado_Cupon( ID_Estado_Cupon, Estado)
 VALUES
-('01', 'Canjeado'), ('02', 'Sin canjear');
+('01', 'Canjeado'), ('02', 'Sin canjear'), ('03', 'Vencido');
 INSERT INTO Cupon(ID_Cupon, DUI, ID_Oferta, ID_Estado_Cupon)
 Values 
 ('001', '00167564', '1', '01'), ('002', '00167564', '5', '02');
