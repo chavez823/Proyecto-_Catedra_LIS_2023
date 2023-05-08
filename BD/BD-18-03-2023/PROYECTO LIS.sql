@@ -123,7 +123,7 @@ Values (1, 'Domingos de Familia', 'Restaurante', 80, 'La familia solo pagara la 
 
 INSERT INTO Usuario (ID_Usuario, Nombres, Apellidos, Contrasenia, Correo, Tipo, Token) 
 VALUES 
-('0' , 'Cesar' , 'Lopez', '15199', 'cesarlopez@gmail.com', 'Administrador', Null),
+('0' , 'Cesar' , 'Lopez', '1599', 'cesarlopez@gmail.com', 'Administrador', Null),
  ('1' , 'Armando' , 'Lopez', '1599', 'armandolopez@gmail.com', 'Admnistrador_Empresa', Null),
  ('2', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@gmail.com', 'Cliente','1520');
 INSERT INTO Empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
