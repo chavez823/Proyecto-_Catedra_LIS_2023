@@ -127,7 +127,7 @@ VALUES
  ('1' , 'Armando' , 'Lopez', '1599', 'armandolopez@gmail.com', 'Admnistrador_Empresa', Null),
  ('2', 'Richard Mario ', 'Molina Aguilar', '1599', 'semita@gmail.com', 'Cliente','1520');
 INSERT INTO Empleado(ID_Empleado, ID_Empresa, ID_Usuario, Tipo)
-VALUES ('1', 'EMP001', '0',  'Administrador_Empresa');
+VALUES ('1', 'EMP001', '1',  'Administrador_Empresa');
 Insert Into Cliente (DUI, Nombres,Apellidos,Correo,Telefono , Direccion ,  ID_Usuario, Token) 
 VALUES  ('00167564', 'Richard Mario','Molina Aguilar','semita@gmail.com','75080845', 'Ciudad delgado, canton plan del pino colonia mercedes casa 30A ',  '2', '1520');
 INSERT INTO Estado_Cupon( ID_Estado_Cupon, Estado)
