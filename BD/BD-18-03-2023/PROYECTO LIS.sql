@@ -90,9 +90,9 @@ CREATE TABLE Cupon (
     KEY `fk_cupon_oferta`(`ID_Oferta`),
     KEY `fk_cupon_estado_cupon` (`ID_Estado_Cupon`)
 )ENGINE=InnoDB;
-INSERT INTO Estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de aprobacion'), ('2', 'Aprobadas futuras '),
- ('3', 'Activas'), ('4', ' Pasadas'),
- ('5', 'Rechazadas'), ('6', 'Descartadas');
+INSERT INTO Estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de aprobacion'), ('2', 'Aprobada  a futuro '),
+ ('3', 'Activas'), ('4', ' Pasada'),
+ ('5', 'Rechazadas'), ('6', 'Descartada');
 INSERT INTO Rubro (ID_Rubro, Nombre) 
 VALUES ('1', 'Salon de belleza'), ('2', 'Restaurante '),
 ('3', 'Taller'), ('4', 'Estructuras metalicas'),
@@ -140,7 +140,7 @@ Values
 
 ALTER TABLE `Cupon`
   ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `Cliente` (`DUI`),
-  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `Oferta` (`ID_Oferta`)ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `Oferta` (`ID_Oferta`)ON UPDATE CASCADE,
   ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `Estado_cupon` (`ID_Estado_Cupon`);
 
 
@@ -155,7 +155,7 @@ ALTER TABLE `Empresa`
 
 ALTER TABLE `Oferta`
   ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`ID_Empresa`) REFERENCES `Empresa` (`ID_Empresa`)ON UPDATE CASCADE,
-  ADD CONSTRAINT `oferta_ibfk_2` FOREIGN KEY (`ID_EstadoOferta`) REFERENCES `Estado_oferta` (`ID_EstadoOferta`)ON UPDATE CASCADE;
+  ADD CONSTRAINT `oferta_ibfk_2` FOREIGN KEY (`ID_EstadoOferta`) REFERENCES `Estado_oferta` (`ID_EstadoOferta`);
 COMMIT;
 ALTER TABLE `Cliente`
   ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
