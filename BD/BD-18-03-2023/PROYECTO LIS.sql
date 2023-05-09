@@ -9,7 +9,7 @@ CREATE TABLE Estado_oferta (
 )ENGINE=InnoDB; 
 CREATE TABLE Rubro (
 	ID_Rubro INT NOT NULL,
-    Nombre VARCHAR(50) NOT NULL,
+    Nombre_Rubro VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_Rubro)
 )ENGINE=InnoDB; 
 CREATE TABLE Usuario (
@@ -93,7 +93,7 @@ CREATE TABLE Cupon (
 INSERT INTO Estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de aprobacion'), ('2', 'Aprobada  a futuro '),
  ('3', 'Activas'), ('4', ' Pasada'),
  ('5', 'Rechazadas'), ('6', 'Descartada');
-INSERT INTO Rubro (ID_Rubro, Nombre) 
+INSERT INTO Rubro (ID_Rubro,  Nombre_Rubro) 
 VALUES ('1', 'Salon de belleza'), ('2', 'Restaurante '),
 ('3', 'Taller'), ('4', 'Estructuras metalicas'),
  ('5', 'Super mercado'), ('6', 'Farmacia');
