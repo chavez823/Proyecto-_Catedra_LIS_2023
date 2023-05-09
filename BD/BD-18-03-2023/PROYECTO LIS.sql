@@ -139,9 +139,9 @@ Values
 
 
 ALTER TABLE `Cupon`
-  ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `Cliente` (`DUI`)ON UPDATE CASCADE,
-  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `Oferta` (`ID_Oferta`)ON UPDATE CASCADE,
-  ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `Estado_cupon` (`ID_Estado_Cupon`)ON UPDATE CASCADE;
+  ADD CONSTRAINT `cupon_ibfk_1` FOREIGN KEY (`DUI`) REFERENCES `Cliente` (`DUI`),
+  ADD CONSTRAINT `cupon_ibfk_2` FOREIGN KEY (`ID_Oferta`) REFERENCES `Oferta` (`ID_Oferta`)ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cupon_ibfk_3` FOREIGN KEY (`ID_Estado_Cupon`) REFERENCES `Estado_cupon` (`ID_Estado_Cupon`);
 
 
 ALTER TABLE `Empleado`
