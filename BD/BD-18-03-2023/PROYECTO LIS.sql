@@ -94,9 +94,9 @@ INSERT INTO Estado_oferta (ID_EstadoOferta, Nombre) VALUES ('1', 'Espera de apro
  ('3', 'Activas'), ('4', ' Pasada'),
  ('5', 'Rechazadas'), ('6', 'Descartada');
 INSERT INTO Rubro (ID_Rubro,  Nombre_Rubro) 
-VALUES ('1', 'Salon de belleza'), ('2', 'Restaurante '),
+VALUES ('1', 'Belleza'), ('2', 'Restaurante '),
 ('3', 'Taller'), ('4', 'Estructuras metalicas'),
- ('5', 'Super mercado'), ('6', 'Farmacia');
+ ('5', 'Super'), ('6', 'Salud');
 INSERT INTO Empresa (ID_Empresa,  Nombre, Direccion, NombreContacto, Telefono, Correo, PorcentajeComision, ID_Rubro) 
 VALUES 
 ('EMP001', 'Pollo de Oro', 'Blvr. del ejercito, Centro comercial Plaza Mundo, 2 nivel, Soyapango ', 'Mario Rivas', '77223344', 'armando.lopez@lis.com', '0.1', '2'), ('EMP002', 'El Super De Todos', 'PR2X+6P5, Blvr. del Ejercito Nacional, Soyapango', 'Luis Garcia', '77669955', 'super.todos@lis.com', '0.05', '5'),
